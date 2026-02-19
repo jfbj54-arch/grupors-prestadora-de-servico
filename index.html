@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo RS Prestadora de Serviços</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+        }
+
+        /* MENU */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000;
+            padding: 15px 0;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: #e6e6e6;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #bbbbbb;
+        }
+
+        /* BANNER HERO */
+        .banner-hero {
+            width: 100%;
+            height: 85vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url('banner-grupo-rs.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .logo-hero img {
+            width: 180px;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+        }
+
+        .foto-perfil {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-top: 15px;
+            border: 3px solid #ffffff;
+            object-fit: cover;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+        }
+
+        .titulo-banner {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            margin-top: 15px;
+        }
+
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .banner-btn {
+            background: #25D366;
+            padding: 14px 25px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .box {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+        }
+
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        /* FORMULÁRIO ORÇAMENTO */
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #111;
+            color: #e6e6e6;
+            font-size: 15px;
+        }
+
+        form textarea {
+            resize: vertical;
+        }
+
+        form button {
+            background: #25D366;
+            padding: 14px;
+            border-radius: 6px;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        form button:hover {
+            background: #1eb85a;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* AGRADECIMENTO */
+        #agradecimento {
+            display: none;
+        }
+
+        .agradecimento-box {
+            max-width: 600px;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .agradecimento-box h1 {
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+
+        .agradecimento-box a {
+            display: inline-block;
+            margin-top: 25px;
+            background: #25D366;
+            padding: 14px 25px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .agradecimento-box a:hover {
+            background: #1eb85a;
+        }
+    </style>
+</head>
+<body>
+
+<!-- MENU -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#seguranca">Segurança</a></li>
+        <li><a href="#responsaveis">Responsáveis</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
+
+<!-- HOME -->
+<section class="banner-hero" id="home">
+    <div class="logo-hero">
+        <img src="logo-grupo-rs.png" alt="Logo Grupo RS">
+        <img src="GRUPO-E-LOGISTICA-RS.png" class="foto-perfil" alt="Grupo RS">
+        <h1 class="titulo-banner">Grupo RS Prestadora de Serviços</h1>
+    </div>
+
+    <div class="banner-content">
+        <p>Soluções completas em logística, construção civil e terceirização de mão de obra em Navegantes – SC.</p>
+        <a href="https://wa.me/5547991866101" class="banner-btn">Falar no WhatsApp</a>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+    <h2>Nossos Serviços</h2>
+
+    <div class="box">
+        <p>O Grupo RS oferece soluções completas para empresas, obras e operações logísticas, com equipe treinada e comprometida com qualidade, segurança e agilidade.</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🚛 Logística e Apoio Operacional</h3>
+            <p>Carga e descarga<br>Separação de mercadorias<br>Conferência de produtos<br>Preparador de pedidos<br>Paleteiros<br>Ajudantes operacionais<br>Apoio logístico geral<br>Engenharia de cargas<br>Organização e movimentação de materiais</p>
+        </div>
+
+        <div class="card">
+            <h3>🏗️ Construção Civil e Obras</h3>
+            <p>Construção de casas<br>Construção de apartamentos<br>Reformas em geral<br>Pedreiro<br>Servente de pedreiro<br>Eletricista<br>Encanador</p>
+            <p><strong>Equipe especializada do início ao fim da obra.</strong></p>
+        </div>
+
+        <div class="card">
+            <h3>👷 Terceirização de Mão de Obra</h3>
+            <p>Profissionais para empresas<br>Profissionais para escritórios<br>Limpeza comercial e residencial<br>Limpeza de apartamentos<br>Freelancers<br>Apoio operacional e administrativo</p>
+            <p><strong>Reduza custos e aumente a eficiência.</strong></p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+    <div class="box">
+        <h2>Sobre a Empresa</h2>
+
+        <p>
+            O Grupo RS é uma empresa especializada em serviços de carga, descarga e apoio logístico, atuando com eficiência,
+            responsabilidade e compromisso com os resultados de seus clientes. Sediada em Navegantes – SC, a empresa atende
+            operações logísticas com agilidade e organização, oferecendo soluções que contribuem para a otimização de equipes,
+            redução de custos operacionais e melhoria contínua dos processos.
+        </p>
+
+        <p>
+            Com experiência no setor logístico, o Grupo RS opera em toda a região de Santa Catarina e também atende regiões e
+            estados próximos, acompanhando o crescimento e as necessidades de cada cliente. Nosso objetivo é entregar um serviço
+            confiável, seguro e alinhado às demandas do mercado atual de terceirização logística.
+        </p>
+
+        <p><strong>CNPJ:</strong> 59.779.697/0001-93</p>
+    </div>
+</section>
+
+<!-- SEGURANÇA -->
+<section id="seguranca">
+    <div class="box">
+        <h2>Segurança e Conformidade</h2>
+
+        <p>
+            A empresa conta com um <strong>Técnico de Segurança do Trabalho</strong>, garantindo que todas as normas de segurança
+            sejam rigorosamente cumpridas em cada operação.
+        </p>
+
+        <p>
+            Mantemos parceria com a <strong>SMT Ocupacional – Medicina do Trabalho</strong>, responsável por exames admissionais,
+            periódicos e demais procedimentos obrigatórios.
+        </p>
+
+        <p>
+            Todos os colaboradores atuam dentro das normas legais, assegurando total conformidade com as regras de segurança e
+            saúde no trabalho.
+        </p>
+    </div>
+</section>
+
+<!-- RESPONSÁVEIS -->
+<section id="responsaveis">
+    <div class="box">
+        <h2>Responsáveis</h2>
+
+        <p>
+            <strong>Rodrigo Cardoso</strong><br>
+            Responsável pela empresa<br>
+            Telefone: (47) 9 9186-6101
+        </p>
+
+        <p>
+            <strong>Jefferson Fernandes Borges</strong><br>
+            Programador<br>
+            Telefone: (33) 9 8833-2748
+        </p>
+
+        <p>
+            <strong>Rodolfo Elias de Sales Menezes</strong><br>
+            Operacional
+        </p>
+    </div>
+</section>
+
+<!-- ORÇAMENTO -->
+<section id="orcamento">
+    <div class="box">
+        <h2>Solicite um Orçamento</h2>
+
+        <p>Preencha os dados abaixo e nossa equipe retornará rapidamente com todas as informações necessárias.</p>
+
+        <form id="formOrcamento">
+
+            <input type="text" id="nome" placeholder="Seu nome" required>
+
+            <input type="text" id="empresa" placeholder="Empresa (opcional)">
+
+            <input type="text" id="telefone" placeholder="Telefone / WhatsApp" required>
+
+            <input type="email" id="email" placeholder="E-mail" required>
+
+            <input type="text" id="cidade" placeholder="Cidade / Estado" required>
+
+            <select id="servico" required>
+                <option value="">Selecione o serviço desejado</option>
+                <option value="Logística e Apoio Operacional">Logística e Apoio Operacional</option>
+                <option value="Construção Civil e Obras">Construção Civil e Obras</option>
+                <option value="Terceirização de Mão de Obra">Terceirização de Mão de Obra</option>
+            </select>
+
+            <textarea id="mensagem" rows="5" placeholder="Descreva sua necessidade"></textarea>
+
+            <button type="button" onclick="enviarOrcamento()">Enviar Orçamento</button>
+
+        </form>
+    </div>
+</section>
+
+<!-- AGRADECIMENTO (DENTRO DO MESMO HTML) -->
+<section id="agradecimento">
+    <div class="agradecimento-box">
+        <h1>Obrigado!</h1>
+        <p>Seu orçamento foi enviado pelo WhatsApp.</p>
+        <p>Nossa equipe retornará o mais rápido possível.</p>
+        <a href="#home" onclick="voltarSite()">Voltar ao início</a>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+    <div class="box">
+        <h2>Contato</h2>
+
+        <p>Atendimento rápido via WhatsApp. Solicite um orçamento sem compromisso.</p>
+
+        <a href="https://wa.me/5547991866101" class="banner-btn">Chamar no WhatsApp</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Grupo RS – Todos os direitos reservados.</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5547991866101" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">
+</a>
+
+<script>
+function enviarOrcamento() {
+    const nome = document.getElementById("nome").value;
+    const empresa = document.getElementById("empresa").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const texto =
+`Olá! Gostaria de solicitar um orçamento.
+
+Nome: ${nome}
+Empresa: ${empresa}
+Telefone: ${telefone}
+E-mail: ${email}
+Cidade: ${cidade}
+Serviço desejado: ${servico}
+
+Descrição:
+${mensagem}`;
+
+    const url = "https://wa.me/5547991866101?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank");
+
+    // mostra a "página" de agradecimento dentro do mesmo HTML
+    document.getElementById("agradecimento").style.display = "block";
+    window.location.hash = "#agradecimento";
+}
+
+function voltarSite() {
+    document.getElementById("agradecimento").style.display = "none";
+}
+</script>
+
+</body>
+</html>
