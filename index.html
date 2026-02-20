@@ -50,34 +50,42 @@ nav ul li a:hover {
 }
 
 /* ========================= */
-/* HERO */
+/* FOTO GRANDE DO TOPO */
 /* ========================= */
-.hero {
+.top-image {
     margin-top: 80px;
-    padding: 60px 20px;
     text-align: center;
-    background: #ffffff;
 }
 
-.hero img {
-    width: 160px;
-    margin-bottom: 20px;
+.top-image img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.hero h1 {
+/* ========================= */
+/* HERO TEXTO */
+/* ========================= */
+.hero-text {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-text h1 {
     font-size: 38px;
     color: #004080;
     margin-bottom: 10px;
 }
 
-.hero p {
+.hero-text p {
     font-size: 18px;
     color: #444;
     max-width: 700px;
     margin: auto;
 }
 
-.hero .btn {
+.hero-text .btn {
     display: inline-block;
     margin-top: 25px;
     background: #004080;
@@ -88,7 +96,7 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-.hero .btn:hover {
+.hero-text .btn:hover {
     background: #003060;
 }
 
@@ -242,11 +250,15 @@ footer {
     </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-    <img src="logo-grupo-rs.png" alt="Logo Grupo RS">
+<!-- FOTO GRANDE DO TOPO -->
+<div class="top-image" id="home">
+    <img src="WhatsApp Image 2026-02-16 at 07.13.58.jpeg" alt="Grupo RS">
+</div>
+
+<!-- TEXTO ABAIXO DA FOTO -->
+<section class="hero-text">
     <h1>Grupo RS Prestadora de Serviços</h1>
-    <p>Soluções profissionais em logística, construção civil e terceirização de mão de obra em Navegantes – SC.</p>
+    <p>Soluções completas em logística, construção civil e terceirização de mão de obra em Navegantes – SC.</p>
     <a href="https://wa.me/5547991866101" class="btn">Falar no WhatsApp</a>
 </section>
 
@@ -312,6 +324,35 @@ footer {
         </div>
 
     </div>
+</section>
+
+<!-- FOTOS DA EQUIPE -->
+<section>
+    <h2>Nossa Equipe em Ação</h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+
+        <div style="max-width: 350px; text-align: center;">
+            <img src="foto_site_logo_1.jpg" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <p style="font-weight: bold; margin-top: 10px;">Excelência no Serviço</p>
+        </div>
+
+        <div style="max-width: 350px; text-align: center;">
+            <img src="foto_site_logo_3.jpg" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <p style="font-weight: bold; margin-top: 10px;">Comprometimento e Qualidade</p>
+        </div>
+
+        <div style="max-width: 350px; text-align: center;">
+            <img src="foto_site_logo_4.jpg" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <p style="font-weight: bold; margin-top: 10px;">Equipe Profissional</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FRASE BÍBLICA -->
+<section style="text-align: center; padding: 40px 20px; color: #004080; font-size: 20px; font-weight: bold;">
+    “O Senhor é o meu pastor e nada me faltará.” — Salmos 23
 </section>
 
 <!-- ORÇAMENTO -->
