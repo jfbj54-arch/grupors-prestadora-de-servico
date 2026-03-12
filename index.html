@@ -355,29 +355,30 @@ footer {
 
 <!-- ORÇAMENTO -->
 <section id="orcamento">
-    <h2>Solicite um Orçamento</h2>
+  <h2>Solicite um Orçamento</h2>
 
-    <div class="box">
-        <form>
-            <input type="text" placeholder="Seu nome" required>
-            <input type="text" placeholder="Empresa (opcional)">
-            <input type="text" placeholder="Telefone / WhatsApp" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="text" placeholder="Cidade / Estado" required>
+  <div class="box">
+    <form action="processa_orcamento.php" method="post">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="text" name="empresa" placeholder="Empresa (opcional)">
+      <input type="text" name="telefone" placeholder="Telefone / WhatsApp" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="text" name="cidade" placeholder="Cidade / Estado" required>
 
-            <select required>
-                <option value="">Selecione o serviço desejado</option>
-                <option>Logística</option>
-                <option>Construção Civil</option>
-                <option>Terceirização</option>
-            </select>
+      <select name="servico" required>
+        <option value="">Selecione o serviço desejado</option>
+        <option value="logistica">Logística</option>
+        <option value="construcao">Construção Civil</option>
+        <option value="terceirizacao">Terceirização</option>
+      </select>
 
-            <textarea rows="5" placeholder="Descreva sua necessidade"></textarea>
+      <textarea name="descricao" rows="5" placeholder="Descreva sua necessidade"></textarea>
 
-            <button type="submit">Enviar Orçamento</button>
-        </form>
-    </div>
+      <button type="submit">Enviar Orçamento</button>
+    </form>
+  </div>
 </section>
+
 
 <!-- CONTATO -->
 <section id="contato">
@@ -415,6 +416,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
