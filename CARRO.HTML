@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Controle do Carro</title>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<style>
+    body { font-family: Arial; margin: 40px; background: #f2f2f2; }
+    h1 { color: #333; }
+    .box { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background: #ddd; }
+    button { padding: 8px 15px; cursor: pointer; }
+    .pago { background: #c8f7c5; }
+    .nao-pago { background: #f7c5c5; }
+
+    .progress-container {
+        width: 100%;
+        background: #ddd;
+        border-radius: 20px;
+        margin-top: 20px;
+        height: 30px;
+    }
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #4caf50;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        transition: width 0.4s;
+    }
+</style>
+</head>
+<body>
+
+<h1>Controle de Pagamento do Carro</h1>
+
+<div class="box">
+    <label>Valor total da dívida:</label>
+    <input type="number" id="valorTotal" value="27228"><br><br>
+
+    <label>Valor pago por mês:</label>
+    <input type="number" id="valorParcela" value="1000"><br><br>
+
+    <button onclick="gerarTabela()">Gerar Sistema</button>
+</div>
+
+<div class="box" id="resultado"></div>
+
+<div class="box">
+    <h3>Progresso do Pagamento</h3>
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar">0%</div>
+    </div>
+</div>
+
+<button onclick="exportarPDF()">Exportar para PDF</button>
+
+<script>
+let dadosParcelas = [];
+let resumo = {};
+
+function gerarTabela() {
+    let total = Number(document.getElementById("valorTotal").value);
+    let parcela = Number(document.getElementById("valorParcela").value);
+
+    let parcelas = Math.ceil(total / parcela);
+    let saldo = total;
+
+    dadosParcelas = [];
+    resumo = { total, parcela, qtdParcelas: parcelas };
+
+    let html = `
+        <h2>Resumo</h2>
+        <p><b>Valor total:</b> R$ ${total.toFixed(2)}</p>
+        <p><b>Valor da parcela:</b> R$ ${parcela.toFixed(2)}</p>
+        <p><b>Total de parcelas:</b> ${parcelas}</p>
+
+        <h2>Parcelas</h2>
+        <table>
+        <tr>
+            <th>Nº</th>
+            <th>Valor</th>
+            <th>Saldo após pagamento</th>
+            <th>Status</th>
+            <th>Data de pagamento</th>
+            <th>Ação</th>
+        </tr>
+    `;
+
+    for (let i = 1; i <= parcelas; i++) {
+        let valorParcela = (i === parcelas) ? saldo : parcela;
+        saldo -= valorParcela;
+
+        dadosParcelas.push({
+            numero: i,
+            valor: valorParcela,
+            saldo: saldo,
+            pago: false,
+            dataPagamento: ""
+        });
+
+        html += `
+            <tr id="linha${i}" class="nao-pago">
+                <td>${i}</td>
+                <td>R$ ${valorParcela.toFixed(2)}</td>
+                <td>R$ ${saldo.toFixed(2)}</td>
+                <td id="status${i}">NÃO PAGO</td>
+                <td id="data${i}">-</td>
+                <td><button onclick="marcarPago(${i})">Marcar como Pago</button></td>
+            </tr>
+        `;
+    }
+
+    html += "</table>";
+    document.getElementById("resultado").innerHTML = html;
+
+    atualizarProgresso();
+}
+
+function marcarPago(num) {
+    const parcela = dadosParcelas[num - 1];
+    parcela.pago = true;
+
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const ano = hoje.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    parcela.dataPagamento = dataFormatada;
+
+    document.getElementById("linha" + num).className = "pago";
+    document.getElementById("status" + num).innerText = "PAGO";
+    document.getElementById("data" + num).innerText = dataFormatada;
+
+    atualizarProgresso();
+}
+
+function atualizarProgresso() {
+    let total = resumo.total || 0;
+    if (!total) return;
+
+    let pago = dadosParcelas
+        .filter(p => p.pago)
+        .reduce((acc, p) => acc + p.valor, 0);
+
+    let porcentagem = (pago / total) * 100;
+    porcentagem = porcentagem > 100 ? 100 : porcentagem;
+
+    let barra = document.getElementById("progressBar");
+    barra.style.width = porcentagem.toFixed(1) + "%";
+    barra.innerText = porcentagem.toFixed(1) + "%";
+}
+
+function exportarPDF() {
+    if (!dadosParcelas.length) {
+        alert("Gere a tabela antes de exportar para PDF.");
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(14);
+    doc.text("Controle de Pagamento do Carro", 14, 15);
+
+    doc.setFontSize(11);
+    doc.text(`Valor total: R$ ${resumo.total.toFixed(2)}`, 14, 25);
+    doc.text(`Valor da parcela: R$ ${resumo.parcela.toFixed(2)}`, 14, 32);
+    doc.text(`Total de parcelas: ${resumo.qtdParcelas}`, 14, 39);
+
+    const head = [["Nº", "Valor (R$)", "Saldo (R$)", "Status", "Data pagamento"]];
+    const body = dadosParcelas.map(p => [
+        p.numero,
+        p.valor.toFixed(2),
+        p.saldo.toFixed(2),
+        p.pago ? "PAGO" : "NÃO PAGO",
+        p.dataPagamento || "-"
+    ]);
+
+    doc.autoTable({
+        startY: 50,
+        head,
+        body
+    });
+
+    doc.save("controle_carro.pdf");
+}
+</script>
+
+</body>
+</html>
