@@ -331,19 +331,38 @@ footer {
         <p>Disponibilizamos profissionais para serviços rápidos, pontuais e com total eficiência.</p>
         <p>Confira abaixo a tabela de valores atualizada:</p>
 
-        <ul style="font-size:18px; line-height:1.8; color:#004080; font-weight:bold;">
-            <li>🧹 Limpeza: R$ 130,00</li>
-            <li>📦 Auxiliar de Carga e Descarga: R$ 125,00</li>
-            <li>📋 Conferente: R$ 140,00</li>
-            <li>⚙️ Operador: R$ 150,00</li>
-            <li>🏷️ Etiquetagem e Separação: R$ 120,00</li>
-        </ul>
+        <section id="diarias">
+    <h2>Contratação por Diárias</h2>
+    <div class="box">
+        <p>Disponibilizamos profissionais para serviços rápidos, pontuais e com total eficiência.</p>
+
+        <!-- Botão para abrir/fechar -->
+        <button onclick="toggleValores()" 
+                style="background:#004080; color:white; padding:12px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer;">
+            Ver valores das diárias
+        </button>
+
+        <!-- Lista oculta -->
+        <div id="valoresDiarias" style="display:none; margin-top:20px;">
+            <ul style="font-size:18px; line-height:1.8; color:#004080; font-weight:bold;">
+                <li>🧹 Limpeza: R$ 130,00</li>
+                <li>📦 Auxiliar de Carga e Descarga: R$ 125,00</li>
+                <li>📋 Conferente: R$ 140,00</li>
+                <li>⚙️ Operador: R$ 150,00</li>
+                <li>🏷️ Etiquetagem e Separação: R$ 120,00</li>
+            </ul>
+        </div>
 
         <a href="https://wa.me/5547991866101" class="btn">Solicitar Diária</a>
     </div>
 </section>
-    </div>
-</section>
+
+<script>
+function toggleValores() {
+    var box = document.getElementById("valoresDiarias");
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+</script>
 
 <!-- SOBRE -->
 <section id="sobre">
