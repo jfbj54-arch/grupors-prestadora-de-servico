@@ -342,25 +342,72 @@ footer {
             Ver valores das diárias
         </button>
 
-        <!-- Lista oculta -->
-        <div id="valoresDiarias" style="display:none; margin-top:20px;">
-            <ul style="font-size:18px; line-height:1.8; color:#004080; font-weight:bold;">
-                <li>🧹 Limpeza: R$ 130,00</li>
-                <li>📦 Auxiliar de Carga e Descarga: R$ 125,00</li>
-                <li>📋 Conferente: R$ 140,00</li>
-                <li>⚙️ Operador: R$ 150,00</li>
-                <li>🏷️ Etiquetagem e Separação: R$ 120,00</li>
-            </ul>
+       <section id="diarias">
+    <h2>Contratação por Diárias</h2>
+    <div class="box">
+        <p>Disponibilizamos profissionais para serviços rápidos, pontuais e com total eficiência.</p>
+
+        <!-- Botão Mostrar/Ocultar -->
+        <button id="btnToggle" onclick="toggleValores()" 
+                style="background:#004080; color:white; padding:12px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+            <span id="btnText">Mostrar valores das diárias</span>
+            <span id="seta" style="transition:0.3s;">▼</span>
+        </button>
+
+        <!-- Conteúdo oculto com animação -->
+        <div id="valoresDiarias" 
+             style="max-height:0; overflow:hidden; transition:max-height 0.5s ease; margin-top:20px;">
+
+            <!-- Cards -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-top:20px;">
+
+                <div style="background:#ffffff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color:#004080;">🧹 Limpeza</h3>
+                    <p style="font-size:18px; font-weight:bold;">R$ 130,00</p>
+                </div>
+
+                <div style="background:#ffffff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color:#004080;">📦 Auxiliar de Carga e Descarga</h3>
+                    <p style="font-size:18px; font-weight:bold;">R$ 125,00</p>
+                </div>
+
+                <div style="background:#ffffff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color:#004080;">📋 Conferente</h3>
+                    <p style="font-size:18px; font-weight:bold;">R$ 140,00</p>
+                </div>
+
+                <div style="background:#ffffff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color:#004080;">⚙️ Operador</h3>
+                    <p style="font-size:18px; font-weight:bold;">R$ 150,00</p>
+                </div>
+
+                <div style="background:#ffffff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color:#004080;">🏷️ Etiquetagem e Separação</h3>
+                    <p style="font-size:18px; font-weight:bold;">R$ 120,00</p>
+                </div>
+
+            </div>
         </div>
 
-        <a href="https://wa.me/5547991866101" class="btn">Solicitar Diária</a>
+        <a href="https://wa.me/5547991866101" class="btn" style="margin-top:25px;">Solicitar Diária</a>
     </div>
 </section>
 
 <script>
 function toggleValores() {
     var box = document.getElementById("valoresDiarias");
-    box.style.display = (box.style.display === "none") ? "block" : "none";
+    var btnText = document.getElementById("btnText");
+    var seta = document.getElementById("seta");
+
+    if (box.style.maxHeight === "0px" || box.style.maxHeight === "") {
+        box.style.maxHeight = "1000px"; // abre
+        btnText.innerText = "Ocultar valores das diárias";
+        seta.style.transform = "rotate(180deg)";
+    } else {
+        box.style.maxHeight = "0px"; // fecha
+        btnText.innerText = "Mostrar valores das diárias";
+        seta.style.transform = "rotate(0deg)";
+    }
 }
 </script>
 
