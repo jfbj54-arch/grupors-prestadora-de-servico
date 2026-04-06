@@ -9,14 +9,23 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #e9ecef;
         }
 
-        /* MENU */
+        /* MENU TRANSPARENTE */
         header {
-            background: #0a0a23;
+            position: fixed;
+            top: 0;
+            width: 100%;
             padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+            transition: 0.3s;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: #0a0a23;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         nav {
@@ -28,6 +37,13 @@
             padding: 0 20px;
         }
 
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -36,75 +52,79 @@
             padding: 0;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        /* BLOCO CENTRAL */
-        .container {
-            max-width: 1100px;
-            margin: 30px auto 40px;
-            padding: 0 20px;
-        }
-
-        .img-box {
-            margin: 30px auto;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .img-box img {
+        /* BANNER */
+        .banner {
             width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .img-box h2 {
-            margin-top: 10px;
-            color: #0a0a23;
+            padding-top: 100px;
             text-align: center;
         }
 
-        .btn-whats {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: bold;
-            margin-top: 12px;
+        .banner img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
         }
 
-        /* SEÇÕES DE TEXTO */
+        /* SEÇÕES */
         .section {
             background: white;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 25px;
             border-radius: 12px;
-            padding: 20px 20px 10px;
-            margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            margin-top: 0;
+            text-align: center;
             color: #0a0a23;
         }
 
         .section p {
-            margin: 8px 0;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .section strong {
+        /* IMAGENS */
+        .img-box {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .img-box img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .img-box h3 {
+            margin-top: 10px;
             color: #0a0a23;
         }
 
-        /* LISTA DE RESPONSÁVEIS */
+        /* BOTÃO */
+        .btn {
+            display: inline-block;
+            background: #0a0a23;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* RESPONSÁVEIS */
         .responsaveis {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -114,12 +134,8 @@
         .responsavel-card {
             background: #f7f7f7;
             border-radius: 10px;
-            padding: 12px 15px;
+            padding: 15px;
             border: 1px solid #ddd;
-        }
-
-        .responsavel-card p {
-            margin: 4px 0;
         }
 
         /* RODAPÉ */
@@ -127,9 +143,8 @@
             background: #0a0a23;
             color: white;
             text-align: center;
-            padding: 18px 10px;
-            margin-top: 30px;
-            font-size: 14px;
+            padding: 20px 10px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -137,107 +152,94 @@
 <body>
 
 <!-- MENU -->
-<header>
+<header id="menu">
     <nav>
         <div style="color:white; font-size:22px; font-weight:bold;">Grupo RS</div>
-
         <ul>
             <li><a href="index.html">Início</a></li>
-            <li><a href="diarias.html">Diárias</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contato.html">Contato</a></li>
         </ul>
     </nav>
 </header>
 
-<div class="container">
+<!-- BANNER -->
+<div class="banner">
+    <img src="logo.jpg12.14">
+</div>
 
-    <!-- BANNER PRINCIPAL -->
-    <div class="img-box">
-        <h2>Grupo RS Prestadora de Serviços</h2>
-        <img src="logo.jpg12.14" alt="Banner Principal">
-    </div>
+<!-- SOBRE -->
+<div class="section">
+    <h2>Sobre a Empresa</h2>
+    <p>O <strong>Grupo RS</strong> é especializado em serviços de carga, descarga e apoio logístico, atuando com eficiência, responsabilidade e compromisso.</p>
+    <p>Atendemos toda Santa Catarina e regiões próximas, oferecendo soluções que otimizam equipes e reduzem custos operacionais.</p>
+</div>
 
-    <!-- IMAGENS DO SITE ANTIGO -->
-    <div class="img-box">
-        <h2>Equipe Preparada</h2>
-        <img src="foto_site_logo_1.jpg" alt="">
-    </div>
-
-    <div class="img-box">
-        <h2>Serviços Confiáveis</h2>
-        <img src="foto_site_logo_3.jpg" alt="">
-    </div>
+<!-- FOTOS -->
+<div class="section">
+    <h2>Nossos Serviços</h2>
 
     <div class="img-box">
-        <h2>Compromisso com o Cliente</h2>
-        <img src="foto_site_logo_4.jpg" alt="">
+        <h3>Equipe Preparada</h3>
+        <img src="foto_site_logo_1.jpg">
     </div>
 
-    <!-- BOTÃO DE VALORES -->
-    <div class="section" style="text-align:center; margin-top:30px;">
-        <h2 style="color:#0a0a23;">Valores dos Serviços</h2>
+    <div class="img-box">
+        <h3>Serviços Confiáveis</h3>
+        <img src="foto_site_logo_3.jpg">
+    </div>
 
-        <button onclick="document.getElementById('valoresBox').style.display='block'" 
-                style="background:#0a0a23; color:white; padding:12px 20px; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
-            Ver Valores
-        </button>
+    <div class="img-box">
+        <h3>Compromisso com o Cliente</h3>
+        <img src="foto_site_logo_4.jpg">
+    </div>
+</div>
 
-        <div id="valoresBox" 
-             style="display:none; margin-top:20px; background:white; padding:20px; border-radius:12px; max-width:500px; margin-left:auto; margin-right:auto; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+<!-- VALORES -->
+<div class="section" style="text-align:center;">
+    <h2>Valores dos Serviços</h2>
 
-            <p><strong>Limpeza:</strong> R$ 130,00</p>
-            <p><strong>Auxiliar de Carga e Descarga:</strong> R$ 125,00</p>
-            <p><strong>Conferente:</strong> R$ 140,00</p>
-            <p><strong>Operador:</strong> R$ 150,00</p>
-            <p><strong>Etiquetagem e Separação:</strong> R$ 120,00</p>
+    <a class="btn" onclick="document.getElementById('valoresBox').style.display='block'">Ver Valores</a>
 
-            <button onclick="document.getElementById('valoresBox').style.display='none'" 
-                    style="margin-top:15px; background:#25d366; color:white; padding:10px 18px; border:none; border-radius:8px; font-size:15px; cursor:pointer;">
-                Fechar
-            </button>
+    <div id="valoresBox" style="display:none; margin-top:20px;">
+        <p><strong>Limpeza:</strong> R$ 130,00</p>
+        <p><strong>Auxiliar de Carga e Descarga:</strong> R$ 125,00</p>
+        <p><strong>Conferente:</strong> R$ 140,00</p>
+        <p><strong>Operador:</strong> R$ 150,00</p>
+        <p><strong>Etiquetagem e Separação:</strong> R$ 120,00</p>
+
+        <a class="btn" style="background:#25d366;" onclick="document.getElementById('valoresBox').style.display='none'">Fechar</a>
+    </div>
+</div>
+
+<!-- SEGURANÇA -->
+<div class="section">
+    <h2>Segurança e Saúde no Trabalho</h2>
+    <p>Contamos com Técnico de Segurança do Trabalho e parceria com a clínica SMT Ocupacional.</p>
+</div>
+
+<!-- RESPONSÁVEIS -->
+<div class="section">
+    <h2>Responsáveis</h2>
+
+    <div class="responsaveis">
+        <div class="responsavel-card">
+            <p><strong>Rodrigo Cardoso</strong></p>
+            <p>Telefone: 47 9 1866-6101</p>
+        </div>
+
+        <div class="responsavel-card">
+            <p><strong>Jefferson Fernandes Borges</strong></p>
+            <p>Programador</p>
+            <p>Telefone: (33) 9 8833-2748</p>
+        </div>
+
+        <div class="responsavel-card">
+            <p><strong>Rodolfo Elias de Sales Menezes</strong></p>
+            <p>Operacional</p>
+            <p>Telefone: 47 9 9754-0134</p>
         </div>
     </div>
-
-    <!-- SOBRE A EMPRESA -->
-    <div class="section">
-        <h2>Sobre a Empresa</h2>
-        <p>O <strong>Grupo RS</strong> é uma empresa especializada em serviços de carga, descarga e apoio logístico, atuando com eficiência, responsabilidade e compromisso com os resultados de seus clientes.</p>
-        <p>Sediada em Navegantes, a empresa atende operações logísticas com agilidade e organização, oferecendo soluções que contribuem para a otimização de equipes, redução de custos operacionais e melhoria contínua dos processos.</p>
-        <p>Com experiência no setor logístico, o Grupo RS opera em toda a região de Santa Catarina e também atende regiões e estados próximos.</p>
-    </div>
-
-    <!-- SEGURANÇA DO TRABALHO -->
-    <div class="section">
-        <h2>Segurança e Saúde no Trabalho</h2>
-        <p>A empresa conta com um <strong>Técnico de Segurança do Trabalho</strong>, garantindo que todas as normas de segurança sejam cumpridas corretamente.</p>
-        <p>Também temos parceria com a clínica <strong>SMT Ocupacional</strong>, responsável por exames admissionais, periódicos e demais procedimentos.</p>
-    </div>
-
-    <!-- RESPONSÁVEIS -->
-    <div class="section">
-        <h2>Responsáveis</h2>
-
-        <div class="responsaveis">
-
-            <div class="responsavel-card">
-                <p><strong>Rodrigo Cardoso</strong></p>
-                <p>Telefone: 47 9 1866-6101</p>
-            </div>
-
-            <div class="responsavel-card">
-                <p><strong>Jefferson Fernandes Borges</strong></p>
-                <p>Programador</p>
-                <p>Telefone: (33) 9 8833-2748</p>
-            </div>
-
-            <div class="responsavel-card">
-                <p><strong>Rodolfo Elias de Sales Menezes</strong></p>
-                <p>Operacional</p>
-                <p>Telefone: 47 9 9754-0134</p>
-            </div>
-
-        </div>
-    </div>
-
 </div>
 
 <!-- RODAPÉ -->
@@ -246,6 +248,183 @@
     CNPJ: 59.779.697/0001-93<br>
     © 2026 - Todos os direitos reservados
 </footer>
+
+<script>
+    // MENU TRANSPARENTE
+    window.addEventListener("scroll", function() {
+        const menu = document.getElementById("menu");
+        if (window.scrollY > 50) {
+            menu.classList.add("scrolled");
+        } else {
+            menu.classList.remove("scrolled");
+        }
+    });
+
+    // ANIMAÇÃO SUAVE
+    const sections = document.querySelectorAll(".section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Grupo RS</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #e9ecef;
+        }
+
+        header {
+            background: #0a0a23;
+            padding: 15px 0;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            text-align: center;
+        }
+
+        .service {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
+
+<div class="section">
+    <h2>Serviços Disponíveis</h2>
+
+    <p class="service">✔ Limpeza – R$ 130,00</p>
+    <p class="service">✔ Auxiliar de Carga e Descarga – R$ 125,00</p>
+    <p class="service">✔ Conferente – R$ 140,00</p>
+    <p class="service">✔ Operador – R$ 150,00</p>
+    <p class="service">✔ Etiquetagem e Separação – R$ 120,00</p>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Grupo RS</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #e9ecef;
+        }
+
+        header {
+            background: #0a0a23;
+            padding: 15px 0;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .contact-box {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+    </nav>
+</header>
+
+<div class="section">
+    <h2>Contato</h2>
+
+    <p class="contact-box"><strong>Rodrigo Cardoso</strong> – 47 9 1866-6101</p>
+    <a class="btn" href="https://wa.me/554791866101">WhatsApp Rodrigo</a>
+
+    <p class="contact-box"><strong>Jefferson Fernandes Borges</strong> – (33) 9 8833-2748</p>
+    <a class="btn" href="https://wa.me/5533988332748">WhatsApp Jefferson</a>
+
+    <p class="contact-box"><strong>Rodolfo Elias de Sales Menezes</strong> – 47 9 9754-0134</p>
+    <a class="btn" href="https://wa.me/5547997540134">WhatsApp Rodolfo</a>
+</div>
 
 </body>
 </html>
