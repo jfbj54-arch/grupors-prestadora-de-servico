@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diárias – Grupo RS</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+header {
+    background: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #004080;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 20px 60px;
+}
+
+h1 {
+    text-align: center;
+    color: #004080;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h3 {
+    color: #004080;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    background: #004080;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #003060;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Voltar ao Início</a></li>
+            <li><a href="diarias.html">Diárias</a></li>
+            <li><a href="https://wa.me/5547991866101">WhatsApp</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h1>Tabela de Diárias</h1>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🧹 Limpeza</h3>
+            <p>R$ 130,00</p>
+        </div>
+
+        <div class="card">
+            <h3>📦 Auxiliar de Carga e Descarga</h3>
+            <p>R$ 125,00</p>
+        </div>
+
+        <div class="card">
+            <h3>📋 Conferente</h3>
+            <p>R$ 140,00</p>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ Operador</h3>
+            <p>R$ 150,00</p>
+        </div>
+
+        <div class="card">
+            <h3>🏷️ Etiquetagem e Separação</h3>
+            <p>R$ 120,00</p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center;">
+        <a href="https://wa.me/5547991866101" class="btn">Solicitar Diária</a>
+    </div>
+</section>
+
+</body>
+</html>
