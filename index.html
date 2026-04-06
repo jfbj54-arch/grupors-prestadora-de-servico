@@ -6,33 +6,6 @@
     <title>Grupo RS Prestadora de Serviços</title>
 
     <style>
-        <!-- MASCOTE FLUTUANTE -->
-<div id="mascote-flutuante">
-    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" alt="Mascote RS">
-</div>
-
-<style>
-#mascote-flutuante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 120px;
-    z-index: 9999;
-    animation: flutuar 3s ease-in-out infinite;
-}
-
-#mascote-flutuante img {
-    width: 100%;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-    cursor: pointer;
-}
-
-@keyframes flutuar {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-</style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -173,6 +146,28 @@
             padding: 20px 10px;
             margin-top: 40px;
         }
+
+        /* MASCOTE FLUTUANTE */
+        #mascote-flutuante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            z-index: 9999;
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        #mascote-flutuante img {
+            width: 100%;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+            cursor: pointer;
+        }
+
+        @keyframes flutuar {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
+        }
     </style>
 </head>
 
@@ -269,12 +264,24 @@
     </div>
 </div>
 
+<!-- MASCOTE NO FINAL -->
+<div style="text-align:center; margin-top:40px;">
+    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" 
+         alt="Mascote RS" 
+         style="width:180px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
+</div>
+
 <!-- RODAPÉ -->
 <footer>
     Grupo RS Prestadora de Serviços<br>
     CNPJ: 59.779.697/0001-93<br>
     © 2026 - Todos os direitos reservados
 </footer>
+
+<!-- MASCOTE FLUTUANTE -->
+<div id="mascote-flutuante">
+    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" alt="Mascote RS">
+</div>
 
 <script>
     // MENU TRANSPARENTE
@@ -300,163 +307,3 @@
 
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços - Grupo RS</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: #e9ecef;
-        }
-
-        header {
-            background: #0a0a23;
-            padding: 15px 0;
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .section {
-            background: white;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .section h2 {
-            text-align: center;
-        }
-
-        .service {
-            margin: 15px 0;
-            font-size: 18px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="contato.html">Contato</a>
-    </nav>
-</header>
-
-<div class="section">
-    <h2>Serviços Disponíveis</h2>
-
-    <p class="service">✔ Limpeza – R$ 130,00</p>
-    <p class="service">✔ Auxiliar de Carga e Descarga – R$ 125,00</p>
-    <p class="service">✔ Conferente – R$ 140,00</p>
-    <p class="service">✔ Operador – R$ 150,00</p>
-    <p class="service">✔ Etiquetagem e Separação – R$ 120,00</p>
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Grupo RS</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: #e9ecef;
-        }
-
-        header {
-            background: #0a0a23;
-            padding: 15px 0;
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .section {
-            background: white;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .contact-box {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-    </nav>
-</header>
-
-<div class="section">
-    <h2>Contato</h2>
-
-    <p class="contact-box"><strong>Rodrigo Cardoso</strong> – 47 9 1866-6101</p>
-    <a class="btn" href="https://wa.me/554791866101">WhatsApp Rodrigo</a>
-
-    <p class="contact-box"><strong>Jefferson Fernandes Borges</strong> – (33) 9 8833-2748</p>
-    <a class="btn" href="https://wa.me/5533988332748">WhatsApp Jefferson</a>
-
-    <p class="contact-box"><strong>Rodolfo Elias de Sales Menezes</strong> – 47 9 9754-0134</p>
-    <a class="btn" href="https://wa.me/5547997540134">WhatsApp Rodolfo</a>
-</div>
-
-</body>
-</html>
-<div style="text-align:center; margin-top:40px;">
-    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" 
-         alt="Mascote RS" 
-         style="width:180px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
-</div>
