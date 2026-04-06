@@ -10,6 +10,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
+            text-align: center;
         }
 
         /* MENU */
@@ -42,48 +43,26 @@
             font-size: 16px;
         }
 
-        /* BANNER */
-        .banner img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* CARDS */
-        .container {
-            max-width: 1100px;
+        /* IMAGENS */
+        .img-box {
             margin: 40px auto;
-            padding: 0 20px;
+            max-width: 900px;
         }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            text-align: center;
-        }
-
-        .card img {
+        .img-box img {
             width: 100%;
-            max-width: 700px;
-            border-radius: 12px;
             height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .card h3 {
-            margin-top: 15px;
-            font-size: 22px;
+        /* TÍTULOS */
+        h2 {
+            margin-top: 10px;
             color: #0a0a23;
         }
 
-        .card p {
-            font-size: 16px;
-            color: #333;
-            margin: 10px 0 20px;
-        }
-
+        /* BOTÃO WHATSAPP */
         .btn-whats {
             display: inline-block;
             background: #25d366;
@@ -93,6 +72,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
+            margin-top: 15px;
         }
 
         /* RODAPÉ */
@@ -116,46 +96,43 @@
         <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="diarias.html">Diárias</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- BANNER -->
-<div class="banner">
-    <img src="Copilot_20260312_175904.png" alt="Banner Grupo RS">
+<!-- IMAGEM 1 -->
+<div class="img-box">
+    <h2>Serviço Profissional</h2>
+    <img src="Copilot_20260312_175904.png" alt="">
+    <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Falar no WhatsApp</a>
 </div>
 
-<!-- CONTEÚDO -->
-<div class="container">
+<!-- IMAGEM 2 -->
+<div class="img-box">
+    <h2>Atendimento de Qualidade</h2>
+    <img src="Copilot_20260312_181056.png" alt="">
+    <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Solicitar Orçamento</a>
+</div>
 
-    <h2 style="text-align:center; margin-bottom:30px;">Nossos Serviços</h2>
+<!-- IMAGEM 3 -->
+<div class="img-box">
+    <h2>Equipe Preparada</h2>
+    <img src="foto_site_logo_1.jpg" alt="">
+    <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Entrar em Contato</a>
+</div>
 
-    <!-- CARD 1 -->
-    <div class="card">
-        <img src="Copilot_20260312_181056.png" alt="Serviço 1">
-        <h3>Serviços Profissionais com Qualidade</h3>
-        <p>Atuamos com excelência em serviços operacionais, garantindo eficiência, organização e resultados de alto padrão para sua empresa.</p>
-        <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Falar no WhatsApp</a>
-    </div>
+<!-- IMAGEM 4 -->
+<div class="img-box">
+    <h2>Serviços Confiáveis</h2>
+    <img src="foto_site_logo_3.jpg" alt="">
+    <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Saiba Mais</a>
+</div>
 
-    <!-- CARD 2 -->
-    <div class="card">
-        <img src="Copilot_20260312_181056.png" alt="Serviço 2">
-        <h3>Equipe Treinada e Confiável</h3>
-        <p>Nossa equipe é preparada para atender demandas diversas, sempre com responsabilidade, agilidade e compromisso com o cliente.</p>
-        <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Solicitar Orçamento</a>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="card">
-        <img src="Copilot_20260312_181056.png" alt="Serviço 3">
-        <h3>Soluções Sob Medida</h3>
-        <p>Oferecemos serviços personalizados conforme a necessidade do seu negócio, garantindo praticidade e economia.</p>
-        <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Entrar em Contato</a>
-    </div>
-
+<!-- IMAGEM 5 -->
+<div class="img-box">
+    <h2>Compromisso com o Cliente</h2>
+    <img src="foto_site_logo_4.jpg" alt="">
+    <a class="btn-whats" href="https://wa.me/5533999999999" target="_blank">Chamar no WhatsApp</a>
 </div>
 
 <!-- RODAPÉ -->
