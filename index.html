@@ -82,7 +82,49 @@
             margin-bottom: 20px;
         }
 
-        /* RESPONSÁVEIS — NOVO DESIGN */
+        /* GRID DE FOTOS */
+        .fotos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .foto-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .foto-card:nth-child(1) { animation-delay: 0.1s; }
+        .foto-card:nth-child(2) { animation-delay: 0.25s; }
+        .foto-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .foto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .foto-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: 0.4s ease;
+        }
+
+        .foto-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .foto-card h3 {
+            margin-top: 10px;
+            color: #0a0a23;
+        }
+
+        /* RESPONSÁVEIS */
         .responsaveis {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -103,23 +145,12 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
 
-        .responsavel-card strong {
-            font-size: 18px;
-            color: #0a0a23;
-        }
-
-        .responsavel-card p {
-            margin: 8px 0;
-            color: #333;
-        }
-
-        /* DESTAQUE DO JÚLIO */
         .destaque {
             border: 2px solid #25d366;
             background: #eafff1;
         }
 
-        /* BOTÃO WHATSAPP */
+        /* BOTÃO WHATSAPP + BRILHO */
         .btn {
             display: inline-block;
             background: #25d366;
@@ -132,10 +163,39 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
+            position: relative;
+            box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
+            animation: pulseGlow 1.8s infinite;
         }
 
         .btn:hover {
             background: #1ebe5d;
+            transform: translateY(-1px);
+        }
+
+        /* FORMULÁRIO DE ORÇAMENTO */
+        .orcamento-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .orcamento-form input,
+        .orcamento-form select,
+        .orcamento-form textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .orcamento-form input:focus,
+        .orcamento-form select:focus,
+        .orcamento-form textarea:focus {
+            border-color: #25d366;
+            box-shadow: 0 0 6px rgba(37, 211, 102, 0.4);
         }
 
         /* RODAPÉ */
@@ -145,6 +205,18 @@
             text-align: center;
             padding: 20px 10px;
             margin-top: 40px;
+        }
+
+        /* ANIMAÇÕES */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 18px 8px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
 </head>
@@ -164,7 +236,7 @@
 </header>
 
 <div class="banner">
-    <img src="logo.jpg12.14">
+    <img src="logo.jpg12.14" alt="Logo Grupo RS">
 </div>
 
 <div class="section">
@@ -173,6 +245,29 @@
     <p>Atendemos toda Santa Catarina e regiões próximas, oferecendo soluções que otimizam equipes e reduzem custos operacionais.</p>
 
     <a class="btn" href="https://wa.me/554791866101" target="_blank">Falar com Rodrigo (47 9186-6101)</a>
+</div>
+
+<div class="section">
+    <h2>Nossos Serviços</h2>
+
+    <div class="fotos-grid">
+
+        <div class="foto-card">
+            <img src="foto_site_logo_1.jpg" alt="Equipe preparada">
+            <h3>Equipe Preparada</h3>
+        </div>
+
+        <div class="foto-card">
+            <img src="foto_site_logo_3.jpg" alt="Serviços confiáveis">
+            <h3>Serviços Confiáveis</h3>
+        </div>
+
+        <div class="foto-card">
+            <img src="foto_site_logo_4.jpg" alt="Compromisso com o cliente">
+            <h3>Compromisso com o Cliente</h3>
+        </div>
+
+    </div>
 </div>
 
 <div class="section">
@@ -193,7 +288,6 @@
             <p><a href="tel:+5533988332748">Telefone: (33) 9 8833-2748</a></p>
         </div>
 
-        <!-- DESTAQUE DO JÚLIO -->
         <div class="responsavel-card destaque">
             <p><strong>Júlio César Brito</strong></p>
             <p style="font-weight:bold;">Representante Geral</p>
@@ -204,6 +298,39 @@
     </div>
 </div>
 
+<!-- FORMULÁRIO DE ORÇAMENTO -->
+<div class="section">
+    <h2>Solicitar Orçamento</h2>
+
+    <form id="formOrcamento" class="orcamento-form">
+
+        <label>Nome:</label>
+        <input type="text" id="nome" required>
+
+        <label>Telefone:</label>
+        <input type="text" id="telefone" required>
+
+        <label>Cidade:</label>
+        <input type="text" id="cidade" required>
+
+        <label>Tipo de Serviço:</label>
+        <select id="servico" required>
+            <option value="">Selecione...</option>
+            <option>Limpeza</option>
+            <option>Carga e Descarga</option>
+            <option>Conferente</option>
+            <option>Operador</option>
+            <option>Etiquetagem e Separação</option>
+            <option>Outro</option>
+        </select>
+
+        <label>Descrição do que precisa:</label>
+        <textarea id="descricao" rows="4" required></textarea>
+
+        <a class="btn" onclick="enviarOrcamento()">Enviar Orçamento</a>
+    </form>
+</div>
+
 <footer>
     Grupo RS Prestadora de Serviços<br>
     CNPJ: 59.779.697/0001-93<br>
@@ -211,7 +338,7 @@
 </footer>
 
 <script>
-    // MENU TRANSPARENTE
+    // MENU TRANSPARENTE AO ROLAR
     window.addEventListener("scroll", function() {
         const menu = document.getElementById("menu");
         if (window.scrollY > 50) {
@@ -220,6 +347,34 @@
             menu.classList.remove("scrolled");
         }
     });
+
+    // ENVIO DO ORÇAMENTO PARA DOIS WHATSAPP
+    function enviarOrcamento() {
+        const nome = document.getElementById("nome").value;
+        const telefone = document.getElementById("telefone").value;
+        const cidade = document.getElementById("cidade").value;
+        const servico = document.getElementById("servico").value;
+        const descricao = document.getElementById("descricao").value;
+
+        if (!nome || !telefone || !cidade || !servico || !descricao) {
+            alert("Preencha todos os campos antes de enviar.");
+            return;
+        }
+
+        const mensagem =
+            "Olá, gostaria de solicitar um orçamento:%0A%0A" +
+            "*Nome:* " + nome + "%0A" +
+            "*Telefone:* " + telefone + "%0A" +
+            "*Cidade:* " + cidade + "%0A" +
+            "*Serviço:* " + servico + "%0A" +
+            "*Descrição:* " + descricao;
+
+        // Rodrigo
+        window.open("https://wa.me/554791866101?text=" + mensagem, "_blank");
+
+        // Júlio
+        window.open("https://wa.me/554797540034?text=" + mensagem, "_blank");
+    }
 </script>
 
 </body>
