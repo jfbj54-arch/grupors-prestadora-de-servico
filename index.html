@@ -150,7 +150,7 @@
             background: #eafff1;
         }
 
-        /* BOTÃO WHATSAPP + BRILHO */
+        /* BOTÃO WHATSAPP */
         .btn {
             display: inline-block;
             background: #25d366;
@@ -163,8 +163,6 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
-            position: relative;
-            box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
             animation: pulseGlow 1.8s infinite;
         }
 
@@ -173,7 +171,13 @@
             transform: translateY(-1px);
         }
 
-        /* FORMULÁRIO DE ORÇAMENTO */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 18px 8px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* FORMULÁRIO */
         .orcamento-form {
             display: flex;
             flex-direction: column;
@@ -187,15 +191,6 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .orcamento-form input:focus,
-        .orcamento-form select:focus,
-        .orcamento-form textarea:focus {
-            border-color: #25d366;
-            box-shadow: 0 0 6px rgba(37, 211, 102, 0.4);
         }
 
         /* MASCOTE FLUTUANTE */
@@ -227,19 +222,13 @@
             font-size: 14px;
             margin-bottom: 8px;
             display: none;
-            animation: fadeIn 0.4s ease;
         }
 
         .mascote-container:hover .mascote-fala {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* MASCOTE NO FINAL DO SITE */
+        /* MASCOTE FINAL */
         .mascote-final {
             text-align: center;
             margin-top: 20px;
@@ -256,18 +245,6 @@
             text-align: center;
             padding: 20px 10px;
             margin-top: 40px;
-        }
-
-        /* ANIMAÇÕES GERAIS */
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 18px 8px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
 </head>
@@ -387,7 +364,7 @@
     <h2>Assistente Virtual Grupo RS</h2>
     <p style="text-align:center;">Este é o nosso mascote virtual, sempre pronto para ajudar você com seu orçamento.</p>
     <div class="mascote-final">
-        <img src="Imagem do WhatsApp 2026-02-20 em 11.52.06 MASCOTE.jpeg" alt="Mascote Grupo RS">
+        <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" alt="Mascote Grupo RS">
     </div>
 </div>
 
@@ -400,7 +377,7 @@
 <!-- MASCOTE FLUTUANTE -->
 <div class="mascote-container" onclick="mascoteAcao()">
     <div class="mascote-fala" id="falaMascote">Precisa de um orçamento?</div>
-    <img src="Imagem do WhatsApp 2026-02-20 em 11.52.06 MASCOTE.jpeg" class="mascote-flutuante" alt="Mascote Grupo RS">
+    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" class="mascote-flutuante" alt="Mascote Grupo RS">
 </div>
 
 <script>
@@ -414,7 +391,7 @@
         }
     });
 
-    // ENVIO DO ORÇAMENTO (WhatsApp + salvar para painel futuro)
+    // ENVIO DO ORÇAMENTO
     function enviarOrcamento() {
         const nome = document.getElementById("nome").value;
         const telefone = document.getElementById("telefone").value;
@@ -441,28 +418,13 @@
         // Júlio
         window.open("https://wa.me/554797540134?text=" + mensagem, "_blank");
 
-        // Salvar localmente (para painel admin simples)
-        const dados = JSON.parse(localStorage.getItem("orcamentosRS") || "[]");
-
-        dados.push({
-            nome: nome,
-            telefone: telefone,
-            cidade: cidade,
-            servico: servico,
-            descricao: descricao,
-            status: "Pendente",
-            data: new Date().toLocaleString()
-        });
-
-        localStorage.setItem("orcamentosRS", JSON.stringify(dados));
-
         alert("Orçamento enviado com sucesso!");
     }
 
-    // AÇÃO DO MASCOTE: rolar até o formulário de orçamento
+    // AÇÃO DO MASCOTE: rolar até o formulário
     function mascoteAcao() {
         const frases = [
-            "Vamos direto para o orçamento?",
+            "Vamos direto para o orçamento!",
             "Clique aqui e preencha seu orçamento!",
             "Precisa de um orçamento rápido?",
             "Te levo até o formulário!",
@@ -472,10 +434,9 @@
         document.getElementById("falaMascote").innerText =
             frases[Math.floor(Math.random() * frases.length)];
 
-        const secao = document.getElementById("secao-orcamento");
-        if (secao) {
-            secao.scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById("secao-orcamento").scrollIntoView({
+            behavior: "smooth"
+        });
     }
 </script>
 
