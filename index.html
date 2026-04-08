@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DO<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -103,6 +103,7 @@
         .foto-card:nth-child(1) { animation-delay: 0.1s; }
         .foto-card:nth-child(2) { animation-delay: 0.25s; }
         .foto-card:nth-child(3) { animation-delay: 0.4s; }
+        .foto-card:nth-child(4) { animation-delay: 0.55s; }
 
         .foto-card:hover {
             transform: translateY(-5px);
@@ -122,6 +123,17 @@
         .foto-card h3 {
             margin-top: 10px;
             color: #0a0a23;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* RESPONSÁVEIS */
@@ -286,13 +298,18 @@
         </div>
 
         <div class="foto-card">
-            <img src="foto_site_logo_3.jpg" alt="Serviços confiáveis">
+            <img src="foto_site_logo_3 (1).jpg" alt="Serviços confiáveis">
             <h3>Serviços Confiáveis</h3>
         </div>
 
         <div class="foto-card">
             <img src="foto_site_logo_4.jpg" alt="Compromisso com o cliente">
             <h3>Compromisso com o Cliente</h3>
+        </div>
+
+        <div class="foto-card">
+            <img src="WhatsApp Image 2026-02-16 at 07.13.58.jpeg" alt="Serviço adicional">
+            <h3>Serviço Adicional</h3>
         </div>
 
     </div>
@@ -326,7 +343,6 @@
     </div>
 </div>
 
-<!-- FORMULÁRIO DE ORÇAMENTO -->
 <div class="section" id="secao-orcamento">
     <h2>Solicitar Orçamento</h2>
 
@@ -359,7 +375,6 @@
     </form>
 </div>
 
-<!-- MASCOTE NO FINAL DO SITE -->
 <div class="section">
     <h2>Assistente Virtual Grupo RS</h2>
     <p style="text-align:center;">Este é o nosso mascote virtual, sempre pronto para ajudar você com seu orçamento.</p>
@@ -374,14 +389,12 @@
     © 2026 - Todos os direitos reservados
 </footer>
 
-<!-- MASCOTE FLUTUANTE -->
 <div class="mascote-container" onclick="mascoteAcao()">
     <div class="mascote-fala" id="falaMascote">Precisa de um orçamento?</div>
     <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" class="mascote-flutuante" alt="Mascote Grupo RS">
 </div>
 
 <script>
-    // MENU TRANSPARENTE AO ROLAR
     window.addEventListener("scroll", function() {
         const menu = document.getElementById("menu");
         if (window.scrollY > 50) {
@@ -391,7 +404,6 @@
         }
     });
 
-    // ENVIO DO ORÇAMENTO
     function enviarOrcamento() {
         const nome = document.getElementById("nome").value;
         const telefone = document.getElementById("telefone").value;
@@ -412,16 +424,12 @@
             "*Serviço:* " + servico + "%0A" +
             "*Descrição:* " + descricao;
 
-        // Rodrigo
         window.open("https://wa.me/554791866101?text=" + mensagem, "_blank");
-
-        // Júlio
         window.open("https://wa.me/554797540134?text=" + mensagem, "_blank");
 
         alert("Orçamento enviado com sucesso!");
     }
 
-    // AÇÃO DO MASCOTE: rolar até o formulário
     function mascoteAcao() {
         const frases = [
             "Vamos direto para o orçamento!",
