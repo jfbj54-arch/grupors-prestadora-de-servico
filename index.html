@@ -198,6 +198,57 @@
             box-shadow: 0 0 6px rgba(37, 211, 102, 0.4);
         }
 
+        /* MASCOTE FLUTUANTE */
+        .mascote-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 9999;
+            text-align: center;
+        }
+
+        .mascote-flutuante {
+            width: 140px;
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .mascote-fala {
+            background: #0a0a23;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .mascote-container:hover .mascote-fala {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MASCOTE NO FINAL DO SITE */
+        .mascote-final {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .mascote-final img {
+            width: 180px;
+        }
+
         /* RODAPÉ */
         footer {
             background: #0a0a23;
@@ -207,7 +258,7 @@
             margin-top: 40px;
         }
 
-        /* ANIMAÇÕES */
+        /* ANIMAÇÕES GERAIS */
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -299,7 +350,7 @@
 </div>
 
 <!-- FORMULÁRIO DE ORÇAMENTO -->
-<div class="section">
+<div class="section" id="secao-orcamento">
     <h2>Solicitar Orçamento</h2>
 
     <form id="formOrcamento" class="orcamento-form">
@@ -331,11 +382,26 @@
     </form>
 </div>
 
+<!-- MASCOTE NO FINAL DO SITE -->
+<div class="section">
+    <h2>Assistente Virtual Grupo RS</h2>
+    <p style="text-align:center;">Este é o nosso mascote virtual, sempre pronto para ajudar você com seu orçamento.</p>
+    <div class="mascote-final">
+        <img src="Imagem do WhatsApp 2026-02-20 em 11.52.06 MASCOTE.jpeg" alt="Mascote Grupo RS">
+    </div>
+</div>
+
 <footer>
     Grupo RS Prestadora de Serviços<br>
     CNPJ: 59.779.697/0001-93<br>
     © 2026 - Todos os direitos reservados
 </footer>
+
+<!-- MASCOTE FLUTUANTE -->
+<div class="mascote-container" onclick="mascoteAcao()">
+    <div class="mascote-fala" id="falaMascote">Precisa de um orçamento?</div>
+    <img src="Imagem do WhatsApp 2026-02-20 em 11.52.06 MASCOTE.jpeg" class="mascote-flutuante" alt="Mascote Grupo RS">
+</div>
 
 <script>
     // MENU TRANSPARENTE AO ROLAR
@@ -348,7 +414,7 @@
         }
     });
 
-    // ENVIO DO ORÇAMENTO PARA DOIS WHATSAPP
+    // ENVIO DO ORÇAMENTO (WhatsApp + salvar para painel futuro)
     function enviarOrcamento() {
         const nome = document.getElementById("nome").value;
         const telefone = document.getElementById("telefone").value;
@@ -372,8 +438,44 @@
         // Rodrigo
         window.open("https://wa.me/554791866101?text=" + mensagem, "_blank");
 
-        // Júlio (número corrigido)
+        // Júlio
         window.open("https://wa.me/554797540134?text=" + mensagem, "_blank");
+
+        // Salvar localmente (para painel admin simples)
+        const dados = JSON.parse(localStorage.getItem("orcamentosRS") || "[]");
+
+        dados.push({
+            nome: nome,
+            telefone: telefone,
+            cidade: cidade,
+            servico: servico,
+            descricao: descricao,
+            status: "Pendente",
+            data: new Date().toLocaleString()
+        });
+
+        localStorage.setItem("orcamentosRS", JSON.stringify(dados));
+
+        alert("Orçamento enviado com sucesso!");
+    }
+
+    // AÇÃO DO MASCOTE: rolar até o formulário de orçamento
+    function mascoteAcao() {
+        const frases = [
+            "Vamos direto para o orçamento?",
+            "Clique aqui e preencha seu orçamento!",
+            "Precisa de um orçamento rápido?",
+            "Te levo até o formulário!",
+            "Posso te ajudar com o orçamento!"
+        ];
+
+        document.getElementById("falaMascote").innerText =
+            frases[Math.floor(Math.random() * frases.length)];
+
+        const secao = document.getElementById("secao-orcamento");
+        if (secao) {
+            secao.scrollIntoView({ behavior: "smooth" });
+        }
     }
 </script>
 
