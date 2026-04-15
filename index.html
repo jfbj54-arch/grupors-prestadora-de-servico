@@ -57,6 +57,61 @@
         h1, h2, h3 { color: #003366; }
         p { font-size: 16px; line-height: 1.6; }
 
+        /* IMAGENS DOS SERVIÇOS CORRIGIDAS */
+        .servico-box img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* FORMULÁRIO CORRIGIDO */
+        .form-box {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255,255,255,0.7);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+
+        .form-box input,
+        .form-box select,
+        .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            font-size: 16px;
+        }
+
+        .btn-area {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-rodrigo, .btn-julio {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-rodrigo { background: #007bff; }
+        .btn-julio { background: #28a745; }
+
+        .btn-rodrigo:hover { background: #005fcc; }
+        .btn-julio:hover { background: #1e7e34; }
+
         /* MASCOTE 3D COM ANIMAÇÃO + MOVIMENTO + VOZ */
         .mascote-flutuante {
             position: fixed;
@@ -100,6 +155,29 @@
         .mascote-flutuante:hover {
             transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
             filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
+        }
+
+        /* BALÃO DO MASCOTE RESTAURADO */
+        .balao-mascote {
+            position: fixed;
+            bottom: 170px;
+            right: 40px;
+            background: #ffffff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 2px solid #003366;
+            font-size: 15px;
+            color: #003366;
+            font-weight: bold;
+            z-index: 9999;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            max-width: 250px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
     </style>
@@ -161,11 +239,12 @@
     <p>Preencha os dados abaixo e envie diretamente para nossa equipe via WhatsApp.</p>
 
     <div class="form-box">
+
         <label>Telefone / WhatsApp</label>
-        <input type="text" id="tel">
+        <input type="text" id="tel" placeholder="(DDD) 9 0000-0000">
 
         <label>Cidade e Estado</label>
-        <input type="text" id="cidade">
+        <input type="text" id="cidade" placeholder="Ex: Joinville - SC">
 
         <label>Tipo de Serviço</label>
         <select id="servico">
@@ -179,10 +258,13 @@
         </select>
 
         <label>Descreva sua necessidade</label>
-        <textarea id="descricao" rows="4"></textarea>
+        <textarea id="descricao" rows="4" placeholder="Digite aqui sua necessidade..."></textarea>
 
-        <button onclick="enviarRodrigo()">Enviar para Rodrigo</button>
-        <button onclick="enviarJulio()">Enviar para Julio</button>
+        <div class="btn-area">
+            <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+            <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
+        </div>
+
     </div>
 </section>
 
@@ -197,6 +279,9 @@
     <p>© 2026 Grupo RS – Todos os direitos reservados</p>
 </footer>
 
+<!-- BALÃO DO MASCOTE -->
+<div id="balaoMascote" class="balao-mascote"></div>
+
 <!-- MASCOTE 3D EM MOVIMENTO + VOZ -->
 <img src="mascote3D.png" class="mascote-flutuante" onclick="falarMascote()">
 
@@ -205,11 +290,36 @@ function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
 }
 
-function irParaOrcamento() {
-    document.getElementById("orcamento").scrollIntoView({ behavior: "smooth" });
+/* FRASES DO BALÃO */
+const frasesBalao = [
+    "Clique em mim para solicitar um orçamento!",
+    "Posso ajudar com seu orçamento!",
+    "Estamos prontos para atender sua empresa!",
+    "Quer fazer um orçamento rápido? É só clicar em mim!"
+];
+
+let indexBalao = 0;
+
+/* MOSTRAR BALÃO */
+function mostrarBalao() {
+    const balao = document.getElementById("balaoMascote");
+    balao.innerText = frasesBalao[indexBalao];
+    balao.style.display = "block";
+
+    indexBalao = (indexBalao + 1) % frasesBalao.length;
+
+    setTimeout(() => {
+        balao.style.display = "none";
+    }, 4000);
 }
 
-/* FRASES QUE O MASCOTE VAI FALAR */
+/* MOSTRAR A CADA 7 SEGUNDOS */
+setInterval(mostrarBalao, 7000);
+
+/* MOSTRAR 3 SEGUNDOS APÓS ENTRAR */
+setTimeout(mostrarBalao, 3000);
+
+/* FRASES DE VOZ */
 const frasesVoz = [
     "Olá! Precisa de um orçamento? Posso ajudar.",
     "Clique em mim para falar com nossa equipe.",
