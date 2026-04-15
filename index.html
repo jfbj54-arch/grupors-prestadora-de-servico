@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo RS – Carga, Descarga e Apoio Logístico em Todo o Brasil</title>
-
-    <meta name="description" content="Prestadora de serviços especializada em carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atendemos empresas em todo o Brasil.">
+    <title>Grupo RS – Carga, Descarga e Apoio Logístico</title>
 
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-        header { background: #003366; padding: 15px; }
+        header { background: #003366; padding: 15px; display: flex; align-items: center; justify-content: space-between; }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
         nav a { color: white; text-decoration: none; font-weight: bold; }
-        section { padding: 40px; background: white; margin: 20px; border-radius: 10px; }
-        h1, h2, h3, h4 { color: #003366; }
-        footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 40px; }
 
-        form input, form select, form textarea {
-            width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;
+        /* MENU HAMBÚRGUER */
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
         }
-        form button {
-            background: #003366; color: white; padding: 12px 20px; border: none;
-            border-radius: 5px; cursor: pointer; font-size: 16px;
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: #003366;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            nav ul.active { display: flex; }
+            .menu-btn { display: block; }
         }
-        form button:hover { background: #0055aa; }
+
+        section { padding: 40px; background: white; margin: 20px; border-radius: 10px; }
+        h1, h2, h3 { color: #003366; }
 
         /* Fotos dos serviços */
-        .servico-box {
-            margin-bottom: 40px;
-        }
+        .servico-box { margin-bottom: 40px; text-align: center; }
         .servico-box img {
-            width: 100%;
+            width: 60%;
+            max-width: 350px;
+            display: block;
+            margin: 10px auto;
             border-radius: 10px;
-            margin-top: 10px;
         }
-        .legenda {
-            font-style: italic;
-            margin-top: 8px;
-            color: #444;
+        .legenda { font-style: italic; margin-top: 8px; color: #444; }
+
+        @media (max-width: 768px) {
+            .servico-box img { width: 80%; max-width: 280px; }
         }
 
         /* Mascote flutuante */
@@ -80,50 +89,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
-
-            section {
-                margin: 10px;
-                padding: 20px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
-            nav a {
-                font-size: 18px;
-                padding: 10px 0;
-            }
-
-            h1 { font-size: 22px; }
-            h2 { font-size: 20px; }
-            p { font-size: 16px; }
-
-            .mascote-flutuante {
-                width: 100px;
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .balao-mascote {
-                bottom: 130px;
-                right: 20px;
-                font-size: 14px;
-                max-width: 70%;
-            }
+        /* Rodapé com ícones */
+        footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 25px;
         }
+        footer img { vertical-align: middle; margin-right: 8px; }
     </style>
 </head>
 
 <body>
 
 <header>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
     <nav>
-        <ul>
+        <ul id="menu">
             <li><a href="#inicio">Início</a></li>
             <li><a href="#quem-somos">Quem Somos</a></li>
             <li><a href="#servicos">Serviços</a></li>
@@ -134,21 +117,13 @@
 </header>
 
 <section id="inicio">
-    <h1>Grupo RS – Serviços de Carga, Descarga e Apoio Logístico em Todo o Brasil</h1>
-
-    <p>
-        O Grupo RS é especializado em serviços de carga e descarga, apoio logístico,
-        limpeza, conferência, etiquetagem, separação e mão de obra operacional.
-    </p>
+    <h1>Grupo RS – Serviços de Carga, Descarga e Apoio Logístico</h1>
+    <p>Profissionais treinados, atendimento rápido e foco total na produtividade da sua operação.</p>
 </section>
 
 <section id="quem-somos">
     <h2>Quem Somos</h2>
-
-    <p>
-        Somos uma empresa especializada em soluções operacionais e logísticas,
-        atendendo empresas em todo o Brasil com equipes treinadas e eficientes.
-    </p>
+    <p>Somos uma empresa especializada em soluções operacionais e logísticas, atendendo empresas em todo o Brasil.</p>
 </section>
 
 <section id="servicos">
@@ -178,54 +153,61 @@
         <p class="legenda">“Serviço executado com precisão, segurança e atenção aos detalhes.”</p>
     </div>
 
-    <div class="servico-box">
-        <h3>Etiquetagem e Separação</h3>
-        <img src="foto_site_logo_1.jpg">
-        <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
-    </div>
-
-    <div class="servico-box">
-        <h3>Serviços Personalizados</h3>
-        <img src="foto_site_logo_3.jpg">
-        <p class="legenda">“Equipe treinada para entregar qualidade e produtividade todos os dias.”</p>
-    </div>
 </section>
 
 <section id="orcamento">
     <h2>Solicite seu Orçamento</h2>
 
-    <form>
-        <label>Telefone / WhatsApp</label>
-        <input type="text" required>
+    <p>Preencha os dados abaixo e envie diretamente para nossa equipe via WhatsApp.</p>
 
-        <label>Cidade e Estado</label>
-        <input type="text" required>
+    <label>Telefone / WhatsApp</label>
+    <input type="text" id="tel" required>
 
-        <label>Tipo de Serviço</label>
-        <select required>
-            <option value="">Selecione...</option>
-            <option>Limpeza</option>
-            <option>Carga e Descarga</option>
-            <option>Conferente</option>
-            <option>Operador</option>
-            <option>Etiquetagem e Separação</option>
-            <option>Outro</option>
-        </select>
+    <label>Cidade e Estado</label>
+    <input type="text" id="cidade" required>
 
-        <label>Descreva sua necessidade</label>
-        <textarea rows="4"></textarea>
+    <label>Tipo de Serviço</label>
+    <select id="servico" required>
+        <option value="">Selecione...</option>
+        <option>Limpeza</option>
+        <option>Carga e Descarga</option>
+        <option>Conferente</option>
+        <option>Operador</option>
+        <option>Etiquetagem e Separação</option>
+        <option>Outro</option>
+    </select>
 
-        <button type="submit">Enviar Orçamento</button>
-    </form>
+    <label>Descreva sua necessidade</label>
+    <textarea id="descricao" rows="4"></textarea>
+
+    <button onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+    <button onclick="enviarJulio()">Enviar para Julio</button>
 </section>
 
 <section id="contato">
     <h2>Contato</h2>
-    <p>Atendemos empresas em todo o Brasil.</p>
+
+    <h3>Rodrigo Soares – Diretor</h3>
+    <p>📞 47 9 9186-6101</p>
+    <p><a href="https://wa.me/5547919866101" target="_blank">Enviar WhatsApp</a></p>
+
+    <h3>Julio Brito – Representante Geral</h3>
+    <p>📞 47 9 9754-0134</p>
+    <p><a href="https://wa.me/554797540134" target="_blank">Enviar WhatsApp</a></p>
+
+    <h3>Jefferson Fernandes – TI</h3>
+    <p>📞 33 9 8833-2748</p>
+    <p><a href="https://wa.me/5533988332748" target="_blank">Enviar WhatsApp</a></p>
 </section>
 
 <footer>
     <p><strong>Grupo RS – Prestadora de Serviços</strong></p>
+
+    <p><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="22"> Carga e Descarga</p>
+    <p><img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" width="22"> Apoio Logístico</p>
+    <p><img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" width="22"> Limpeza e Serviços Operacionais</p>
+
+    <p>© 2026 Grupo RS – Todos os direitos reservados</p>
 </footer>
 
 <!-- BALÃO DE FALA -->
@@ -237,13 +219,40 @@
      onclick="irParaOrcamento()">
 
 <script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
 function irParaOrcamento() {
     document.getElementById("orcamento").scrollIntoView({ behavior: "smooth" });
 }
 
+function montarMensagem() {
+    const tel = document.getElementById("tel").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const desc = document.getElementById("descricao").value;
+
+    return `Olá! Gostaria de solicitar um orçamento.%0A%0A` +
+           `📞 Telefone: ${tel}%0A` +
+           `📍 Cidade: ${cidade}%0A` +
+           `🛠 Serviço: ${servico}%0A` +
+           `📝 Descrição: ${desc}`;
+}
+
+function enviarRodrigo() {
+    const msg = montarMensagem();
+    window.open(`https://wa.me/5547919866101?text=${msg}`, "_blank");
+}
+
+function enviarJulio() {
+    const msg = montarMensagem();
+    window.open(`https://wa.me/554797540134?text=${msg}`, "_blank");
+}
+
 const frases = [
-    "Precisa de orçamento?",
-    "Posso ajudar com alguma informação!",
+    "Quer fazer um orçamento? Clica em mim!",
+    "Posso ajudar com seu orçamento!",
     "Clique em mim para solicitar um orçamento!",
     "Estamos prontos para atender sua empresa!"
 ];
