@@ -1,451 +1,293 @@
-<!DO<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo RS – Carga, Descarga e Apoio Logístico em Todo o Brasil</title>
 
-    <title>Grupo RS Prestadora de Serviços</title>
+    <meta name="description" content="Prestadora de serviços especializada em carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atendemos empresas em todo o Brasil.">
 
     <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f2f4f7;
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
+        header { background: #003366; padding: 15px; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        section { padding: 40px; background: white; margin: 20px; border-radius: 10px; }
+        h1, h2, h3, h4 { color: #003366; }
+        footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        form input, form select, form textarea {
+            width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;
         }
-
-        /* MENU */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 0;
-            z-index: 10;
-            transition: 0.3s;
-            background: transparent;
+        form button {
+            background: #003366; color: white; padding: 12px 20px; border: none;
+            border-radius: 5px; cursor: pointer; font-size: 16px;
         }
+        form button:hover { background: #0055aa; }
 
-        header.scrolled {
-            background: #0a0a23;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* BANNER */
-        .banner {
-            width: 100%;
-            padding-top: 100px;
-            text-align: center;
-        }
-
-        .banner img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 12px;
-        }
-
-        /* SEÇÕES */
-        .section {
-            background: white;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-
-        .section h2 {
-            text-align: center;
-            color: #0a0a23;
-            margin-bottom: 20px;
-        }
-
-        /* GRID DE FOTOS */
-        .fotos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .foto-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .foto-card:nth-child(1) { animation-delay: 0.1s; }
-        .foto-card:nth-child(2) { animation-delay: 0.25s; }
-        .foto-card:nth-child(3) { animation-delay: 0.4s; }
-        .foto-card:nth-child(4) { animation-delay: 0.55s; }
-
-        .foto-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
-
-        .foto-card img {
-            width: 100%;
-            border-radius: 10px;
-            transition: 0.4s ease;
-        }
-
-        .foto-card:hover img {
-            transform: scale(1.06);
-        }
-
-        .foto-card h3 {
-            margin-top: 10px;
-            color: #0a0a23;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* RESPONSÁVEIS */
-        .responsaveis {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .responsavel-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .responsavel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
-
-        .destaque {
-            border: 2px solid #25d366;
-            background: #eafff1;
-        }
-
-        /* BOTÃO WHATSAPP */
-        .btn {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            animation: pulseGlow 1.8s infinite;
-        }
-
-        .btn:hover {
-            background: #1ebe5d;
-            transform: translateY(-1px);
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 18px 8px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* FORMULÁRIO */
-        .orcamento-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .orcamento-form input,
-        .orcamento-form select,
-        .orcamento-form textarea {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        /* MASCOTE FLUTUANTE */
-        .mascote-container {
+        /* Mascote flutuante */
+        .mascote-flutuante {
             position: fixed;
             bottom: 20px;
             right: 20px;
+            width: 140px;
             cursor: pointer;
             z-index: 9999;
-            text-align: center;
-        }
-
-        .mascote-flutuante {
-            width: 140px;
             animation: flutuar 3s ease-in-out infinite;
         }
 
         @keyframes flutuar {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
         }
 
-        .mascote-fala {
-            background: #0a0a23;
-            color: white;
-            padding: 10px 15px;
+        /* Balão de fala */
+        .balao-mascote {
+            position: fixed;
+            bottom: 170px;
+            right: 40px;
+            background: #ffffff;
+            padding: 12px 18px;
             border-radius: 12px;
-            font-size: 14px;
-            margin-bottom: 8px;
+            border: 2px solid #003366;
+            font-size: 15px;
+            color: #003366;
+            font-weight: bold;
+            z-index: 9999;
             display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            max-width: 250px;
         }
 
-        .mascote-container:hover .mascote-fala {
-            display: block;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* MASCOTE FINAL */
-        .mascote-final {
-            text-align: center;
-            margin-top: 20px;
-        }
+        /* ============================
+           RESPONSIVIDADE PARA CELULAR
+           ============================ */
+        @media (max-width: 768px) {
 
-        .mascote-final img {
-            width: 180px;
-        }
+            section {
+                margin: 10px;
+                padding: 20px;
+            }
 
-        /* RODAPÉ */
-        footer {
-            background: #0a0a23;
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 40px;
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 18px;
+                padding: 10px 0;
+            }
+
+            h1 { font-size: 22px; }
+            h2 { font-size: 20px; }
+            p { font-size: 16px; }
+
+            .mascote-flutuante {
+                width: 100px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .balao-mascote {
+                bottom: 130px;
+                right: 20px;
+                font-size: 14px;
+                max-width: 70%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header id="menu">
+<header>
     <nav>
-        <div style="color:white; font-size:22px; font-weight:bold;">Grupo RS</div>
         <ul>
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="https://wa.me/554791866101" target="_blank">WhatsApp Diretor</a></li>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#orcamento">Orçamento</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li>
+                <a href="<!-- SEU WHATSAPP DO DIRETOR -->" target="_blank">
+                    WhatsApp Diretor
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 
-<div class="banner">
-    <img src="logo.jpg12.14" alt="Logo Grupo RS">
-</div>
+<section id="inicio">
+    <h1>Grupo RS – Serviços de Carga, Descarga e Apoio Logístico em Todo o Brasil</h1>
 
-<div class="section">
-    <h2>Sobre a Empresa</h2>
-    <p>O <strong>Grupo RS</strong> é especializado em serviços de carga, descarga e apoio logístico, atuando com eficiência, responsabilidade e compromisso.</p>
-    <p>Atendemos toda Santa Catarina e regiões próximas, oferecendo soluções que otimizam equipes e reduzem custos operacionais.</p>
+    <p>
+        O Grupo RS é especializado em serviços de carga e descarga, apoio logístico,
+        limpeza, conferência, etiquetagem, separação e mão de obra operacional.
+        Atendemos empresas em todo o Brasil com equipes treinadas, atendimento rápido
+        e foco total na produtividade da sua operação.
+    </p>
 
-    <a class="btn" href="https://wa.me/554791866101" target="_blank">Falar com Rodrigo (47 9186-6101)</a>
-</div>
+    <p>
+        Nosso compromisso é oferecer eficiência, segurança e resultados reais para sua empresa,
+        sempre com responsabilidade e profissionalismo.
+    </p>
 
-<div class="section">
+    <!-- SUAS IMAGENS DE CAPA AQUI -->
+</section>
+
+<section id="quem-somos">
+    <h2>Quem Somos</h2>
+
+    <p>
+        O Grupo RS é uma empresa especializada em serviços de carga e descarga, apoio logístico,
+        limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atuamos em
+        todo o Brasil, oferecendo soluções eficientes, profissionais e sob medida para empresas
+        de todos os portes.
+    </p>
+
+    <h3>Nossa Estrutura Organizacional</h3>
+
+    <h4>Rodrigo Cardoso – Diretor / Proprietário</h4>
+    <p>Administração geral, decisões estratégicas e expansão nacional.</p>
+
+    <h4>Julio Cesar Brito – Representante Geral</h4>
+    <p>Atendimento comercial, negociações e acompanhamento das operações.</p>
+
+    <h4>Jefferson – Tecnologia da Informação (TI)</h4>
+    <p>Desenvolvimento, manutenção e atualização do site e sistemas internos.</p>
+</section>
+
+<section id="servicos">
     <h2>Nossos Serviços</h2>
 
-    <div class="fotos-grid">
+    <h3>Carga e Descarga</h3>
+    <p>Equipe especializada para operações rápidas, seguras e eficientes.</p>
 
-        <div class="foto-card">
-            <img src="foto_site_logo_1.jpg" alt="Equipe preparada">
-            <h3>Equipe Preparada</h3>
-        </div>
+    <h3>Conferente</h3>
+    <p>Profissionais treinados para conferência de mercadorias e documentos.</p>
 
-        <div class="foto-card">
-            <img src="foto_site_logo_3 (1).jpg" alt="Serviços confiáveis">
-            <h3>Serviços Confiáveis</h3>
-        </div>
+    <h3>Operador</h3>
+    <p>Mão de obra operacional para apoio logístico e organização.</p>
 
-        <div class="foto-card">
-            <img src="foto_site_logo_4.jpg" alt="Compromisso com o cliente">
-            <h3>Compromisso com o Cliente</h3>
-        </div>
+    <h3>Limpeza</h3>
+    <p>Limpeza profissional para empresas, galpões e ambientes industriais.</p>
 
-        <div class="foto-card">
-            <img src="WhatsApp Image 2026-02-16 at 07.13.58.jpeg" alt="Serviço adicional">
-            <h3>Serviço Adicional</h3>
-        </div>
+    <h3>Etiquetagem e Separação</h3>
+    <p>Equipe ágil para picking, packing, etiquetagem e preparação de pedidos.</p>
 
-    </div>
-</div>
+    <h3>Serviços Personalizados</h3>
+    <p>Soluções sob medida para qualquer necessidade operacional.</p>
 
-<div class="section">
-    <h2>Responsáveis</h2>
+    <!-- SUAS IMAGENS DE SERVIÇOS AQUI -->
+</section>
 
-    <div class="responsaveis">
+<section id="orcamento">
+    <h2>Solicite seu Orçamento</h2>
 
-        <div class="responsavel-card">
-            <p><strong>Rodrigo Cardoso</strong></p>
-            <p>Diretor</p>
-            <p><a href="https://wa.me/554791866101" target="_blank">Telefone: 47 9 9186-6101</a></p>
-            <a class="btn" href="https://wa.me/554791866101" target="_blank">WhatsApp</a>
-        </div>
+    <p>Preencha os dados abaixo e nossa equipe entrará em contato rapidamente.</p>
 
-        <div class="responsavel-card">
-            <p><strong>Jefferson Fernandes Borges</strong></p>
-            <p>Programador</p>
-            <p><a href="tel:+5533988332748">Telefone: (33) 9 8833-2748</a></p>
-        </div>
+    <form action="<!-- SUA ACTION -->" method="post">
 
-        <div class="responsavel-card destaque">
-            <p><strong>Júlio César Brito</strong></p>
-            <p style="font-weight:bold;">Representante Geral</p>
-            <p><a href="tel:+554797540134">Telefone: 47 9 9754-0134</a></p>
-            <a class="btn" href="https://wa.me/554797540134" target="_blank">WhatsApp do Júlio</a>
-        </div>
+        <label>Telefone / WhatsApp</label>
+        <input type="text" name="telefone" required>
 
-    </div>
-</div>
+        <label>Cidade e Estado</label>
+        <input type="text" name="cidade" required>
 
-<div class="section" id="secao-orcamento">
-    <h2>Solicitar Orçamento</h2>
-
-    <form id="formOrcamento" class="orcamento-form">
-
-        <label>Nome:</label>
-        <input type="text" id="nome" required>
-
-        <label>Telefone:</label>
-        <input type="text" id="telefone" required>
-
-        <label>Cidade:</label>
-        <input type="text" id="cidade" required>
-
-        <label>Tipo de Serviço:</label>
-        <select id="servico" required>
+        <label>Tipo de Serviço</label>
+        <select name="tipo-servico" required>
             <option value="">Selecione...</option>
-            <option>Limpeza</option>
-            <option>Carga e Descarga</option>
-            <option>Conferente</option>
-            <option>Operador</option>
-            <option>Etiquetagem e Separação</option>
-            <option>Outro</option>
+            <option value="limpeza">Limpeza</option>
+            <option value="carga-descarga">Carga e Descarga</option>
+            <option value="conferente">Conferente</option>
+            <option value="operador">Operador</option>
+            <option value="etiquetagem-separacao">Etiquetagem e Separação</option>
+            <option value="outro">Outro</option>
         </select>
 
-        <label>Descrição do que precisa:</label>
-        <textarea id="descricao" rows="4" required></textarea>
+        <label>Descreva sua necessidade</label>
+        <textarea name="descricao" rows="4"></textarea>
 
-        <a class="btn" onclick="enviarOrcamento()">Enviar Orçamento</a>
+        <button type="submit">Enviar Orçamento</button>
     </form>
-</div>
+</section>
 
-<div class="section">
-    <h2>Assistente Virtual Grupo RS</h2>
-    <p style="text-align:center;">Este é o nosso mascote virtual, sempre pronto para ajudar você com seu orçamento.</p>
-    <div class="mascote-final">
-        <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" alt="Mascote Grupo RS">
-    </div>
-</div>
+<section id="contato">
+    <h2>Contato</h2>
+
+    <p>Estamos prontos para atender sua empresa em qualquer região do Brasil.</p>
+
+    <h3>WhatsApp Comercial</h3>
+    <p>
+        <a href="<!-- SEU WHATSAPP -->" target="_blank">Fale conosco</a>
+    </p>
+
+    <h3>E-mail</h3>
+    <p>
+        <a href="mailto:<!-- SEU EMAIL -->"><!-- SEU EMAIL --></a>
+    </p>
+
+    <h3>Representante Geral – Julio Cesar Brito</h3>
+    <p>Atendimento comercial e negociações.</p>
+
+    <h3>Diretor – Rodrigo Cardoso</h3>
+    <p>Gestão geral e contratos corporativos.</p>
+
+    <h3>TI – Jefferson</h3>
+    <p>Suporte técnico e atualizações do site.</p>
+</section>
 
 <footer>
-    Grupo RS Prestadora de Serviços<br>
-    CNPJ: 59.779.697/0001-93<br>
-    © 2026 - Todos os direitos reservados
+    <p><strong>Grupo RS – Prestadora de Serviços</strong></p>
+    <p>Carga e descarga • Apoio logístico • Limpeza • Conferência • Operadores • Etiquetagem e separação</p>
+    <p>Atendimento em todo o Brasil</p>
+    <p>Diretor: Rodrigo Cardoso • Representante Geral: Julio Cesar Brito • TI: Jefferson</p>
 </footer>
 
-<div class="mascote-container" onclick="mascoteAcao()">
-    <div class="mascote-fala" id="falaMascote">Precisa de um orçamento?</div>
-    <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg" class="mascote-flutuante" alt="Mascote Grupo RS">
-</div>
+<!-- BALÃO DE FALA -->
+<div id="balaoMascote" class="balao-mascote"></div>
+
+<!-- MASCOTE FLUTUANTE -->
+<img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg"
+     alt="Mascote Grupo RS"
+     class="mascote-flutuante"
+     onclick="irParaOrcamento()">
 
 <script>
-    window.addEventListener("scroll", function() {
-        const menu = document.getElementById("menu");
-        if (window.scrollY > 50) {
-            menu.classList.add("scrolled");
-        } else {
-            menu.classList.remove("scrolled");
-        }
-    });
+function irParaOrcamento() {
+    const secao = document.getElementById("orcamento");
+    secao.scrollIntoView({ behavior: "smooth" });
+}
 
-    function enviarOrcamento() {
-        const nome = document.getElementById("nome").value;
-        const telefone = document.getElementById("telefone").value;
-        const cidade = document.getElementById("cidade").value;
-        const servico = document.getElementById("servico").value;
-        const descricao = document.getElementById("descricao").value;
+const frases = [
+    "Precisa de orçamento?",
+    "Posso ajudar com alguma informação!",
+    "Clique em mim para solicitar um orçamento!",
+    "Estamos prontos para atender sua empresa!"
+];
 
-        if (!nome || !telefone || !cidade || !servico || !descricao) {
-            alert("Preencha todos os campos antes de enviar.");
-            return;
-        }
+let index = 0;
 
-        const mensagem =
-            "Olá, gostaria de solicitar um orçamento:%0A%0A" +
-            "*Nome:* " + nome + "%0A" +
-            "*Telefone:* " + telefone + "%0A" +
-            "*Cidade:* " + cidade + "%0A" +
-            "*Serviço:* " + servico + "%0A" +
-            "*Descrição:* " + descricao;
+function mostrarFrase() {
+    const balao = document.getElementById("balaoMascote");
+    balao.innerText = frases[index];
+    balao.style.display = "block";
 
-        window.open("https://wa.me/554791866101?text=" + mensagem, "_blank");
-        window.open("https://wa.me/554797540134?text=" + mensagem, "_blank");
+    index = (index + 1) % frases.length;
 
-        alert("Orçamento enviado com sucesso!");
-    }
+    setTimeout(() => {
+        balao.style.display = "none";
+    }, 4000);
+}
 
-    function mascoteAcao() {
-        const frases = [
-            "Vamos direto para o orçamento!",
-            "Clique aqui e preencha seu orçamento!",
-            "Precisa de um orçamento rápido!",
-            "Te levo até o formulário!",
-            "Posso te ajudar com o orçamento!"
-        ];
-
-        document.getElementById("falaMascote").innerText =
-            frases[Math.floor(Math.random() * frases.length)];
-
-        document.getElementById("secao-orcamento").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
+setInterval(mostrarFrase, 7000);
 </script>
 
 </body>
