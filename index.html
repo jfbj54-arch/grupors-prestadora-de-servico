@@ -4,22 +4,10 @@
     <meta charset="UTF-8">
 
     <title>Grupo RS – Carga, Descarga, Logística, Limpeza e Serviços Operacionais</title>
-    <meta name="description" content="O Grupo RS é especializado em serviços de carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atendemos empresas em todo o Brasil com equipes treinadas e eficientes.">
-    <meta name="keywords" content="Grupo RS, carga e descarga, apoio logístico, serviços operacionais, limpeza industrial, conferente, operador, etiquetagem, separação, mão de obra, logística, terceirização, serviços para empresas">
-    <meta name="author" content="Grupo RS - Prestadora de Serviços">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="pt-BR">
-    <meta property="og:title" content="Grupo RS – Serviços Operacionais e Logísticos">
-    <meta property="og:description" content="Carga e descarga, limpeza, conferência, etiquetagem, separação e mão de obra operacional em todo o Brasil.">
-    <meta property="og:type" content="business.business">
-    <meta property="og:site_name" content="Grupo RS">
-    <meta name="theme-color" content="#003366">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
 
-        /* FUNDO DO SITE */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -69,66 +57,7 @@
         h1, h2, h3 { color: #003366; }
         p { font-size: 16px; line-height: 1.6; }
 
-        .servico-box { margin-bottom: 40px; text-align: center; }
-        .servico-box img {
-            width: 60%;
-            max-width: 350px;
-            display: block;
-            margin: 10px auto;
-            border-radius: 10px;
-        }
-        .legenda { font-style: italic; margin-top: 8px; color: #444; }
-
-        @media (max-width: 768px) {
-            .servico-box img { width: 80%; max-width: 280px; }
-        }
-
-        .form-box {
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .form-box input,
-        .form-box select,
-        .form-box textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #bbb;
-            font-size: 16px;
-        }
-
-        .btn-area {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .btn-rodrigo, .btn-julio {
-            flex: 1;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .btn-rodrigo { background: #007bff; }
-        .btn-julio { background: #28a745; }
-
-        .btn-rodrigo:hover { background: #005fcc; }
-        .btn-julio:hover { background: #1e7e34; }
-
-        .zap-icon {
-            width: 22px;
-            vertical-align: middle;
-            margin-left: 6px;
-        }
-
-        /* Mascote flutuante 3D + animação de entrada */
+        /* MASCOTE 3D COM ANIMAÇÃO + MOVIMENTO + VOZ */
         .mascote-flutuante {
             position: fixed;
             bottom: 20px;
@@ -137,37 +66,29 @@
             cursor: pointer;
             z-index: 9999;
 
-            /* Animação de entrada */
             opacity: 0;
             transform: translateY(40px) scale(0.8);
-            animation: entradaMascote 1.2s ease-out forwards;
-
-            /* Animação de flutuar */
-            animation-delay: 0.2s;
-            animation-fill-mode: forwards;
+            animation:
+                entradaMascote 1.2s ease-out forwards,
+                movimentoMascote 4s ease-in-out infinite 1.2s,
+                flutuar 3s ease-in-out infinite 1.2s;
 
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
         }
 
         @keyframes entradaMascote {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.8);
-            }
-            60% {
-                opacity: 1;
-                transform: translateY(-5px) scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0px) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(40px) scale(0.8); }
+            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0px) scale(1); }
         }
 
-        .mascote-flutuante:hover {
-            transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
-            filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
+        @keyframes movimentoMascote {
+            0% { transform: translateX(0px) rotateZ(0deg); }
+            25% { transform: translateX(-6px) rotateZ(-2deg); }
+            50% { transform: translateX(0px) rotateZ(0deg); }
+            75% { transform: translateX(6px) rotateZ(2deg); }
+            100% { transform: translateX(0px) rotateZ(0deg); }
         }
 
         @keyframes flutuar {
@@ -176,30 +97,10 @@
             100% { transform: translateY(0px); }
         }
 
-        .balao-mascote {
-            position: fixed;
-            bottom: 170px;
-            right: 40px;
-            background: #ffffff;
-            padding: 12px 18px;
-            border-radius: 12px;
-            border: 2px solid #003366;
-            font-size: 15px;
-            color: #003366;
-            font-weight: bold;
-            z-index: 9999;
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-            max-width: 250px;
+        .mascote-flutuante:hover {
+            transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
+            filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
         }
-
-        footer {
-            background: #003366;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-        footer img { vertical-align: middle; margin-right: 8px; }
 
     </style>
 </head>
@@ -228,7 +129,6 @@
 <section id="sobre">
     <h2>Sobre o Grupo RS</h2>
     <p>O Grupo RS é uma empresa especializada em soluções operacionais e logísticas, atuando em todo o Brasil com equipes treinadas, ágeis e comprometidas com resultados.</p>
-    <p>Oferecemos serviços de carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional para empresas de diversos segmentos.</p>
 </section>
 
 <section id="servicos">
@@ -236,26 +136,22 @@
 
     <div class="servico-box">
         <h3>Carga e Descarga</h3>
-        <img src="foto_site_logo_1.jpg" alt="Carga e Descarga">
-        <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
+        <img src="foto_site_logo_1.jpg">
     </div>
 
     <div class="servico-box">
         <h3>Conferente</h3>
-        <img src="foto_site_logo_3.jpg" alt="Conferente">
-        <p class="legenda">“Equipe treinada para entregar qualidade e produtividade todos os dias.”</p>
+        <img src="foto_site_logo_3.jpg">
     </div>
 
     <div class="servico-box">
         <h3>Operador</h3>
-        <img src="foto_site_logo_3 (1).jpg" alt="Operador">
-        <p class="legenda">“Trabalho realizado com responsabilidade, foco e compromisso com o cliente.”</p>
+        <img src="foto_site_logo_3 (1).jpg">
     </div>
 
     <div class="servico-box">
         <h3>Limpeza</h3>
-        <img src="foto_site_logo_4.jpg" alt="Limpeza">
-        <p class="legenda">“Serviço executado com precisão, segurança e atenção aos detalhes.”</p>
+        <img src="foto_site_logo_4.jpg">
     </div>
 
 </section>
@@ -266,13 +162,13 @@
 
     <div class="form-box">
         <label>Telefone / WhatsApp</label>
-        <input type="text" id="tel" placeholder="(DDD) 9 0000-0000" required>
+        <input type="text" id="tel">
 
         <label>Cidade e Estado</label>
-        <input type="text" id="cidade" placeholder="Ex: Joinville - SC" required>
+        <input type="text" id="cidade">
 
         <label>Tipo de Serviço</label>
-        <select id="servico" required>
+        <select id="servico">
             <option value="">Selecione...</option>
             <option>Limpeza</option>
             <option>Carga e Descarga</option>
@@ -283,46 +179,26 @@
         </select>
 
         <label>Descreva sua necessidade</label>
-        <textarea id="descricao" rows="4" placeholder="Digite aqui sua necessidade..."></textarea>
+        <textarea id="descricao" rows="4"></textarea>
 
-        <div class="btn-area">
-            <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
-            <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
-        </div>
+        <button onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+        <button onclick="enviarJulio()">Enviar para Julio</button>
     </div>
 </section>
 
 <section id="contato">
     <h2>Contato</h2>
-
-    <h3>Rodrigo Soares – Diretor 
-        <img class="zap-icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-    </h3>
-    <p>📞 47 9 9186-6101</p>
-
-    <h3>Julio Britto – Representante Geral 
-        <img class="zap-icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-    </h3>
-    <p>📞 47 9 9754-0134</p>
-
-    <h3>Jefferson Fernandes – TI 
-        <img class="zap-icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-    </h3>
-    <p>📞 33 9 8833-2748</p>
-
+    <p>Rodrigo: 47 9 9186-6101</p>
+    <p>Julio Britto: 47 9 9754-0134</p>
+    <p>Jefferson (TI): 33 9 8833-2748</p>
 </section>
 
 <footer>
-    <p><strong>Grupo RS – Prestadora de Serviços</strong></p>
     <p>© 2026 Grupo RS – Todos os direitos reservados</p>
 </footer>
 
-<div id="balaoMascote" class="balao-mascote"></div>
-
-<!-- MASCOTE 3D COM ANIMAÇÃO DE ENTRADA -->
-<img src="mascote3D.png"
-     class="mascote-flutuante"
-     onclick="irParaOrcamento()">
+<!-- MASCOTE 3D EM MOVIMENTO + VOZ -->
+<img src="mascote3D.png" class="mascote-flutuante" onclick="falarMascote()">
 
 <script>
 function toggleMenu() {
@@ -333,6 +209,47 @@ function irParaOrcamento() {
     document.getElementById("orcamento").scrollIntoView({ behavior: "smooth" });
 }
 
+/* FRASES QUE O MASCOTE VAI FALAR */
+const frasesVoz = [
+    "Olá! Precisa de um orçamento? Posso ajudar.",
+    "Clique em mim para falar com nossa equipe.",
+    "O Grupo R S está pronto para atender sua empresa.",
+    "Serviços de carga, descarga e logística com qualidade.",
+    "Quer solicitar um orçamento rápido? Estou aqui para isso."
+];
+
+/* EVITAR SOBREPOSIÇÃO DE VOZ */
+function pararFala() {
+    if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+    }
+}
+
+/* FUNÇÃO PARA FALAR */
+function falarMascote() {
+    pararFala();
+
+    const frase = frasesVoz[Math.floor(Math.random() * frasesVoz.length)];
+
+    const fala = new SpeechSynthesisUtterance(frase);
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+    fala.pitch = 1;
+
+    speechSynthesis.speak(fala);
+}
+
+/* FALAR SOZINHO A CADA 12 SEGUNDOS */
+setInterval(() => {
+    falarMascote();
+}, 12000);
+
+/* FALAR 2 SEGUNDOS APÓS APARECER NA TELA */
+setTimeout(() => {
+    falarMascote();
+}, 2000);
+
+/* WHATSAPP */
 function montarMensagem() {
     const tel = document.getElementById("tel").value;
     const cidade = document.getElementById("cidade").value;
@@ -340,10 +257,10 @@ function montarMensagem() {
     const desc = document.getElementById("descricao").value;
 
     return `Olá! Gostaria de solicitar um orçamento.%0A%0A` +
-           `📞 Telefone: ${tel}%0A` +
-           `📍 Cidade: ${cidade}%0A` +
-           `🛠 Serviço: ${servico}%0A` +
-           `📝 Descrição: ${desc}`;
+           `Telefone: ${tel}%0A` +
+           `Cidade: ${cidade}%0A` +
+           `Serviço: ${servico}%0A` +
+           `Descrição: ${desc}`;
 }
 
 function enviarRodrigo() {
@@ -355,29 +272,6 @@ function enviarJulio() {
     const msg = montarMensagem();
     window.open(`https://wa.me/554797540134?text=${msg}`, "_blank");
 }
-
-const frases = [
-    "Quer fazer um orçamento? Clica em mim!",
-    "Posso ajudar com seu orçamento!",
-    "Clique em mim para solicitar um orçamento!",
-    "Estamos prontos para atender sua empresa!"
-];
-
-let index = 0;
-
-function mostrarFrase() {
-    const balao = document.getElementById("balaoMascote");
-    balao.innerText = frases[index];
-    balao.style.display = "block";
-
-    index = (index + 1) % frases.length;
-
-    setTimeout(() => {
-        balao.style.display = "none";
-    }, 4000);
-}
-
-setInterval(mostrarFrase, 7000);
 </script>
 
 </body>
