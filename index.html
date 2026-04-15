@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- SEO DO GRUPO RS -->
     <title>Grupo RS – Carga, Descarga, Logística, Limpeza e Serviços Operacionais</title>
     <meta name="description" content="O Grupo RS é especializado em serviços de carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atendemos empresas em todo o Brasil com equipes treinadas e eficientes.">
     <meta name="keywords" content="Grupo RS, carga e descarga, apoio logístico, serviços operacionais, limpeza industrial, conferente, operador, etiquetagem, separação, mão de obra, logística, terceirização, serviços para empresas">
@@ -134,7 +133,7 @@
             margin-left: 6px;
         }
 
-        /* Mascote flutuante */
+        /* Mascote flutuante com efeito 3D */
         .mascote-flutuante {
             position: fixed;
             bottom: 20px;
@@ -142,7 +141,16 @@
             width: 140px;
             cursor: pointer;
             z-index: 9999;
+
             animation: flutuar 3s ease-in-out infinite;
+
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
+        }
+
+        .mascote-flutuante:hover {
+            transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
+            filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
         }
 
         @keyframes flutuar {
@@ -169,7 +177,7 @@
             max-width: 250px;
         }
 
-        /* Rodapé com ícones */
+        /* Rodapé */
         footer {
             background: #003366;
             color: white;
@@ -295,7 +303,7 @@
     <p>📞 47 9 9186-6101</p>
     <p><a href="https://wa.me/5547991866101" target="_blank">Enviar WhatsApp</a></p>
 
-    <h3>Julio Brito – Representante Geral 
+    <h3>Julio Britto – Representante Geral 
         <img class="zap-icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
     </h3>
     <p>📞 47 9 9754-0134</p>
