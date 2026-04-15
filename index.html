@@ -15,6 +15,7 @@
         section { padding: 40px; background: white; margin: 20px; border-radius: 10px; }
         h1, h2, h3, h4 { color: #003366; }
         footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
         form input, form select, form textarea {
             width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;
         }
@@ -23,6 +24,21 @@
             border-radius: 5px; cursor: pointer; font-size: 16px;
         }
         form button:hover { background: #0055aa; }
+
+        /* Fotos dos serviços */
+        .servico-box {
+            margin-bottom: 40px;
+        }
+        .servico-box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .legenda {
+            font-style: italic;
+            margin-top: 8px;
+            color: #444;
+        }
 
         /* Mascote flutuante */
         .mascote-flutuante {
@@ -64,9 +80,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============================
-           RESPONSIVIDADE PARA CELULAR
-           ============================ */
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
 
             section {
@@ -115,11 +129,6 @@
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#orcamento">Orçamento</a></li>
             <li><a href="#contato">Contato</a></li>
-            <li>
-                <a href="<!-- SEU WHATSAPP DO DIRETOR -->" target="_blank">
-                    WhatsApp Diretor
-                </a>
-            </li>
         </ul>
     </nav>
 </header>
@@ -130,90 +139,81 @@
     <p>
         O Grupo RS é especializado em serviços de carga e descarga, apoio logístico,
         limpeza, conferência, etiquetagem, separação e mão de obra operacional.
-        Atendemos empresas em todo o Brasil com equipes treinadas, atendimento rápido
-        e foco total na produtividade da sua operação.
     </p>
-
-    <p>
-        Nosso compromisso é oferecer eficiência, segurança e resultados reais para sua empresa,
-        sempre com responsabilidade e profissionalismo.
-    </p>
-
-    <!-- SUAS IMAGENS DE CAPA AQUI -->
 </section>
 
 <section id="quem-somos">
     <h2>Quem Somos</h2>
 
     <p>
-        O Grupo RS é uma empresa especializada em serviços de carga e descarga, apoio logístico,
-        limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atuamos em
-        todo o Brasil, oferecendo soluções eficientes, profissionais e sob medida para empresas
-        de todos os portes.
+        Somos uma empresa especializada em soluções operacionais e logísticas,
+        atendendo empresas em todo o Brasil com equipes treinadas e eficientes.
     </p>
-
-    <h3>Nossa Estrutura Organizacional</h3>
-
-    <h4>Rodrigo Cardoso – Diretor / Proprietário</h4>
-    <p>Administração geral, decisões estratégicas e expansão nacional.</p>
-
-    <h4>Julio Cesar Brito – Representante Geral</h4>
-    <p>Atendimento comercial, negociações e acompanhamento das operações.</p>
-
-    <h4>Jefferson – Tecnologia da Informação (TI)</h4>
-    <p>Desenvolvimento, manutenção e atualização do site e sistemas internos.</p>
 </section>
 
 <section id="servicos">
     <h2>Nossos Serviços</h2>
 
-    <h3>Carga e Descarga</h3>
-    <p>Equipe especializada para operações rápidas, seguras e eficientes.</p>
+    <div class="servico-box">
+        <h3>Carga e Descarga</h3>
+        <img src="foto_site_logo_1.jpg">
+        <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
+    </div>
 
-    <h3>Conferente</h3>
-    <p>Profissionais treinados para conferência de mercadorias e documentos.</p>
+    <div class="servico-box">
+        <h3>Conferente</h3>
+        <img src="foto_site_logo_3.jpg">
+        <p class="legenda">“Equipe treinada para entregar qualidade e produtividade todos os dias.”</p>
+    </div>
 
-    <h3>Operador</h3>
-    <p>Mão de obra operacional para apoio logístico e organização.</p>
+    <div class="servico-box">
+        <h3>Operador</h3>
+        <img src="foto_site_logo_3 (1).jpg">
+        <p class="legenda">“Trabalho realizado com responsabilidade, foco e compromisso com o cliente.”</p>
+    </div>
 
-    <h3>Limpeza</h3>
-    <p>Limpeza profissional para empresas, galpões e ambientes industriais.</p>
+    <div class="servico-box">
+        <h3>Limpeza</h3>
+        <img src="foto_site_logo_4.jpg">
+        <p class="legenda">“Serviço executado com precisão, segurança e atenção aos detalhes.”</p>
+    </div>
 
-    <h3>Etiquetagem e Separação</h3>
-    <p>Equipe ágil para picking, packing, etiquetagem e preparação de pedidos.</p>
+    <div class="servico-box">
+        <h3>Etiquetagem e Separação</h3>
+        <img src="foto_site_logo_1.jpg">
+        <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
+    </div>
 
-    <h3>Serviços Personalizados</h3>
-    <p>Soluções sob medida para qualquer necessidade operacional.</p>
-
-    <!-- SUAS IMAGENS DE SERVIÇOS AQUI -->
+    <div class="servico-box">
+        <h3>Serviços Personalizados</h3>
+        <img src="foto_site_logo_3.jpg">
+        <p class="legenda">“Equipe treinada para entregar qualidade e produtividade todos os dias.”</p>
+    </div>
 </section>
 
 <section id="orcamento">
     <h2>Solicite seu Orçamento</h2>
 
-    <p>Preencha os dados abaixo e nossa equipe entrará em contato rapidamente.</p>
-
-    <form action="<!-- SUA ACTION -->" method="post">
-
+    <form>
         <label>Telefone / WhatsApp</label>
-        <input type="text" name="telefone" required>
+        <input type="text" required>
 
         <label>Cidade e Estado</label>
-        <input type="text" name="cidade" required>
+        <input type="text" required>
 
         <label>Tipo de Serviço</label>
-        <select name="tipo-servico" required>
+        <select required>
             <option value="">Selecione...</option>
-            <option value="limpeza">Limpeza</option>
-            <option value="carga-descarga">Carga e Descarga</option>
-            <option value="conferente">Conferente</option>
-            <option value="operador">Operador</option>
-            <option value="etiquetagem-separacao">Etiquetagem e Separação</option>
-            <option value="outro">Outro</option>
+            <option>Limpeza</option>
+            <option>Carga e Descarga</option>
+            <option>Conferente</option>
+            <option>Operador</option>
+            <option>Etiquetagem e Separação</option>
+            <option>Outro</option>
         </select>
 
         <label>Descreva sua necessidade</label>
-        <textarea name="descricao" rows="4"></textarea>
+        <textarea rows="4"></textarea>
 
         <button type="submit">Enviar Orçamento</button>
     </form>
@@ -221,49 +221,24 @@
 
 <section id="contato">
     <h2>Contato</h2>
-
-    <p>Estamos prontos para atender sua empresa em qualquer região do Brasil.</p>
-
-    <h3>WhatsApp Comercial</h3>
-    <p>
-        <a href="<!-- SEU WHATSAPP -->" target="_blank">Fale conosco</a>
-    </p>
-
-    <h3>E-mail</h3>
-    <p>
-        <a href="mailto:<!-- SEU EMAIL -->"><!-- SEU EMAIL --></a>
-    </p>
-
-    <h3>Representante Geral – Julio Cesar Brito</h3>
-    <p>Atendimento comercial e negociações.</p>
-
-    <h3>Diretor – Rodrigo Cardoso</h3>
-    <p>Gestão geral e contratos corporativos.</p>
-
-    <h3>TI – Jefferson</h3>
-    <p>Suporte técnico e atualizações do site.</p>
+    <p>Atendemos empresas em todo o Brasil.</p>
 </section>
 
 <footer>
     <p><strong>Grupo RS – Prestadora de Serviços</strong></p>
-    <p>Carga e descarga • Apoio logístico • Limpeza • Conferência • Operadores • Etiquetagem e separação</p>
-    <p>Atendimento em todo o Brasil</p>
-    <p>Diretor: Rodrigo Cardoso • Representante Geral: Julio Cesar Brito • TI: Jefferson</p>
 </footer>
 
 <!-- BALÃO DE FALA -->
 <div id="balaoMascote" class="balao-mascote"></div>
 
-<!-- MASCOTE FLUTUANTE -->
+<!-- MASCOTE -->
 <img src="WhatsApp Image 2026-02-20 at 11.52.06 MASCOTE.jpeg"
-     alt="Mascote Grupo RS"
      class="mascote-flutuante"
      onclick="irParaOrcamento()">
 
 <script>
 function irParaOrcamento() {
-    const secao = document.getElementById("orcamento");
-    secao.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("orcamento").scrollIntoView({ behavior: "smooth" });
 }
 
 const frases = [
