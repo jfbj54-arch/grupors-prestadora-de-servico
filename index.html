@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Grupo RS – Carga, Descarga, Logística, Limpeza e Serviços Operacionais</title>
+    <title>Grupo RS – Prestadora de Serviços Operacionais e Logísticos</title>
+
+    <!-- SEO COMPLETO -->
+    <meta name="description" content="Grupo RS Prestadora de Serviços – CNPJ 59.779.697/0001-93. Atuação em todo o Brasil com eficiência, equipe reduzida e produtividade. Especialistas em mão de obra terceirizada para logística, carga e descarga, apoio operacional, limpeza e serviços gerais.">
+    <meta name="keywords" content="Grupo RS, Grupo RS Prestadora de Serviços, Rodrigo Cardoso Soares, mão de obra terceirizada Brasil, empresa de logística SC, carga e descarga, apoio logístico, serviços operacionais, terceirização de mão de obra, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais, empresa de serviços Navegantes, logística Santa Catarina, empresa de carga e descarga Brasil, terceirização Navegantes, empresa de apoio operacional, serviços de logística Brasil">
+    <meta name="author" content="Grupo RS Prestadora de Serviços">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -57,7 +63,7 @@
         h1, h2, h3 { color: #003366; }
         p { font-size: 16px; line-height: 1.6; }
 
-        /* IMAGENS DOS SERVIÇOS CORRIGIDAS */
+        /* IMAGENS DOS SERVIÇOS */
         .servico-box img {
             width: 100%;
             max-width: 320px;
@@ -68,7 +74,7 @@
             object-fit: cover;
         }
 
-        /* FORMULÁRIO CORRIGIDO */
+        /* FORMULÁRIO */
         .form-box {
             max-width: 500px;
             margin: auto;
@@ -112,7 +118,7 @@
         .btn-rodrigo:hover { background: #005fcc; }
         .btn-julio:hover { background: #1e7e34; }
 
-        /* MASCOTE 3D COM ANIMAÇÃO + MOVIMENTO + VOZ */
+        /* MASCOTE 3D */
         .mascote-flutuante {
             position: fixed;
             bottom: 20px;
@@ -157,7 +163,7 @@
             filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
         }
 
-        /* BALÃO DO MASCOTE RESTAURADO */
+        /* BALÃO DO MASCOTE */
         .balao-mascote {
             position: fixed;
             bottom: 170px;
@@ -200,13 +206,43 @@
 </header>
 
 <section id="inicio">
-    <h1>Grupo RS – Serviços de Carga, Descarga e Apoio Logístico</h1>
-    <p>Profissionais treinados, atendimento rápido e foco total na produtividade da sua operação em todo o Brasil.</p>
+    <h1>Eficiência, equipe reduzida e produtividade.<br>Especialistas em mão de obra terceirizada em todo o Brasil.</h1>
 </section>
 
 <section id="sobre">
     <h2>Sobre o Grupo RS</h2>
-    <p>O Grupo RS é uma empresa especializada em soluções operacionais e logísticas, atuando em todo o Brasil com equipes treinadas, ágeis e comprometidas com resultados.</p>
+
+    <p>
+        O <strong>Grupo RS Prestadora de Serviços</strong>, registrado sob a razão social 
+        <strong>Rodrigo Cardoso Soares</strong> (CNPJ <strong>59.779.697/0001‑93</strong>), 
+        fundado em <strong>07 de março de 2025</strong>, tem sua sede localizada na 
+        <strong>Rua Vereador José Flávio Soares, 294 – Nossa Senhora das Graças, Navegantes – SC, 88371‑244</strong>.
+    </p>
+
+    <p>
+        Atuamos <strong>em todo o Brasil</strong>, oferecendo soluções operacionais e logísticas com foco em 
+        <strong>eficiência, produtividade e equipes reduzidas</strong>, garantindo operações mais rápidas, 
+        organizadas e de alta performance.
+    </p>
+
+    <p>
+        Somos especialistas em <strong>mão de obra terceirizada</strong>, fornecendo profissionais treinados para:
+    </p>
+
+    <ul>
+        <li>Carga e descarga</li>
+        <li>Apoio logístico</li>
+        <li>Conferência</li>
+        <li>Separação e etiquetagem</li>
+        <li>Operadores logísticos</li>
+        <li>Limpeza e conservação</li>
+        <li>Serviços gerais operacionais</li>
+    </ul>
+
+    <p>
+        Nosso compromisso é entregar <strong>qualidade, responsabilidade e superação diária</strong>, 
+        mantendo sua operação funcionando com excelência, segurança e alto desempenho.
+    </p>
 </section>
 
 <section id="servicos">
@@ -270,9 +306,9 @@
 
 <section id="contato">
     <h2>Contato</h2>
-    <p>Rodrigo: 47 9 9186-6101</p>
-    <p>Julio Britto: 47 9 9754-0134</p>
-    <p>Jefferson (TI): 33 9 8833-2748</p>
+    <p><strong>Rodrigo Soares – Diretor:</strong> 47 9 9186-6101</p>
+    <p><strong>Julio Britto – Representante Geral:</strong> 47 9 9754-0134</p>
+    <p><strong>Jefferson Fernandes – TI:</strong> 33 9 8833-2748</p>
 </section>
 
 <footer>
@@ -282,7 +318,7 @@
 <!-- BALÃO DO MASCOTE -->
 <div id="balaoMascote" class="balao-mascote"></div>
 
-<!-- MASCOTE 3D EM MOVIMENTO + VOZ -->
+<!-- MASCOTE 3D -->
 <img src="mascote3D.png" class="mascote-flutuante" onclick="falarMascote()">
 
 <script>
@@ -290,7 +326,7 @@ function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
 }
 
-/* FRASES DO BALÃO */
+/* BALÃO */
 const frasesBalao = [
     "Clique em mim para solicitar um orçamento!",
     "Posso ajudar com seu orçamento!",
@@ -300,7 +336,6 @@ const frasesBalao = [
 
 let indexBalao = 0;
 
-/* MOSTRAR BALÃO */
 function mostrarBalao() {
     const balao = document.getElementById("balaoMascote");
     balao.innerText = frasesBalao[indexBalao];
@@ -313,13 +348,10 @@ function mostrarBalao() {
     }, 4000);
 }
 
-/* MOSTRAR A CADA 7 SEGUNDOS */
 setInterval(mostrarBalao, 7000);
-
-/* MOSTRAR 3 SEGUNDOS APÓS ENTRAR */
 setTimeout(mostrarBalao, 3000);
 
-/* FRASES DE VOZ */
+/* VOZ */
 const frasesVoz = [
     "Olá! Precisa de um orçamento? Posso ajudar.",
     "Clique em mim para falar com nossa equipe.",
@@ -328,14 +360,12 @@ const frasesVoz = [
     "Quer solicitar um orçamento rápido? Estou aqui para isso."
 ];
 
-/* EVITAR SOBREPOSIÇÃO DE VOZ */
 function pararFala() {
     if (speechSynthesis.speaking) {
         speechSynthesis.cancel();
     }
 }
 
-/* FUNÇÃO PARA FALAR */
 function falarMascote() {
     pararFala();
 
@@ -349,12 +379,10 @@ function falarMascote() {
     speechSynthesis.speak(fala);
 }
 
-/* FALAR SOZINHO A CADA 12 SEGUNDOS */
 setInterval(() => {
     falarMascote();
 }, 12000);
 
-/* FALAR 2 SEGUNDOS APÓS APARECER NA TELA */
 setTimeout(() => {
     falarMascote();
 }, 2000);
