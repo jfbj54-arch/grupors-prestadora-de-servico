@@ -2,12 +2,43 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+
+    <!-- SEO DO GRUPO RS -->
+    <title>Grupo RS – Carga, Descarga, Logística, Limpeza e Serviços Operacionais</title>
+    <meta name="description" content="O Grupo RS é especializado em serviços de carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional. Atendemos empresas em todo o Brasil com equipes treinadas e eficientes.">
+    <meta name="keywords" content="Grupo RS, carga e descarga, apoio logístico, serviços operacionais, limpeza industrial, conferente, operador, etiquetagem, separação, mão de obra, logística, terceirização, serviços para empresas">
+    <meta name="author" content="Grupo RS - Prestadora de Serviços">
+    <meta name="geo.region" content="BR">
+    <meta name="geo.country" content="Brasil">
+    <meta name="geo.placename" content="Santa Catarina, Paraná, São Paulo, Brasil">
+    <meta property="og:title" content="Grupo RS – Serviços Operacionais e Logísticos">
+    <meta property="og:description" content="Carga e descarga, limpeza, conferência, etiquetagem, separação e mão de obra operacional em todo o Brasil.">
+    <meta property="og:type" content="business.business">
+    <meta property="og:site_name" content="Grupo RS">
+    <meta itemprop="name" content="Grupo RS - Prestadora de Serviços">
+    <meta itemprop="description" content="Empresa especializada em serviços operacionais, carga e descarga, limpeza e apoio logístico.">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="pt-BR">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="foto_site_logo_1.jpg">
+    <meta name="theme-color" content="#003366">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo RS – Carga, Descarga e Apoio Logístico</title>
 
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-        header { background: #003366; padding: 15px; display: flex; align-items: center; justify-content: space-between; }
+
+        header {
+            background: #003366;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+        }
+
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
         nav a { color: white; text-decoration: none; font-weight: bold; }
 
@@ -31,10 +62,17 @@
             .menu-btn { display: block; }
         }
 
-        section { padding: 40px; background: white; margin: 20px; border-radius: 10px; }
-        h1, h2, h3 { color: #003366; }
+        section {
+            padding: 40px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+        }
 
-        /* Fotos dos serviços */
+        h1, h2, h3 { color: #003366; }
+        p { font-size: 16px; line-height: 1.6; }
+
+        /* Serviços – fotos */
         .servico-box { margin-bottom: 40px; text-align: center; }
         .servico-box img {
             width: 60%;
@@ -48,6 +86,46 @@
         @media (max-width: 768px) {
             .servico-box img { width: 80%; max-width: 280px; }
         }
+
+        /* FORMULÁRIO BONITO */
+        .form-box {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-box input,
+        .form-box select,
+        .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            font-size: 16px;
+        }
+
+        .btn-area {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-rodrigo, .btn-julio {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-rodrigo { background: #007bff; }
+        .btn-julio { background: #28a745; }
+
+        .btn-rodrigo:hover { background: #005fcc; }
+        .btn-julio:hover { background: #1e7e34; }
 
         /* Mascote flutuante */
         .mascote-flutuante {
@@ -108,7 +186,7 @@
     <nav>
         <ul id="menu">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#sobre">Sobre a Empresa</a></li>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#orcamento">Orçamento</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -116,74 +194,100 @@
     </nav>
 </header>
 
+<!-- INÍCIO -->
 <section id="inicio">
     <h1>Grupo RS – Serviços de Carga, Descarga e Apoio Logístico</h1>
-    <p>Profissionais treinados, atendimento rápido e foco total na produtividade da sua operação.</p>
+    <p>Profissionais treinados, atendimento rápido e foco total na produtividade da sua operação em todo o Brasil.</p>
 </section>
 
-<section id="quem-somos">
-    <h2>Quem Somos</h2>
-    <p>Somos uma empresa especializada em soluções operacionais e logísticas, atendendo empresas em todo o Brasil.</p>
+<!-- SOBRE A EMPRESA -->
+<section id="sobre">
+    <h2>Sobre o Grupo RS</h2>
+    <p>O Grupo RS é uma empresa especializada em soluções operacionais e logísticas, atuando em todo o Brasil com equipes treinadas, ágeis e comprometidas com resultados.</p>
+    <p>Oferecemos serviços de carga e descarga, apoio logístico, limpeza, conferência, etiquetagem, separação e mão de obra operacional para empresas de diversos segmentos.</p>
+    <p>Nosso compromisso é entregar produtividade, segurança e eficiência para indústrias, centros de distribuição, transportadoras, supermercados, atacadistas e empresas que precisam de suporte operacional.</p>
+
+    <h3>Missão</h3>
+    <p>Fornecer mão de obra qualificada, garantindo agilidade, segurança e eficiência nas operações dos nossos clientes.</p>
+
+    <h3>Valores</h3>
+    <p>✔ Compromisso<br>✔ Responsabilidade<br>✔ Agilidade<br>✔ Transparência<br>✔ Profissionalismo</p>
 </section>
 
+<!-- SERVIÇOS DETALHADOS -->
 <section id="servicos">
     <h2>Nossos Serviços</h2>
 
     <div class="servico-box">
         <h3>Carga e Descarga</h3>
-        <img src="foto_site_logo_1.jpg">
+        <img src="foto_site_logo_1.jpg" alt="Carga e Descarga">
         <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
+        <p>Equipe especializada em carga e descarga de caminhões, carretas e containers, com foco em agilidade, segurança e organização.</p>
     </div>
 
     <div class="servico-box">
         <h3>Conferente</h3>
-        <img src="foto_site_logo_3.jpg">
+        <img src="foto_site_logo_3.jpg" alt="Conferente">
         <p class="legenda">“Equipe treinada para entregar qualidade e produtividade todos os dias.”</p>
+        <p>Profissionais treinados para conferência de mercadorias, notas fiscais, volumes, separação e controle de estoque.</p>
     </div>
 
     <div class="servico-box">
         <h3>Operador</h3>
-        <img src="foto_site_logo_3 (1).jpg">
+        <img src="foto_site_logo_3 (1).jpg" alt="Operador">
         <p class="legenda">“Trabalho realizado com responsabilidade, foco e compromisso com o cliente.”</p>
+        <p>Operadores capacitados para atuar em diversas funções operacionais dentro de empresas e centros logísticos.</p>
     </div>
 
     <div class="servico-box">
         <h3>Limpeza</h3>
-        <img src="foto_site_logo_4.jpg">
+        <img src="foto_site_logo_4.jpg" alt="Limpeza">
         <p class="legenda">“Serviço executado com precisão, segurança e atenção aos detalhes.”</p>
+        <p>Serviços de limpeza profissional para empresas, galpões, escritórios e áreas industriais.</p>
     </div>
 
+    <div class="servico-box">
+        <h3>Etiquetagem e Separação</h3>
+        <img src="foto_site_logo_1.jpg" alt="Etiquetagem e Separação">
+        <p class="legenda">“Profissionais dedicados garantindo eficiência em cada etapa do serviço.”</p>
+        <p>Equipe treinada para etiquetagem, separação, organização e preparação de mercadorias para expedição.</p>
+    </div>
 </section>
 
+<!-- ORÇAMENTO -->
 <section id="orcamento">
     <h2>Solicite seu Orçamento</h2>
-
     <p>Preencha os dados abaixo e envie diretamente para nossa equipe via WhatsApp.</p>
 
-    <label>Telefone / WhatsApp</label>
-    <input type="text" id="tel" required>
+    <div class="form-box">
+        <label>Telefone / WhatsApp</label>
+        <input type="text" id="tel" placeholder="(DDD) 9 0000-0000" required>
 
-    <label>Cidade e Estado</label>
-    <input type="text" id="cidade" required>
+        <label>Cidade e Estado</label>
+        <input type="text" id="cidade" placeholder="Ex: Joinville - SC" required>
 
-    <label>Tipo de Serviço</label>
-    <select id="servico" required>
-        <option value="">Selecione...</option>
-        <option>Limpeza</option>
-        <option>Carga e Descarga</option>
-        <option>Conferente</option>
-        <option>Operador</option>
-        <option>Etiquetagem e Separação</option>
-        <option>Outro</option>
-    </select>
+        <label>Tipo de Serviço</label>
+        <select id="servico" required>
+            <option value="">Selecione...</option>
+            <option>Limpeza</option>
+            <option>Carga e Descarga</option>
+            <option>Conferente</option>
+            <option>Operador</option>
+            <option>Etiquetagem e Separação</option>
+            <option>Outro</option>
+        </select>
 
-    <label>Descreva sua necessidade</label>
-    <textarea id="descricao" rows="4"></textarea>
+        <label>Descreva sua necessidade</label>
+        <textarea id="descricao" rows="4" placeholder="Digite aqui sua necessidade..."></textarea>
 
-    <button onclick="enviarRodrigo()">Enviar para Rodrigo</button>
-    <button onclick="enviarJulio()">Enviar para Julio</button>
+        <div class="btn-area">
+            <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+            <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
+        </div>
+    </div>
 </section>
 
+<!-- CONTATO + MAPA -->
 <section id="contato">
     <h2>Contato</h2>
 
@@ -198,19 +302,23 @@
     <h3>Jefferson Fernandes – TI</h3>
     <p>📞 33 9 8833-2748</p>
     <p><a href="https://wa.me/5533988332748" target="_blank">Enviar WhatsApp</a></p>
+
+    <h3>Localização</h3>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.999!2d-46.6333!3d-23.5505"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
 </section>
 
 <footer>
     <p><strong>Grupo RS – Prestadora de Serviços</strong></p>
-
     <p><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="22"> Carga e Descarga</p>
     <p><img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" width="22"> Apoio Logístico</p>
     <p><img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" width="22"> Limpeza e Serviços Operacionais</p>
-
     <p>© 2026 Grupo RS – Todos os direitos reservados</p>
 </footer>
 
-<!-- BALÃO DE FALA -->
+<!-- BALÃO DE FALA DO MASCOTE -->
 <div id="balaoMascote" class="balao-mascote"></div>
 
 <!-- MASCOTE -->
