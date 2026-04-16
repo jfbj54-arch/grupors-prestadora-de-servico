@@ -199,6 +199,9 @@
             <li><a href="#inicio">Início</a></li>
             <li><a href="#sobre">Sobre a Empresa</a></li>
             <li><a href="#historia">Nossa História</a></li>
+            <li><a href="#mvv">Missão, Visão e Valores</a></li>
+            <li><a href="#porque">Por que escolher</a></li>
+            <li><a href="#atuacao">Onde Atuamos</a></li>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#orcamento">Orçamento</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -246,7 +249,6 @@
     </p>
 </section>
 
-<!-- ⭐ SEÇÃO NOVA — MANTENDO A MESMA ESTRUTURA -->
 <section id="historia">
     <h2>Nossa História</h2>
 
@@ -286,6 +288,70 @@
     <p>
         O Grupo RS é uma empresa sólida, construída dia após dia, com trabalho sério e visão de futuro.
         <strong>Grupo RS — a prestadora do futuro. Terceirize com quem trabalha para crescer junto com você.</strong>
+    </p>
+</section>
+
+<section id="mvv">
+    <h2>Missão, Visão e Valores</h2>
+
+    <h3>Missão</h3>
+    <p>
+        Entregar soluções logísticas eficientes, seguras e inteligentes, contribuindo para o crescimento dos nossos clientes
+        através de mão de obra qualificada e operações de alta performance.
+    </p>
+
+    <h3>Visão</h3>
+    <p>
+        Ser referência em terceirização logística no Brasil, reconhecida pela qualidade, agilidade, responsabilidade e
+        compromisso com resultados.
+    </p>
+
+    <h3>Valores</h3>
+    <ul>
+        <li>Compromisso com a excelência</li>
+        <li>Transparência e ética</li>
+        <li>Respeito às pessoas</li>
+        <li>Fé e propósito no trabalho</li>
+        <li>Responsabilidade e segurança</li>
+        <li>Agilidade e produtividade</li>
+        <li>Valorização dos colaboradores</li>
+    </ul>
+</section>
+
+<section id="porque">
+    <h2>Por que escolher o Grupo RS?</h2>
+
+    <ul>
+        <li>Equipe reduzida e altamente produtiva</li>
+        <li>Atuação em todo o Brasil</li>
+        <li>Redução de custos operacionais</li>
+        <li>Profissionais treinados e supervisionados</li>
+        <li>Atendimento rápido e humanizado</li>
+        <li>Operação segura, organizada e eficiente</li>
+        <li>Mais de 35 colaboradores ativos</li>
+        <li>Empresa sólida, com visão de futuro</li>
+    </ul>
+</section>
+
+<section id="atuacao">
+    <h2>Onde Atuamos</h2>
+
+    <p>O Grupo RS atua em todo o Brasil, com forte presença nas seguintes regiões:</p>
+
+    <ul>
+        <li>Navegantes – SC (sede)</li>
+        <li>Itajaí e toda a região portuária</li>
+        <li>Balneário Camboriú e Camboriú</li>
+        <li>Blumenau e região</li>
+        <li>Joinville</li>
+        <li>Todo o estado de Santa Catarina</li>
+        <li>São Paulo – capital e interior</li>
+        <li>Atendimento nacional conforme demanda</li>
+    </ul>
+
+    <p>
+        Estamos preparados para atender empresas de pequeno, médio e grande porte, oferecendo mão de obra qualificada
+        e soluções logísticas completas.
     </p>
 </section>
 
@@ -361,91 +427,4 @@
 </footer>
 
 <!-- BALÃO DO MASCOTE -->
-<div id="balaoMascote" class="balao-mascote"></div>
-
-<!-- MASCOTE 3D -->
-<img src="mascote3D.png" class="mascote-flutuante" onclick="falarMascote()">
-
-<script>
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-}
-
-/* BALÃO */
-const frasesBalao = [
-    "Clique em mim para solicitar um orçamento!",
-    "Posso ajudar com seu orçamento!",
-    "Estamos prontos para atender sua empresa!",
-    "Quer fazer um orçamento rápido? É só clicar em mim!"
-];
-
-let indexBalao = 0;
-
-function mostrarBalao() {
-    const balao = document.getElementById("balaoMascote");
-    balao.innerText = frasesBalao[indexBalao];
-    balao.style.display = "block";
-
-    indexBalao = (indexBalao + 1) % frasesBalao.length;
-
-    setTimeout(() => {
-        balao.style.display = "none";
-    }, 4000);
-}
-
-setInterval(mostrarBalao, 7000);
-setTimeout(mostrarBalao, 3000);
-
-/* VOZ */
-const frasesVoz = [
-    "Olá! Precisa de um orçamento? Posso ajudar.",
-    "Clique em mim para falar com nossa equipe.",
-    "O Grupo R S está pronto para atender sua empresa.",
-    "Serviços de carga, descarga e logística com qualidade.",
-    "Quer solicitar um orçamento rápido? Estou aqui para isso."
-];
-
-function pararFala() {
-    if (speechSynthesis.speaking) {
-        speechSynthesis.cancel();
-    }
-}
-
-function falarMascote() {
-    pararFala();
-
-    const frase = frasesVoz[Math.floor(Math.random() * frasesVoz.length)];
-
-    const fala = new SpeechSynthesisUtterance(frase);
-    fala.lang = "pt-BR";
-    fala.rate = 1;
-    fala.pitch = 1;
-
-    speechSynthesis.speak(fala);
-}
-
-setInterval(() => {
-    falarMascote();
-}, 12000);
-
-setTimeout(() => {
-    falarMascote();
-}, 2000);
-
-/* WHATSAPP */
-function montarMensagem() {
-    const tel = document.getElementById("tel").value;
-    const cidade = document.getElementById("cidade").value;
-    const servico = document.getElementById("servico").value;
-    const desc = document.getElementById("descricao").value;
-
-    return `Olá! Gostaria de solicitar um orçamento.%0A%0A` +
-           `Telefone: ${tel}%0A` +
-           `Cidade: ${cidade}%0A` +
-           `Serviço: ${servico}%0A` +
-           `Descrição: ${desc}`;
-}
-
-function enviarRodrigo() {
-    const msg = montarMensagem();
-    window.open(`
+<div id="balaoMascote" class="balao-masc
