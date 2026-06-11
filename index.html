@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
 
@@ -38,176 +36,174 @@
       "description": "Empresa especializada em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional."
     }
     </script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: url("fundo_rs.png.jpeg") no-repeat center center fixed;
+        background-size: cover;
+    }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: url("fundo_rs.png.jpeg") no-repeat center center fixed;
-            background-size: cover;
-        }
+    section {
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(2px);
+        margin: 20px;
+        border-radius: 10px;
+    }
 
-        section {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(2px);
-            margin: 20px;
-            border-radius: 10px;
-        }
+    header {
+        background: #003366;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+    }
 
-        header {
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+
+    .menu-btn {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        nav ul {
+            display: none;
+            flex-direction: column;
             background: #003366;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #fff;
-        }
-
-        nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
-
-        .menu-btn {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background: #003366;
-                padding: 20px;
-                border-radius: 10px;
-            }
-            nav ul.active { display: flex; }
-            .menu-btn { display: block; }
-        }
-
-        h1, h2, h3 { color: #003366; }
-        p { font-size: 16px; line-height: 1.6; }
-
-        .servico-box img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            display: block;
-            margin: 10px auto;
+            padding: 20px;
             border-radius: 10px;
-            object-fit: cover;
         }
+        nav ul.active { display: flex; }
+        .menu-btn { display: block; }
+    }
 
-        .form-box {
-            max-width: 500px;
-            margin: auto;
-            background: rgba(255,255,255,0.7);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.15);
-        }
+    h1, h2, h3 { color: #003366; }
+    p { font-size: 16px; line-height: 1.6; }
 
-        .form-box input,
-        .form-box select,
-        .form-box textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #bbb;
-            font-size: 16px;
-        }
+    .servico-box img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
 
-        .btn-area {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
+    .form-box {
+        max-width: 500px;
+        margin: auto;
+        background: rgba(255,255,255,0.7);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    }
 
-        .btn-rodrigo, .btn-julio {
-            flex: 1;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        font-size: 16px;
+    }
 
-        .btn-rodrigo { background: #007bff; }
-        .btn-julio { background: #28a745; }
+    .btn-area {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
 
-        .btn-rodrigo:hover { background: #005fcc; }
-        .btn-julio:hover { background: #1e7e34; }
+    .btn-rodrigo, .btn-julio {
+        flex: 1;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .mascote-flutuante {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 150px;
-            cursor: pointer;
-            z-index: 9999;
-            opacity: 0;
-            transform: translateY(40px) scale(0.8);
-            animation:
-                entradaMascote 1.2s ease-out forwards,
-                movimentoMascote 4s ease-in-out infinite 1.2s,
-                flutuar 3s ease-in-out infinite 1.2s;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
-        }
+    .btn-rodrigo { background: #007bff; }
+    .btn-julio { background: #28a745; }
 
-        @keyframes entradaMascote {
-            0% { opacity: 0; transform: translateY(40px) scale(0.8); }
-            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
-            100% { opacity: 1; transform: translateY(0px) scale(1); }
-        }
+    .btn-rodrigo:hover { background: #005fcc; }
+    .btn-julio:hover { background: #1e7e34; }
 
-        @keyframes movimentoMascote {
-            0% { transform: translateX(0px) rotateZ(0deg); }
-            25% { transform: translateX(-6px) rotateZ(-2deg); }
-            50% { transform: translateX(0px) rotateZ(0deg); }
-            75% { transform: translateX(6px) rotateZ(2deg); }
-            100% { transform: translateX(0px) rotateZ(0deg); }
-        }
+    /* MASCOTE */
+    .mascote-flutuante {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 150px;
+        cursor: pointer;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateY(40px) scale(0.8);
+        animation:
+            entradaMascote 1.2s ease-out forwards,
+            movimentoMascote 4s ease-in-out infinite 1.2s,
+            flutuar 3s ease-in-out infinite 1.2s;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
+    }
 
-        @keyframes flutuar {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
+    @keyframes entradaMascote {
+        0% { opacity: 0; transform: translateY(40px) scale(0.8); }
+        60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+        100% { opacity: 1; transform: translateY(0px) scale(1); }
+    }
 
-        .mascote-flutuante:hover {
-            transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
-            filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
-        }
+    @keyframes movimentoMascote {
+        0% { transform: translateX(0px) rotateZ(0deg); }
+        25% { transform: translateX(-6px) rotateZ(-2deg); }
+        50% { transform: translateX(0px) rotateZ(0deg); }
+        75% { transform: translateX(6px) rotateZ(2deg); }
+        100% { transform: translateX(0px) rotateZ(0deg); }
+    }
 
-        .balao-mascote {
-            position: fixed;
-            bottom: 170px;
-            right: 40px;
-            background: #ffffff;
-            padding: 12px 18px;
-            border-radius: 12px;
-            border: 2px solid #003366;
-            font-size: 15px;
-            color: #003366;
-            font-weight: bold;
-            z-index: 9999;
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-            max-width: 250px;
-        }
+    @keyframes flutuar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0px); }
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
+    .mascote-flutuante:hover {
+        transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
+        filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
+    }
 
+    .balao-mascote {
+        position: fixed;
+        bottom: 170px;
+        right: 40px;
+        background: #ffffff;
+        padding: 12px 18px;
+        border-radius: 12px;
+        border: 2px solid #003366;
+        font-size: 15px;
+        color: #003366;
+        font-weight: bold;
+        z-index: 9999;
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+        max-width: 250px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 <body>
 
 <header>
@@ -215,11 +211,11 @@
     <nav>
         <ul id="menu">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre a Empresa</a></li>
-            <li><a href="#historia">Nossa História</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#historia">História</a></li>
             <li><a href="#mvv">Missão, Visão e Valores</a></li>
             <li><a href="#porque">Por que escolher</a></li>
-            <li><a href="#atuacao">Onde Atuamos</a></li>
+            <li><a href="#atuacao">Atuação</a></li>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#orcamento">Orçamento</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -228,7 +224,7 @@
 </header>
 
 <section id="inicio">
-    <h1>Eficiência, equipe reduzida e produtividade.<br>Especialistas em mão de obra terceirizada em todo o Brasil.</h1>
+    <h1>Eficiência, produtividade e equipes reduzidas.<br>Especialistas em mão de obra terceirizada em todo o Brasil.</h1>
 </section>
 
 <section id="sobre">
@@ -236,65 +232,35 @@
     <p>
         O <strong>Grupo RS Prestadora de Serviços</strong>, registrado sob a razão social 
         <strong>Rodrigo Cardoso Soares</strong> (CNPJ <strong>59.779.697/0001‑93</strong>), 
-        fundado em <strong>07 de março de 2025</strong>, tem sua sede localizada na 
-        <strong>Rua Vereador José Flávio Soares, 294 – Nossa Senhora das Graças, Navegantes – SC, 88371‑244</strong>.
+        atua em todo o Brasil oferecendo soluções operacionais e logísticas com foco em 
+        <strong>eficiência, produtividade e equipes enxutas</strong>.
     </p>
+
     <p>
-        Atuamos <strong>em todo o Brasil</strong>, oferecendo soluções operacionais e logísticas com foco em 
-        <strong>eficiência, produtividade e equipes reduzidas</strong>, garantindo operações mais rápidas, 
-        organizadas e de alta performance.
+        Somos especialistas em <strong>mão de obra terceirizada</strong> para:
     </p>
-    <p>
-        Somos especialistas em <strong>mão de obra terceirizada</strong>, fornecendo profissionais treinados para:
-    </p>
+
     <ul>
         <li>Carga e descarga</li>
         <li>Apoio logístico</li>
-        <li>Conferência</li>
-        <li>Separação e etiquetagem</li>
+        <li>Conferência e separação</li>
+        <li>Etiquetagem</li>
         <li>Operadores logísticos</li>
         <li>Limpeza e conservação</li>
         <li>Serviços gerais operacionais</li>
     </ul>
-    <p>
-        Nosso compromisso é entregar <strong>qualidade, responsabilidade e superação diária</strong>, 
-        mantendo sua operação funcionando com excelência, segurança e alto desempenho.
-    </p>
 </section>
 
 <section id="historia">
     <h2>Nossa História</h2>
     <p>
-        O <strong>Grupo RS</strong> nasceu em um período de grandes desafios, movido por um propósito claro:
-        transformar a logística em um processo mais eficiente, seguro e inteligente para empresas que buscam
-        produtividade e resultados reais. Desde o início, entendemos que a logística é parte estratégica de
-        qualquer operação, e que soluções bem planejadas impactam diretamente no crescimento dos nossos clientes.
+        O <strong>Grupo RS</strong> nasceu com o propósito de transformar operações logísticas em processos mais eficientes,
+        seguros e inteligentes. Com dedicação diária e compromisso com resultados, expandimos nossa atuação por toda Santa Catarina
+        e São Paulo, atendendo empresas de pequeno, médio e grande porte.
     </p>
+
     <p>
-        Fundado em Navegantes, o Grupo RS iniciou sua trajetória com dedicação diária, espírito de superação e
-        compromisso com o trabalho. Acreditamos que o trabalho dignifica, gera oportunidades e constrói valores
-        sólidos. É através dele que pessoas evoluem, empresas crescem e novas histórias são construídas todos os dias.
-    </p>
-    <p>
-        Com o passar do tempo, consolidamos nossa atuação e ampliamos nossa presença em toda a região de Itajaí,
-        atendendo empresas em diferentes segmentos e expandindo nossas operações por todo o estado de Santa Catarina,
-        alcançando também clientes em São Paulo. Nosso crescimento é resultado direto da confiança de nossos parceiros
-        e da dedicação de uma equipe formada por mais de <strong>35 colaboradores</strong> comprometidos com qualidade,
-        agilidade e responsabilidade.
-    </p>
-    <p>
-        O Grupo RS atua com foco em carga, descarga e apoio logístico, oferecendo soluções que contribuem para a
-        otimização de equipes, redução de custos operacionais e melhoria contínua dos processos logísticos.
-        Trabalhamos para somar, entender a necessidade de cada cliente e entregar resultados que façam diferença
-        no dia a dia das operações.
-    </p>
-    <p>
-        Nosso objetivo vai além da prestação de serviços. Buscamos contribuir para a evolução do setor de terceirização
-        no Brasil, elevando padrões, valorizando pessoas e construindo relações duradouras baseadas em confiança e desempenho.
-    </p>
-    <p>
-        O Grupo RS é uma empresa sólida, construída dia após dia, com trabalho sério e visão de futuro.
-        <strong>Grupo RS — a prestadora do futuro. Terceirize com quem trabalha para crescer junto com você.</strong>
+        Hoje contamos com mais de <strong>35 colaboradores</strong> treinados e comprometidos com qualidade, agilidade e responsabilidade.
     </p>
 </section>
 
@@ -302,26 +268,19 @@
     <h2>Missão, Visão e Valores</h2>
 
     <h3>Missão</h3>
-    <p>
-        Entregar soluções logísticas eficientes, seguras e inteligentes, contribuindo para o crescimento dos nossos clientes
-        através de mão de obra qualificada e operações de alta performance.
-    </p>
+    <p>Entregar soluções logísticas eficientes, seguras e inteligentes.</p>
 
     <h3>Visão</h3>
-    <p>
-        Ser referência em terceirização logística no Brasil, reconhecida pela qualidade, agilidade, responsabilidade e
-        compromisso com resultados.
-    </p>
+    <p>Ser referência nacional em terceirização logística.</p>
 
     <h3>Valores</h3>
     <ul>
-        <li>Compromisso com a excelência</li>
-        <li>Transparência e ética</li>
-        <li>Respeito às pessoas</li>
-        <li>Fé e propósito no trabalho</li>
-        <li>Responsabilidade e segurança</li>
-        <li>Agilidade e produtividade</li>
-        <li>Valorização dos colaboradores</li>
+        <li>Excelência</li>
+        <li>Transparência</li>
+        <li>Respeito</li>
+        <li>Responsabilidade</li>
+        <li>Agilidade</li>
+        <li>Valorização das pessoas</li>
     </ul>
 </section>
 
@@ -333,29 +292,24 @@
         <li>Redução de custos operacionais</li>
         <li>Profissionais treinados e supervisionados</li>
         <li>Atendimento rápido e humanizado</li>
-        <li>Operação segura, organizada e eficiente</li>
+        <li>Operação segura e organizada</li>
         <li>Mais de 35 colaboradores ativos</li>
-        <li>Empresa sólida, com visão de futuro</li>
     </ul>
 </section>
 
 <section id="atuacao">
     <h2>Onde Atuamos</h2>
-    <p>O Grupo RS atua em todo o Brasil, com forte presença nas seguintes regiões:</p>
+    <p>Atendemos empresas em todo o Brasil, com forte presença em:</p>
+
     <ul>
         <li>Navegantes – SC (sede)</li>
-        <li>Itajaí e toda a região portuária</li>
+        <li>Itajaí e região portuária</li>
         <li>Balneário Camboriú e Camboriú</li>
-        <li>Blumenau e região</li>
+        <li>Blumenau</li>
         <li>Joinville</li>
         <li>Todo o estado de Santa Catarina</li>
         <li>São Paulo – capital e interior</li>
-        <li>Atendimento nacional conforme demanda</li>
     </ul>
-    <p>
-        Estamos preparados para atender empresas de pequeno, médio e grande porte, oferecendo mão de obra qualificada
-        e soluções logísticas completas.
-    </p>
 </section>
 
 <section id="servicos">
@@ -372,12 +326,12 @@
     </div>
 
     <div class="servico-box">
-        <h3>Operador</h3>
+        <h3>Operador Logístico</h3>
         <img src="foto_site_logo_3 (1).jpg" alt="Operador logístico - Grupo RS">
     </div>
 
     <div class="servico-box">
-        <h3>Limpeza</h3>
+        <h3>Limpeza e Conservação</h3>
         <img src="foto_site_logo_4.jpg" alt="Serviço de limpeza e conservação - Grupo RS">
     </div>
 </section>
@@ -397,4 +351,83 @@
         <select id="servico">
             <option value="">Selecione...</option>
             <option>Limpeza</option>
-            <option
+            <option>Carga e Descarga</option>
+            <option>Conferente</option>
+            <option>Operador</option>
+            <option>Etiquetagem e Separação</option>
+            <option>Outro</option>
+        </select>
+
+        <label>Descreva sua necessidade</label>
+        <textarea id="descricao" rows="4" placeholder="Digite aqui sua necessidade..."></textarea>
+
+        <div class="btn-area">
+            <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+            <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
+        </div>
+    </div>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p><strong>Rodrigo Soares – Diretor:</strong> 47 9 9186-6101</p>
+    <p><strong>Julio Britto – Representante Geral:</strong> 47 9 9754-0134</p>
+    <p><strong>Jefferson Fernandes – TI:</strong> 33 9 8833-2748</p>
+</section>
+
+<footer>
+    <p><strong>Obrigado pela preferência. Jesus te ama.</strong></p>
+    <p>© 2026 Grupo RS – Todos os direitos reservados</p>
+</footer>
+
+<!-- MASCOTE -->
+<img src="mascote3D.png" class="mascote-flutuante" onclick="mostrarBalao()">
+
+<div id="balaoMascote" class="balao-mascote">
+    Precisa de ajuda? Clique aqui para falar com nossa equipe!
+</div>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+}
+
+function mostrarBalao() {
+    const balao = document.getElementById("balaoMascote");
+    balao.style.display = balao.style.display === "block" ? "none" : "block";
+}
+
+function enviarRodrigo() {
+    const tel = document.getElementById("tel").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const desc = document.getElementById("descricao").value;
+
+    const msg = encodeURIComponent(
+        `Olá Rodrigo! Tenho interesse em orçamento.\n\n` +
+        `📞 Telefone: ${tel}\n` +
+        `📍 Cidade: ${cidade}\n` +
+        `🛠 Serviço: ${servico}\n` +
+        `📝 Descrição: ${desc}`
+    );
+
+    window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+}
+
+function enviarJulio() {
+    const tel = document.getElementById("tel").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const desc = document.getElementById("descricao").value;
+
+    const msg = encodeURIComponent(
+        `Olá Julio! Tenho interesse em orçamento.\n\n` +
+        `📞 Telefone: ${tel}\n` +
+        `📍 Cidade: ${cidade}\n` +
+        `🛠 Serviço: ${servico}\n` +
+        `📝 Descrição: ${desc}`
+    );
+
+    window.open(`https://wa.me/5547997540134?text=${msg}`, "_blank");
+}
+</script>
