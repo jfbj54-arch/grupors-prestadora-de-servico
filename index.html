@@ -9,11 +9,37 @@
     <meta name="description" content="Grupo RS Prestadora de Serviços – CNPJ 59.779.697/0001-93. Atuação em todo o Brasil com eficiência, equipe reduzida e produtividade. Especialistas em mão de obra terceirizada para logística, carga e descarga, apoio operacional, limpeza e serviços gerais.">
     <meta name="keywords" content="Grupo RS, Grupo RS Prestadora de Serviços, Rodrigo Cardoso Soares, mão de obra terceirizada Brasil, empresa de logística SC, carga e descarga, apoio logístico, serviços operacionais, terceirização de mão de obra, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais, empresa de serviços Navegantes, logística Santa Catarina, empresa de carga e descarga Brasil, terceirização Navegantes, empresa de apoio operacional, serviços de logística Brasil">
     <meta name="author" content="Grupo RS Prestadora de Serviços">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Grupo RS – Prestadora de Serviços Operacionais e Logísticos">
+    <meta property="og:description" content="Especialistas em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional em todo o Brasil.">
+    <meta property="og:image" content="URL_DA_IMAGEM_DO_SITE">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://SEUSITE.com">
 
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Grupo RS Prestadora de Serviços",
+      "image": "URL_DA_IMAGEM_DO_SITE",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Vereador José Flávio Soares, 294",
+        "addressLocality": "Navegantes",
+        "addressRegion": "SC",
+        "postalCode": "88371-244",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55 47 99186-6101",
+      "url": "https://SEUSITE.com",
+      "description": "Empresa especializada em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional."
+    }
+    </script>
+
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -63,7 +89,6 @@
         h1, h2, h3 { color: #003366; }
         p { font-size: 16px; line-height: 1.6; }
 
-        /* IMAGENS DOS SERVIÇOS */
         .servico-box img {
             width: 100%;
             max-width: 320px;
@@ -74,7 +99,6 @@
             object-fit: cover;
         }
 
-        /* FORMULÁRIO */
         .form-box {
             max-width: 500px;
             margin: auto;
@@ -118,7 +142,6 @@
         .btn-rodrigo:hover { background: #005fcc; }
         .btn-julio:hover { background: #1e7e34; }
 
-        /* MASCOTE 3D */
         .mascote-flutuante {
             position: fixed;
             bottom: 20px;
@@ -126,14 +149,12 @@
             width: 150px;
             cursor: pointer;
             z-index: 9999;
-
             opacity: 0;
             transform: translateY(40px) scale(0.8);
             animation:
                 entradaMascote 1.2s ease-out forwards,
                 movimentoMascote 4s ease-in-out infinite 1.2s,
                 flutuar 3s ease-in-out infinite 1.2s;
-
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
         }
@@ -163,7 +184,6 @@
             filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
         }
 
-        /* BALÃO DO MASCOTE */
         .balao-mascote {
             position: fixed;
             bottom: 170px;
@@ -185,7 +205,6 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
     </style>
 </head>
 
@@ -193,7 +212,6 @@
 
 <header>
     <span class="menu-btn" onclick="toggleMenu()">☰</span>
-
     <nav>
         <ul id="menu">
             <li><a href="#inicio">Início</a></li>
@@ -215,24 +233,20 @@
 
 <section id="sobre">
     <h2>Sobre o Grupo RS</h2>
-
     <p>
         O <strong>Grupo RS Prestadora de Serviços</strong>, registrado sob a razão social 
         <strong>Rodrigo Cardoso Soares</strong> (CNPJ <strong>59.779.697/0001‑93</strong>), 
         fundado em <strong>07 de março de 2025</strong>, tem sua sede localizada na 
         <strong>Rua Vereador José Flávio Soares, 294 – Nossa Senhora das Graças, Navegantes – SC, 88371‑244</strong>.
     </p>
-
     <p>
         Atuamos <strong>em todo o Brasil</strong>, oferecendo soluções operacionais e logísticas com foco em 
         <strong>eficiência, produtividade e equipes reduzidas</strong>, garantindo operações mais rápidas, 
         organizadas e de alta performance.
     </p>
-
     <p>
         Somos especialistas em <strong>mão de obra terceirizada</strong>, fornecendo profissionais treinados para:
     </p>
-
     <ul>
         <li>Carga e descarga</li>
         <li>Apoio logístico</li>
@@ -242,7 +256,6 @@
         <li>Limpeza e conservação</li>
         <li>Serviços gerais operacionais</li>
     </ul>
-
     <p>
         Nosso compromisso é entregar <strong>qualidade, responsabilidade e superação diária</strong>, 
         mantendo sua operação funcionando com excelência, segurança e alto desempenho.
@@ -251,20 +264,17 @@
 
 <section id="historia">
     <h2>Nossa História</h2>
-
     <p>
         O <strong>Grupo RS</strong> nasceu em um período de grandes desafios, movido por um propósito claro:
         transformar a logística em um processo mais eficiente, seguro e inteligente para empresas que buscam
         produtividade e resultados reais. Desde o início, entendemos que a logística é parte estratégica de
         qualquer operação, e que soluções bem planejadas impactam diretamente no crescimento dos nossos clientes.
     </p>
-
     <p>
         Fundado em Navegantes, o Grupo RS iniciou sua trajetória com dedicação diária, espírito de superação e
         compromisso com o trabalho. Acreditamos que o trabalho dignifica, gera oportunidades e constrói valores
         sólidos. É através dele que pessoas evoluem, empresas crescem e novas histórias são construídas todos os dias.
     </p>
-
     <p>
         Com o passar do tempo, consolidamos nossa atuação e ampliamos nossa presença em toda a região de Itajaí,
         atendendo empresas em diferentes segmentos e expandindo nossas operações por todo o estado de Santa Catarina,
@@ -272,19 +282,16 @@
         e da dedicação de uma equipe formada por mais de <strong>35 colaboradores</strong> comprometidos com qualidade,
         agilidade e responsabilidade.
     </p>
-
     <p>
         O Grupo RS atua com foco em carga, descarga e apoio logístico, oferecendo soluções que contribuem para a
         otimização de equipes, redução de custos operacionais e melhoria contínua dos processos logísticos.
         Trabalhamos para somar, entender a necessidade de cada cliente e entregar resultados que façam diferença
         no dia a dia das operações.
     </p>
-
     <p>
         Nosso objetivo vai além da prestação de serviços. Buscamos contribuir para a evolução do setor de terceirização
         no Brasil, elevando padrões, valorizando pessoas e construindo relações duradouras baseadas em confiança e desempenho.
     </p>
-
     <p>
         O Grupo RS é uma empresa sólida, construída dia após dia, com trabalho sério e visão de futuro.
         <strong>Grupo RS — a prestadora do futuro. Terceirize com quem trabalha para crescer junto com você.</strong>
@@ -320,7 +327,6 @@
 
 <section id="porque">
     <h2>Por que escolher o Grupo RS?</h2>
-
     <ul>
         <li>Equipe reduzida e altamente produtiva</li>
         <li>Atuação em todo o Brasil</li>
@@ -335,9 +341,7 @@
 
 <section id="atuacao">
     <h2>Onde Atuamos</h2>
-
     <p>O Grupo RS atua em todo o Brasil, com forte presença nas seguintes regiões:</p>
-
     <ul>
         <li>Navegantes – SC (sede)</li>
         <li>Itajaí e toda a região portuária</li>
@@ -348,7 +352,6 @@
         <li>São Paulo – capital e interior</li>
         <li>Atendimento nacional conforme demanda</li>
     </ul>
-
     <p>
         Estamos preparados para atender empresas de pequeno, médio e grande porte, oferecendo mão de obra qualificada
         e soluções logísticas completas.
@@ -360,24 +363,23 @@
 
     <div class="servico-box">
         <h3>Carga e Descarga</h3>
-        <img src="foto_site_logo_1.jpg">
+        <img src="foto_site_logo_1.jpg" alt="Serviço de carga e descarga - Grupo RS">
     </div>
 
     <div class="servico-box">
         <h3>Conferente</h3>
-        <img src="foto_site_logo_3.jpg">
+        <img src="foto_site_logo_3.jpg" alt="Serviço de conferência logística - Grupo RS">
     </div>
 
     <div class="servico-box">
         <h3>Operador</h3>
-        <img src="foto_site_logo_3 (1).jpg">
+        <img src="foto_site_logo_3 (1).jpg" alt="Operador logístico - Grupo RS">
     </div>
 
     <div class="servico-box">
         <h3>Limpeza</h3>
-        <img src="foto_site_logo_4.jpg">
+        <img src="foto_site_logo_4.jpg" alt="Serviço de limpeza e conservação - Grupo RS">
     </div>
-
 </section>
 
 <section id="orcamento">
@@ -385,7 +387,6 @@
     <p>Preencha os dados abaixo e envie diretamente para nossa equipe via WhatsApp.</p>
 
     <div class="form-box">
-
         <label>Telefone / WhatsApp</label>
         <input type="text" id="tel" placeholder="(DDD) 9 0000-0000">
 
@@ -410,7 +411,6 @@
             <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
             <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
         </div>
-
     </div>
 </section>
 
@@ -426,5 +426,58 @@
     <p>© 2026 Grupo RS – Todos os direitos reservados</p>
 </footer>
 
-<!-- BALÃO DO MASCOTE -->
-<div id="balaoMascote" class="balao-masc
+<!-- Mascote -->
+<img src="mascote.png" class="mascote-flutuante" onclick="mostrarBalao()">
+
+<div id="balaoMascote" class="balao-mascote">
+    Precisa de ajuda? Clique aqui para falar com nossa equipe!
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+}
+
+function mostrarBalao() {
+    const balao = document.getElementById("balaoMascote");
+    balao.style.display = balao.style.display === "block" ? "none" : "block";
+}
+
+function enviarRodrigo() {
+    const tel = document.getElementById("tel").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const desc = document.getElementById("descricao").value;
+
+    const msg = encodeURIComponent(
+        `Olá Rodrigo! Tenho interesse em orçamento.\n\n` +
+        `📞 Telefone: ${tel}\n` +
+        `📍 Cidade: ${cidade}\n` +
+        `🛠 Serviço: ${servico}\n` +
+        `📝 Descrição: ${desc}`
+    );
+
+    window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+}
+
+function enviarJulio() {
+    const tel = document.getElementById("tel").value;
+    const cidade = document.getElementById("cidade").value;
+    const servico = document.getElementById("servico").value;
+    const desc = document.getElementById("descricao").value;
+
+    const msg = encodeURIComponent(
+        `Olá Julio! Tenho interesse em orçamento.\n\n` +
+        `📞 Telefone: ${tel}\n` +
+        `📍 Cidade: ${cidade}\n` +
+        `🛠 Serviço: ${servico}\n` +
+        `📝 Descrição: ${desc}`
+    );
+
+    window.open(`https://wa.me/5547997540134?text=${msg}`, "_blank");
+}
+</script>
+
+</body>
+</html>
