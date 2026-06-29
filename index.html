@@ -1,11 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
     <title>Grupo RS – Prestadora de Serviços Operacionais e Logísticos</title>
 
     <!-- SEO COMPLETO -->
     <meta name="description" content="Grupo RS Prestadora de Serviços – CNPJ 59.779.697/0001-93. Atuação em todo o Brasil com eficiência, equipe reduzida e produtividade. Especialistas em mão de obra terceirizada para logística, carga e descarga, apoio operacional, limpeza e serviços gerais.">
-    <meta name="keywords" content="Grupo RS, Grupo RS Prestadora de Serviços, Rodrigo Cardoso Soares, mão de obra terceirizada Brasil, empresa de logística SC, carga e descarga, apoio logístico, serviços operacionais, terceirização de mão de obra, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais, empresa de serviços Navegantes, logística Santa Catarina, empresa de carga e descarga Brasil, terceirização Navegantes, empresa de apoio operacional, serviços de logística Brasil">
+    <meta name="keywords" content="Grupo RS, mão de obra terceirizada, logística, carga e descarga, serviços operacionais, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais">
     <meta name="author" content="Grupo RS Prestadora de Serviços">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -36,19 +37,27 @@
       "description": "Empresa especializada em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional."
     }
     </script>
+
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        background: url("fundo_rs.png.jpeg") no-repeat center center fixed;
-        background-size: cover;
+        background: #f2f2f2;
+    }
+
+    /* Fundo otimizado para mobile */
+    @media (min-width: 768px) {
+        body {
+            background: url("fundo_rs.png.jpeg") no-repeat center center fixed;
+            background-size: cover;
+        }
     }
 
     section {
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.45);
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.55);
         backdrop-filter: blur(2px);
-        margin: 20px;
+        margin: 15px;
         border-radius: 10px;
     }
 
@@ -88,7 +97,7 @@
 
     .servico-box img {
         width: 100%;
-        max-width: 320px;
+        max-width: 300px;
         height: auto;
         display: block;
         margin: 10px auto;
@@ -96,11 +105,12 @@
         object-fit: cover;
     }
 
+    /* Formulário mais leve */
     .form-box {
-        max-width: 500px;
+        max-width: 480px;
         margin: auto;
-        background: rgba(255,255,255,0.7);
-        padding: 25px;
+        background: rgba(255,255,255,0.85);
+        padding: 20px;
         border-radius: 12px;
         box-shadow: 0 0 12px rgba(0,0,0,0.15);
     }
@@ -118,12 +128,10 @@
 
     .btn-area {
         display: flex;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: center;
     }
 
-    .btn-rodrigo,{
-        flex: 1;
+    .btn-rodrigo {
         padding: 14px;
         border: none;
         border-radius: 8px;
@@ -131,55 +139,30 @@
         color: white;
         cursor: pointer;
         font-weight: bold;
+        background: #007bff;
+        width: 100%;
     }
- .btn-rodrigo { background: #007bff; }
-     .btn-rodrigo:hover { background: #005fcc; }
-     /* MASCOTE */
+
+    .btn-rodrigo:hover { background: #005fcc; }
+
+    /* Mascote otimizado */
     .mascote-flutuante {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 150px;
+        width: 120px;
         cursor: pointer;
         z-index: 9999;
-        opacity: 0;
-        transform: translateY(40px) scale(0.8);
-        animation:
-            entradaMascote 1.2s ease-out forwards,
-            movimentoMascote 4s ease-in-out infinite 1.2s,
-            flutuar 3s ease-in-out infinite 1.2s;
-        transition: transform 0.3s ease, filter 0.3s ease;
-        filter: drop-shadow(0 12px 20px rgba(0,0,0,0.55));
-    }
-
-    @keyframes entradaMascote {
-        0% { opacity: 0; transform: translateY(40px) scale(0.8); }
-        60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
-        100% { opacity: 1; transform: translateY(0px) scale(1); }
-    }
-
-    @keyframes movimentoMascote {
-        0% { transform: translateX(0px) rotateZ(0deg); }
-        25% { transform: translateX(-6px) rotateZ(-2deg); }
-        50% { transform: translateX(0px) rotateZ(0deg); }
-        75% { transform: translateX(6px) rotateZ(2deg); }
-        100% { transform: translateX(0px) rotateZ(0deg); }
-    }
-
-    @keyframes flutuar {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-        100% { transform: translateY(0px); }
+        transition: transform 0.3s ease;
     }
 
     .mascote-flutuante:hover {
-        transform: translateY(-10px) scale(1.08) rotateZ(-3deg);
-        filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7));
+        transform: scale(1.08);
     }
 
     .balao-mascote {
         position: fixed;
-        bottom: 170px;
+        bottom: 150px;
         right: 40px;
         background: #ffffff;
         padding: 12px 18px;
@@ -190,15 +173,10 @@
         font-weight: bold;
         z-index: 9999;
         display: none;
-        animation: fadeIn 0.5s ease-in-out;
         max-width: 250px;
     }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
 </style>
+
 <body>
 
 <header>
@@ -231,10 +209,6 @@
         <strong>eficiência, produtividade e equipes enxutas</strong>.
     </p>
 
-    <p>
-        Somos especialistas em <strong>mão de obra terceirizada</strong> para:
-    </p>
-
     <ul>
         <li>Carga e descarga</li>
         <li>Apoio logístico</li>
@@ -250,12 +224,8 @@
     <h2>Nossa História</h2>
     <p>
         O <strong>Grupo RS</strong> nasceu com o propósito de transformar operações logísticas em processos mais eficientes,
-        seguros e inteligentes. Com dedicação diária e compromisso com resultados, expandimos nossa atuação por toda Santa Catarina
-        e São Paulo, atendendo empresas de pequeno, médio e grande porte.
-    </p>
-
-    <p>
-        Hoje contamos com mais de <strong>35 colaboradores</strong> treinados e comprometidos com qualidade, agilidade e responsabilidade.
+        seguros e inteligentes. Hoje contamos com mais de <strong>35 colaboradores</strong> treinados e comprometidos com qualidade,
+        agilidade e responsabilidade.
     </p>
 </section>
 
@@ -294,8 +264,6 @@
 
 <section id="atuacao">
     <h2>Onde Atuamos</h2>
-    <p>Atendemos empresas em todo o Brasil, com forte presença em:</p>
-
     <ul>
         <li>Navegantes – SC (sede)</li>
         <li>Itajaí e região portuária</li>
@@ -358,7 +326,6 @@
 
         <div class="btn-area">
             <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
-            <button class="btn-julio" onclick="enviarJulio()">Enviar para Julio</button>
         </div>
     </div>
 </section>
@@ -366,7 +333,7 @@
 <section id="contato">
     <h2>Contato</h2>
     <p><strong>Rodrigo Soares – Diretor:</strong> 47 9 9186-6101</p>
-     <p><strong>Jefferson Fernandes – TI:</strong> 33 9 8833-2748</p>
+    <p><strong>Jefferson Fernandes – TI:</strong> 33 9 8833-2748</p>
 </section>
 
 <footer>
@@ -380,6 +347,7 @@
 <div id="balaoMascote" class="balao-mascote">
     Precisa de ajuda? Clique aqui para falar com nossa equipe!
 </div>
+
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
@@ -404,8 +372,10 @@ function enviarRodrigo() {
         `🛠 Serviço: ${servico}\n` +
         `📝 Descrição: ${desc}`
     );
-   window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+
+    window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
 }
-
-
 </script>
+
+</body>
+</html>
