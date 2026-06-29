@@ -7,7 +7,7 @@
 
     <!-- SEO COMPLETO -->
     <meta name="description" content="Grupo RS Prestadora de Serviços – CNPJ 59.779.697/0001-93. Atuação em todo o Brasil com eficiência, equipe reduzida e produtividade. Especialistas em mão de obra terceirizada para logística, carga e descarga, apoio operacional, limpeza e serviços gerais.">
-    <meta name="keywords" content="Grupo RS, Grupo RS Prestadora de Serviços, Rodrigo Cardoso Soares, mão de obra terceirizada Brasil, empresa de logística SC, carga e descarga, apoio logístico, serviços operacionais, terceirização de mão de obra, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais, empresa de serviços Navegantes, logística Santa Catarina, empresa de carga e descarga Brasil, terceirização Navegantes, empresa de apoio operacional, serviços de logística Brasil">
+    <meta name="keywords" content="Grupo RS, mão de obra terceirizada, logística, carga e descarga, serviços operacionais, limpeza industrial, conferente, operador logístico, etiquetagem, separação, serviços gerais">
     <meta name="author" content="Grupo RS Prestadora de Serviços">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -46,7 +46,6 @@
         background: #f2f2f2;
     }
 
-    /* Fundo otimizado para mobile */
     @media (min-width: 768px) {
         body {
             background: url("fundo_rs.png.jpeg") no-repeat center center fixed;
@@ -128,10 +127,12 @@
 
     .btn-area {
         display: flex;
+        gap: 10px;
         justify-content: center;
     }
 
-    .btn-rodrigo {
+    .btn-rodrigo,
+    .btn-jefferson {
         padding: 14px;
         border: none;
         border-radius: 8px;
@@ -139,11 +140,14 @@
         color: white;
         cursor: pointer;
         font-weight: bold;
-        background: #007bff;
         width: 100%;
     }
 
+    .btn-rodrigo { background: #007bff; }
     .btn-rodrigo:hover { background: #005fcc; }
+
+    .btn-jefferson { background: #28a745; }
+    .btn-jefferson:hover { background: #1e7e34; }
 
     .mascote-flutuante {
         position: fixed;
@@ -328,6 +332,7 @@
 
         <div class="btn-area">
             <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Rodrigo</button>
+            <button class="btn-jefferson" onclick="falarJefferson()">Falar com Jefferson (TI)</button>
         </div>
     </div>
 </section>
@@ -335,7 +340,7 @@
 <section id="contato">
     <h2>Contato</h2>
     <p><strong>Rodrigo Soares – Diretor:</strong> 47 9 9186-6101</p>
-    <p><strong>Jefferson Fernandes – TI:</strong> 33 9 8833-2748</p>
+    <p><strong>Jefferson Fernandes Borges – TI:</strong> 33 9 8833-2748</p>
 </section>
 
 <footer>
@@ -376,6 +381,10 @@ function enviarRodrigo() {
     );
 
     window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+}
+
+function falarJefferson() {
+    window.open(`https://wa.me/5533988332748?text=Olá Jefferson! Preciso de serviço de TI.`, "_blank");
 }
 </script>
 
