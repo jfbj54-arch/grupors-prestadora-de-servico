@@ -414,20 +414,5 @@ function enviarRodrigo() {
     window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
 }
 
-function enviarJulio() {
-    const tel = document.getElementById("tel").value;
-    const cidade = document.getElementById("cidade").value;
-    const servico = document.getElementById("servico").value;
-    const desc = document.getElementById("descricao").value;
 
-    const msg = encodeURIComponent(
-        `Olá Julio! Tenho interesse em orçamento.\n\n` +
-        `📞 Telefone: ${tel}\n` +
-        `📍 Cidade: ${cidade}\n` +
-        `🛠 Serviço: ${servico}\n` +
-        `📝 Descrição: ${desc}`
-    );
-
-    window.open(`https://wa.me/5547997540134?text=${msg}`, "_blank");
-}
 </script>
