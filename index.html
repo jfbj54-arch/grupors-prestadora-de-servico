@@ -122,7 +122,7 @@
         gap: 10px;
     }
 
-    .btn-rodrigo, .btn-julio {
+    .btn-rodrigo,{
         flex: 1;
         padding: 14px;
         border: none;
@@ -132,14 +132,9 @@
         cursor: pointer;
         font-weight: bold;
     }
-
-    .btn-rodrigo { background: #007bff; }
-    .btn-julio { background: #28a745; }
-
-    .btn-rodrigo:hover { background: #005fcc; }
-    .btn-julio:hover { background: #1e7e34; }
-
-    /* MASCOTE */
+ .btn-rodrigo { background: #007bff; }
+     .btn-rodrigo:hover { background: #005fcc; }
+     /* MASCOTE */
     .mascote-flutuante {
         position: fixed;
         bottom: 20px;
@@ -409,8 +404,7 @@ function enviarRodrigo() {
         `🛠 Serviço: ${servico}\n` +
         `📝 Descrição: ${desc}`
     );
-
-    window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+   window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
 }
 
 
