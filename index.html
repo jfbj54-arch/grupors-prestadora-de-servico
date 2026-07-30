@@ -10,6 +10,9 @@
     <meta name="author" content="Grupo RS Prestadora de Serviços">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fundo_rs.png.jpeg">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Grupo RS – Prestadora de Serviços Operacionais e Logísticos">
     <meta property="og:description" content="Especialistas em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional em todo o Brasil.">
@@ -39,7 +42,7 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -47,7 +50,9 @@
             --secondary: #1E3A8A;
             --accent: #2563EB;
             --success: #16A34A;
-            --light: #F8FAFC;
+            --whatsapp: #25D366;
+            --light: #FFFFFF;
+            --alt-bg: #F1F5F9;
             --dark: #1E293B;
             --gray: #64748B;
             --border: #E2E8F0;
@@ -87,9 +92,14 @@
             padding: 15px 20px;
         }
 
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo {
             color: white;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
@@ -98,16 +108,22 @@
             color: #60A5FA;
         }
 
+        .cnpj-tag {
+            font-size: 11px;
+            color: #94A3B8;
+            letter-spacing: 0.3px;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav a {
             color: #CBD5E1;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             transition: color 0.3s;
         }
@@ -128,7 +144,7 @@
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(30, 58, 138, 0.85)), url("fundo_rs.png.jpeg") no-repeat center center;
             background-size: cover;
             color: white;
-            padding: 160px 20px 100px;
+            padding: 160px 20px 80px;
             text-align: center;
         }
 
@@ -166,14 +182,56 @@
             background: #1D4ED8;
         }
 
-        /* SECTIONS GENERAL */
+        /* BARRA DE NÚMEROS DE IMPACTO */
+        .stats-bar {
+            background: var(--secondary);
+            color: white;
+            padding: 25px 20px;
+            box-shadow: inset 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stats-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: #60A5FA;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #E2E8F0;
+            font-weight: 500;
+        }
+
+        /* SECTIONS & BLOCOS ALTERNADOS */
         section {
             padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        section h2 {
+        .section-alt {
+            background-color: var(--alt-bg);
+            max-width: 100%;
+            padding: 80px 0;
+        }
+
+        .section-alt .container-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section h2, .section-alt h2 {
             font-size: 30px;
             color: var(--primary);
             text-align: center;
@@ -181,7 +239,7 @@
             position: relative;
         }
 
-        section h2::after {
+        section h2::after, .section-alt h2::after {
             content: '';
             display: block;
             width: 60px;
@@ -198,7 +256,7 @@
             font-size: 16px;
         }
 
-        /* SOBRE & HISTÓRIA GRID */
+        /* CARDS & GRIDS */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -220,7 +278,6 @@
             font-size: 20px;
         }
 
-        /* MVV GRID */
         .mvv-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -263,10 +320,10 @@
             margin-bottom: 10px;
         }
 
-        /* POR QUE ESCOLHER & ATUAÇÃO */
+        /* DIFERENCIAIS E ATUAÇÃO COM ÍCONES SVG */
         .features-list, .atuacao-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -277,6 +334,42 @@
             border-left: 4px solid var(--accent);
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-item svg, .atuacao-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--gray);
         }
 
         /* ORÇAMENTO FORMULÁRIO */
@@ -327,23 +420,22 @@
             margin-top: 25px;
         }
 
-        .btn-rodrigo, .btn-jefferson {
-            flex: 1;
-            padding: 14px;
+        .btn-enviar {
+            width: 100%;
+            background: var(--accent);
+            color: white;
+            padding: 15px;
             border: none;
             border-radius: 6px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            color: white;
-            transition: opacity 0.3s;
+            transition: background 0.3s;
         }
 
-        .btn-rodrigo { background: var(--accent); }
-        .btn-rodrigo:hover { background: #1D4ED8; }
-
-        .btn-jefferson { background: var(--success); }
-        .btn-jefferson:hover { background: #15803D; }
+        .btn-enviar:hover {
+            background: #1D4ED8;
+        }
 
         /* CONTATO & FOOTER */
         .contato-info {
@@ -366,12 +458,36 @@
             color: white;
         }
 
-        /* MASCOTE FLUTUANTE */
+        /* BOTÃO WHATSAPP FLUTUANTE (ESQUERDA) */
+        .whatsapp-flutuante {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 9998;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-flutuante:hover {
+            transform: scale(1.1);
+        }
+
+        /* MASCOTE FLUTUANTE (DIREITA) */
         .mascote-flutuante {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 100px;
+            width: 90px;
             cursor: pointer;
             z-index: 9999;
             transition: transform 0.3s ease;
@@ -384,7 +500,7 @@
 
         .balao-mascote {
             position: fixed;
-            bottom: 130px;
+            bottom: 120px;
             right: 30px;
             background: white;
             padding: 15px;
@@ -405,7 +521,7 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 65px;
                 left: 0;
                 width: 100%;
                 background: var(--primary);
@@ -416,7 +532,6 @@
             .menu-btn { display: block; }
             .grid-2 { grid-template-columns: 1fr; }
             .hero h1 { font-size: 28px; }
-            .btn-area { flex-direction: column; }
         }
     </style>
 </head>
@@ -426,17 +541,18 @@
 <!-- HEADER -->
 <header>
     <div class="header-container">
-        <div class="logo">Grupo <span>RS</span></div>
+        <div class="logo-area">
+            <div class="logo">Grupo <span>RS</span></div>
+            <span class="cnpj-tag">CNPJ: 59.779.697/0001-93</span>
+        </div>
         <span class="menu-btn" onclick="toggleMenu()">☰</span>
         <nav>
             <ul id="menu">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#historia">História</a></li>
                 <li><a href="#mvv">Missão</a></li>
-                <li><a href="#porque">Diferenciais</a></li>
-                <li><a href="#atuacao">Atuação</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#orcamento">Orçamento</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -453,7 +569,25 @@
     </div>
 </section>
 
-<!-- SOBRE & HISTÓRIA -->
+<!-- NÚMEROS DE IMPACTO -->
+<div class="stats-bar">
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3>+35</h3>
+            <p>Colaboradores Ativos e Treinados</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Foco em Produtividade e Redução de Custos</p>
+        </div>
+        <div class="stat-item">
+            <h3>Nacional</h3>
+            <p>Atuação em Santa Catarina, São Paulo e Regiões</p>
+        </div>
+    </div>
+</div>
+
+<!-- SOBRE & HISTÓRIA (Fundo Branco) -->
 <section id="sobre">
     <h2>Sobre o Grupo RS</h2>
     <p class="section-subtitle">Conheça nossa estrutura e excelência em serviços operacionais</p>
@@ -461,69 +595,93 @@
     <div class="grid-2">
         <div class="card">
             <h3>Quem Somos</h3>
-            <p>O <strong>Grupo RS Prestadora de Serviços</strong> (Rodrigo Cardoso Soares - CNPJ: <strong>59.779.697/0001-93</strong>) atua em âmbito nacional prestando soluções corporativas eficientes focadas em otimização de processos e redução de custos.</p>
+            <p>O <strong>Grupo RS Prestadora de Serviços</strong> (Rodrigo Cardoso Soares) atua em âmbito nacional prestando soluções corporativas eficientes focadas em otimização de processos e redução de encargos para o contratante.</p>
         </div>
         <div class="card" id="historia">
             <h3>Nossa História</h3>
-            <p>Fundado para revolucionar a agilidade logística, o Grupo RS conta hoje com mais de <strong>35 colaboradores ativos</strong> e altamente treinados para entregar padrão de qualidade superior aos nossos clientes.</p>
+            <p>Fundado para revolucionar a agilidade logística, o Grupo RS conta hoje com equipes altamente capacitadas e comprometidas em entregar padrão de qualidade superior e segurança operacional.</p>
         </div>
     </div>
 </section>
 
-<!-- MISSÃO, VISÃO E VALORES -->
-<section id="mvv">
-    <h2>Missão, Visão e Valores</h2>
-    <p class="section-subtitle">Os pilares que norteiam nossa atuação profissional</p>
-    
-    <div class="mvv-grid">
-        <div class="card">
-            <h3>Missão</h3>
-            <p>Entregar soluções logísticas e operacionais eficientes, seguras e inteligentes para impulsionar os negócios dos nossos parceiros.</p>
-        </div>
-        <div class="card">
-            <h3>Visão</h3>
-            <p>Tornar-se referência nacional em terceirização e gestão de mão de obra operacional até 2030.</p>
-        </div>
-        <div class="card">
-            <h3>Valores</h3>
-            <p>Excelência operacional, transparência inegociável, respeito às pessoas, agilidade e responsabilidade mútua.</p>
+<!-- MISSÃO, VISÃO E VALORES (Fundo Alternado) -->
+<div class="section-alt" id="mvv">
+    <div class="container-inner">
+        <h2>Missão, Visão e Valores</h2>
+        <p class="section-subtitle">Os pilares que norteiam nossa atuação profissional</p>
+        
+        <div class="mvv-grid">
+            <div class="card">
+                <h3>Missão</h3>
+                <p>Entregar soluções logísticas e operacionais eficientes, seguras e inteligentes para impulsionar os negócios dos nossos parceiros.</p>
+            </div>
+            <div class="card">
+                <h3>Visão</h3>
+                <p>Tornar-se referência nacional em terceirização e gestão de mão de obra operacional e logística.</p>
+            </div>
+            <div class="card">
+                <h3>Valores</h3>
+                <p>Excelência operacional, transparência inegociável, respeito às pessoas, agilidade e responsabilidade mútua.</p>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- POR QUE ESCOLHER -->
+<!-- POR QUE ESCOLHER (Fundo Branco) -->
 <section id="porque">
     <h2>Por que Escolher o Grupo RS?</h2>
     <p class="section-subtitle">Vantagens competitivas para o seu negócio</p>
     
     <div class="features-list">
-        <div class="feature-item">Equipe reduzida e altamente produtiva</div>
-        <div class="feature-item">Atuação em âmbito nacional</div>
-        <div class="feature-item">Redução real de custos operacionais</div>
-        <div class="feature-item">Supervisão constante e profissionais treinados</div>
-        <div class="feature-item">Atendimento rápido e humanizado</div>
-        <div class="feature-item">Processos seguros e organizados</div>
-        <div class="feature-item">Equipe robusta com mais de 35 colaboradores</div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Equipe reduzida e altamente produtiva
+        </div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-13h-2v6h6v-2h-4z"/></svg>
+            Atuação em âmbito nacional
+        </div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
+            Redução real de custos operacionais
+        </div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            Supervisão constante e profissionais treinados
+        </div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            Atendimento rápido e humanizado
+        </div>
+        <div class="feature-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Equipe robusta com mais de 35 colaboradores
+        </div>
     </div>
 </section>
 
-<!-- ATUAÇÃO -->
-<section id="atuacao">
-    <h2>Onde Atuamos</h2>
-    <p class="section-subtitle">Presença estratégica para atender com agilidade</p>
-    
-    <div class="atuacao-list">
-        <div class="atuacao-item">Navegantes – SC (Matriz / Sede)</div>
-        <div class="atuacao-item">Itajaí e Região Portuária</div>
-        <div class="atuacao-item">Balneário Camboriú e Camboriú</div>
-        <div class="atuacao-item">Blumenau e Vale do Itajaí</div>
-        <div class="atuacao-item">Joinville e Região Norte SC</div>
-        <div class="atuacao-item">Todo o Estado de Santa Catarina</div>
-        <div class="atuacao-item">São Paulo – Capital e Interior</div>
+<!-- ATUAÇÃO (Fundo Alternado) -->
+<div class="section-alt" id="atuacao">
+    <div class="container-inner">
+        <h2>Onde Atuamos</h2>
+        <p class="section-subtitle">Presença estratégica para atender com agilidade</p>
+        
+        <div class="atuacao-list">
+            <div class="atuacao-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Navegantes – SC (Matriz / Sede)
+            </div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Itajaí e Região Portuária</div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Balneário Camboriú e Camboriú</div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Blumenau e Vale do Itajaí</div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Joinville e Região Norte SC</div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Todo o Estado de Santa Catarina</div>
+            <div class="atuacao-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> São Paulo – Capital e Interior</div>
+        </div>
     </div>
-</section>
+</div>
 
-<!-- SERVIÇOS -->
+<!-- SERVIÇOS (Fundo Branco) -->
 <section id="servicos">
     <h2>Nossos Serviços</h2>
     <p class="section-subtitle">Mão de obra qualificada para sua operação não parar</p>
@@ -541,7 +699,7 @@
             <img src="foto_site_logo_3.jpg" alt="Serviço de conferente">
             <div class="servico-content">
                 <h3>Conferente</h3>
-                <p>Rigower e exatidão no controle de estoque, entradas e saídas de cargas.</p>
+                <p>Rigor e exatidão no controle de estoque, entradas e saídas de cargas.</p>
             </div>
         </div>
 
@@ -563,10 +721,33 @@
     </div>
 </section>
 
-<!-- ORÇAMENTO -->
+<!-- FAQ / DÚVIDAS FREQUENTES (Fundo Alternado) -->
+<div class="section-alt" id="faq">
+    <div class="container-inner">
+        <h2>Dúvidas Frequentes</h2>
+        <p class="section-subtitle">Tudo o que você precisa saber antes de contratar</p>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Como funciona a contratação da mão de obra?</h3>
+                <p>Fornecemos serviços terceirizados sob medida, focando em equipes enxutas, produtivas e com total respaldo operacional para a sua empresa.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Vocês atendem chamados de urgência?</h3>
+                <p>Sim! Contamos com agilidade de atendimento para picos sazonais, cargas urgentes ou reforço imediato na operação.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Qual a área de cobertura do Grupo RS?</h3>
+                <p>Atendemos em todo o estado de Santa Catarina (com forte presença em Navegantes e Itajaí), São Paulo e demandas em âmbito nacional.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ORÇAMENTO INTELIGENTE (Fundo Branco) -->
 <section id="orcamento">
-    <h2>Solicite seu Orçamento</h2>
-    <p class="section-subtitle">Preencha os dados e fale diretamente conosco pelo WhatsApp</p>
+    <h2>Solicite seu Orçamento / Contato</h2>
+    <p class="section-subtitle">Preencha os dados abaixo e o sistema direciona automaticamente para o responsável</p>
 
     <div class="form-container">
         <div class="form-group">
@@ -580,15 +761,16 @@
         </div>
 
         <div class="form-group">
-            <label>Tipo de Serviço Desejado</label>
+            <label>Assunto / Tipo de Serviço</label>
             <select id="servico">
                 <option value="">Selecione...</option>
-                <option>Limpeza e Conservação</option>
-                <option>Carga e Descarga</option>
-                <option>Conferente</option>
-                <option>Operador Logístico</option>
-                <option>Etiquetagem e Separação</option>
-                <option>Outro</option>
+                <option value="Limpeza e Conservação">Limpeza e Conservação</option>
+                <option value="Carga e Descarga">Carga e Descarga</option>
+                <option value="Conferente">Conferente</option>
+                <option value="Operador Logístico">Operador Logístico</option>
+                <option value="Etiquetagem e Separação">Etiquetagem e Separação</option>
+                <option value="Suporte Técnico / TI">Suporte Técnico / TI (Jefferson)</option>
+                <option value="Outro Assunto">Outro Assunto</option>
             </select>
         </div>
 
@@ -598,29 +780,35 @@
         </div>
 
         <div class="btn-area">
-            <button class="btn-rodrigo" onclick="enviarRodrigo()">Enviar para Direção (Rodrigo)</button>
-            <button class="btn-jefferson" onclick="falarJefferson()">Suporte Técnico (Jefferson)</button>
+            <button class="btn-enviar" onclick="enviarMensagemInteligente()">Enviar via WhatsApp</button>
         </div>
     </div>
 </section>
 
-<!-- CONTATO -->
-<section id="contato">
-    <h2>Canais de Contato</h2>
-    <p class="section-subtitle">Fale diretamente com os nossos responsáveis</p>
-    
-    <div class="contato-info">
-        <p><strong>Rodrigo Soares – Diretor Comercial:</strong> (47) 9 9186-6101</p>
-        <p><strong>Jefferson Fernandes Borges – TI / Suporte:</strong> (33) 9 8833-2748</p>
-        <p style="margin-top: 15px; font-size: 15px; color: var(--dark);"><strong>Endereço Sede:</strong> Rua Vereador José Flávio Soares, 294 – Navegantes / SC – CEP: 88371-244</p>
+<!-- CONTATO (Fundo Alternado) -->
+<div class="section-alt" id="contato">
+    <div class="container-inner">
+        <h2>Canais de Contato</h2>
+        <p class="section-subtitle">Fale diretamente com os nossos responsáveis</p>
+        
+        <div class="contato-info">
+            <p><strong>Rodrigo Soares – Diretor Comercial:</strong> (47) 9 9186-6101</p>
+            <p><strong>Jefferson Fernandes Borges – TI / Suporte:</strong> (33) 9 8833-2748</p>
+            <p style="margin-top: 15px; font-size: 15px; color: var(--dark);"><strong>Endereço Sede:</strong> Rua Vereador José Flávio Soares, 294 – Navegantes / SC – CEP: 88371-244</p>
+        </div>
     </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
     <p><strong>Obrigado pela preferência. Jesus te ama.</strong></p>
     <p>© 2026 Grupo RS Prestadora de Serviços – CNPJ: 59.779.697/0001-93. Todos os direitos reservados.</p>
 </footer>
+
+<!-- BOTÃO WHATSAPP FLUTUANTE DIRETO -->
+<a href="https://wa.me/5547991866101?text=Olá! Vim pelo site e gostaria de mais informações sobre os serviços do Grupo RS." class="whatsapp-flutuante" target="_blank" title="Fale pelo WhatsApp">
+    💬
+</a>
 
 <!-- MASCOTE -->
 <img src="mascote3D.png" class="mascote-flutuante" onclick="mostrarBalao()" alt="Mascote Grupo RS">
@@ -640,25 +828,31 @@ function mostrarBalao() {
     balao.style.display = balao.style.display === "block" ? "none" : "block";
 }
 
-function enviarRodrigo() {
+function enviarMensagemInteligente() {
     const tel = document.getElementById("tel").value;
     const cidade = document.getElementById("cidade").value;
     const servico = document.getElementById("servico").value;
     const desc = document.getElementById("descricao").value;
 
-    const msg = encodeURIComponent(
-        `Olá Rodrigo! Tenho interesse em um orçamento.\n\n` +
-        `📞 Telefone: ${tel}\n` +
-        `📍 Cidade: ${cidade}\n` +
-        `🛠 Serviço: ${servico}\n` +
-        `📝 Descrição: ${desc}`
-    );
-
-    window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
-}
-
-function falarJefferson() {
-    window.open(`https://wa.me/5533988332748?text=Olá Jefferson! Preciso de suporte de TI referente ao site do Grupo RS.`, "_blank");
+    // Redirecionamento Dinâmico: Se for TI ou Outro Assunto, vai para o Jefferson (33 9 8833-2748), senão para o Rodrigo (47 9 9186-6101)
+    if (servico === "Suporte Técnico / TI" || servico === "Outro Assunto") {
+        const msg = encodeURIComponent(
+            `Olá Jefferson! Preciso de atendimento sobre: ${servico}.\n\n` +
+            `📞 Telefone: ${tel}\n` +
+            `📍 Cidade: ${cidade}\n` +
+            `📝 Descrição: ${desc}`
+        );
+        window.open(`https://wa.me/5533988332748?text=${msg}`, "_blank");
+    } else {
+        const msg = encodeURIComponent(
+            `Olá Rodrigo! Tenho interesse em orçamento.\n\n` +
+            `📞 Telefone: ${tel}\n` +
+            `📍 Cidade: ${cidade}\n` +
+            `🛠 Serviço: ${servico}\n` +
+            `📝 Descrição: ${desc}`
+        );
+        window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank");
+    }
 }
 </script>
 
