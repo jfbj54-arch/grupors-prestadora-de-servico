@@ -3124,6 +3124,333 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+
+        /* ===== V9 - SEÇÕES INTERNAS ESTILO CORPORATIVO VISUAL ===== */
+
+        /* Fundo e títulos das áreas internas */
+        #solucoes,
+        #servicos,
+        #como-funciona {
+            background: #F3F3F1 !important;
+        }
+
+        #solucoes h2,
+        #servicos h2,
+        #como-funciona h2 {
+            font-size: clamp(34px, 4vw, 52px) !important;
+            font-weight: 500 !important;
+            line-height: 1.12 !important;
+            color: #222222 !important;
+            text-transform: none !important;
+            letter-spacing: -.02em !important;
+            margin-bottom: 10px !important;
+        }
+
+        #solucoes .section-subtitle,
+        #servicos .section-subtitle,
+        #como-funciona .section-subtitle {
+            font-size: 17px !important;
+            color: #D89400 !important;
+            font-weight: 800 !important;
+            max-width: 780px !important;
+            margin-bottom: 46px !important;
+        }
+
+        /* SOLUÇÕES - cards fotográficos amplos */
+        #solucoes .solucoes-grid {
+            max-width: 1220px !important;
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 14px !important;
+            align-items: stretch;
+        }
+
+        #solucoes .solucao-card {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            min-height: auto !important;
+            overflow: visible !important;
+            text-align: center;
+        }
+
+        #solucoes .solucao-icon {
+            width: 100% !important;
+            height: 250px !important;
+            margin: 0 0 18px !important;
+            border-radius: 0 !important;
+            background-size: cover !important;
+            background-position: center !important;
+            color: transparent !important;
+            font-size: 0 !important;
+            box-shadow: none !important;
+        }
+
+        #solucoes .solucao-card:nth-child(1) .solucao-icon {
+            background-image: url("foto_site_logo_1.jpg") !important;
+        }
+
+        #solucoes .solucao-card:nth-child(2) .solucao-icon {
+            background-image: url("foto_site_logo_3.jpg") !important;
+        }
+
+        #solucoes .solucao-card:nth-child(3) .solucao-icon {
+            background-image: url("foto_site_logo_4.jpg") !important;
+        }
+
+        #solucoes .solucao-card:nth-child(4) .solucao-icon {
+            background-image: url("foto_site_logo_3 (1).jpg") !important;
+        }
+
+        #solucoes .solucao-card h3 {
+            font-size: 18px !important;
+            color: #202020 !important;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            margin: 0 8px 10px !important;
+        }
+
+        #solucoes .solucao-card p {
+            display: none !important;
+        }
+
+        #solucoes .solucao-card::after {
+            content: "SAIBA MAIS";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            min-height: 44px;
+            margin-top: 8px;
+            padding: 0 20px;
+            background: #DFA000;
+            color: #111;
+            border-radius: 24px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: .02em;
+        }
+
+        /* SERVIÇOS - visual como catálogo premium */
+        #servicos .servicos-grid,
+        #servicos .services-grid {
+            max-width: 1220px !important;
+            margin: 0 auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 16px !important;
+        }
+
+        #servicos .servico-box,
+        #servicos .service-card {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            overflow: visible !important;
+            text-align: center;
+            transform: none !important;
+        }
+
+        #servicos .servico-box:hover,
+        #servicos .service-card:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        #servicos .servico-box img,
+        #servicos .service-card img {
+            width: 100% !important;
+            height: 300px !important;
+            object-fit: cover !important;
+            border-radius: 0 !important;
+            display: block;
+        }
+
+        #servicos .servico-content {
+            padding: 18px 8px 0 !important;
+            min-height: auto !important;
+            align-items: center;
+        }
+
+        #servicos .servico-content h3 {
+            font-size: 19px !important;
+            color: #222 !important;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            margin-bottom: 8px !important;
+        }
+
+        #servicos .servico-content p {
+            color: #666 !important;
+            font-size: 14px !important;
+            line-height: 1.55 !important;
+            max-width: 340px;
+            margin: 0 auto 14px !important;
+        }
+
+        #servicos .servico-cta {
+            display: inline-flex !important;
+            width: auto !important;
+            min-width: 150px;
+            min-height: 44px;
+            background: #DFA000 !important;
+            color: #111 !important;
+            border: 0 !important;
+            border-radius: 24px !important;
+            padding: 0 20px !important;
+            font-size: 12px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #servicos .servico-cta:hover {
+            background: #C98F00 !important;
+            color: #111 !important;
+        }
+
+        /* COMO FUNCIONA - linha horizontal clean */
+        #como-funciona .processo-grid {
+            max-width: 1180px !important;
+            margin: 0 auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 0 !important;
+            position: relative;
+        }
+
+        #como-funciona .processo-card {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 28px 24px !important;
+            text-align: center !important;
+            position: relative;
+        }
+
+        #como-funciona .processo-card:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 52px;
+            right: -1px;
+            width: 2px;
+            height: 65px;
+            background: #D7D7D2;
+        }
+
+        #como-funciona .processo-numero {
+            width: 64px !important;
+            height: 64px !important;
+            background: #DFA000 !important;
+            color: #111 !important;
+            border: 0 !important;
+            font-size: 22px !important;
+            font-weight: 800 !important;
+            margin-bottom: 18px !important;
+        }
+
+        #como-funciona .processo-card h3 {
+            color: #222 !important;
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+        }
+
+        #como-funciona .processo-card p {
+            color: #666 !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+        }
+
+        /* espaçamento similar à referência */
+        #solucoes,
+        #servicos,
+        #como-funciona {
+            padding-top: 76px !important;
+            padding-bottom: 82px !important;
+        }
+
+        /* Tablet */
+        @media (max-width: 1000px) {
+            #solucoes .solucoes-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 26px 14px !important;
+            }
+
+            #servicos .servicos-grid,
+            #servicos .services-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 28px 16px !important;
+            }
+
+            #como-funciona .processo-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 18px !important;
+            }
+
+            #como-funciona .processo-card::after {
+                display: none !important;
+            }
+        }
+
+        /* Celular */
+        @media (max-width: 640px) {
+            #solucoes,
+            #servicos,
+            #como-funciona {
+                padding: 54px 14px !important;
+            }
+
+            #solucoes h2,
+            #servicos h2,
+            #como-funciona h2 {
+                font-size: 30px !important;
+            }
+
+            #solucoes .section-subtitle,
+            #servicos .section-subtitle,
+            #como-funciona .section-subtitle {
+                font-size: 14px !important;
+                margin-bottom: 30px !important;
+            }
+
+            #solucoes .solucoes-grid,
+            #servicos .servicos-grid,
+            #servicos .services-grid,
+            #como-funciona .processo-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+
+            #solucoes .solucao-icon {
+                height: 230px !important;
+            }
+
+            #servicos .servico-box img,
+            #servicos .service-card img {
+                height: 245px !important;
+            }
+
+            #solucoes .solucao-card h3,
+            #servicos .servico-content h3 {
+                font-size: 18px !important;
+            }
+
+            #como-funciona .processo-card {
+                padding: 18px 8px !important;
+            }
+
+            #como-funciona .processo-numero {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+
 </style>
 </head>
 
@@ -3349,7 +3676,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="section-alt" id="solucoes">
     <div class="container-inner">
         <h2>Soluções para sua Operação</h2>
-        <p class="section-subtitle">Atendimento organizado para diferentes necessidades operacionais</p>
+        <p class="section-subtitle">Soluções para diferentes áreas da sua operação</p>
 
         <div class="solucoes-grid">
             <div class="solucao-card">
@@ -3453,7 +3780,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- COMO FUNCIONA -->
 <section id="como-funciona">
     <h2>Como Funciona</h2>
-    <p class="section-subtitle">Da solicitação ao início da operação, um processo simples, rápido e organizado</p>
+    <p class="section-subtitle">Um processo simples, organizado e direto</p>
 
     <div class="processo-grid">
         <div class="processo-card">
