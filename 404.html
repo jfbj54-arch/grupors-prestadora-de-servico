@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="4;url=https://jfbj54-arch.github.io/grupors-prestadora-de-servico/">
+  <title>Página não encontrada | Grupo RS</title>
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; font-family:Arial,Helvetica,sans-serif; }
+    body {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:24px; background:linear-gradient(135deg,#0A192F,#1E3A8A); color:#fff;
+    }
+    .box {
+      width:min(620px,100%); background:#fff; color:#1E293B; border-radius:18px;
+      padding:38px 28px; text-align:center; box-shadow:0 24px 60px rgba(0,0,0,.25);
+    }
+    .marca { color:#0A192F; font-size:23px; font-weight:800; margin-bottom:18px; }
+    .marca span { color:#2563EB; }
+    h1 { font-size:34px; color:#0A192F; margin-bottom:12px; }
+    p { color:#64748B; line-height:1.6; margin-bottom:20px; }
+    .acoes { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    a,button {
+      display:inline-block; border:0; border-radius:9px; padding:13px 18px;
+      font-weight:700; text-decoration:none; cursor:pointer;
+    }
+    .principal { background:#2563EB; color:#fff; }
+    .secundario { background:#F1F5F9; color:#0A192F; }
+    small { display:block; margin-top:18px; color:#94A3B8; }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <div class="marca">Grupo <span>RS</span></div>
+    <h1>Página não encontrada</h1>
+    <p>O endereço acessado não existe ou foi aberto de forma incorreta. Você será direcionado para a página principal do Grupo RS.</p>
+    <div class="acoes">
+      <a class="principal" href="https://jfbj54-arch.github.io/grupors-prestadora-de-servico/">Ir para o site</a>
+      <button class="secundario" onclick="copiar()">Copiar link</button>
+    </div>
+    <small>Redirecionamento automático em alguns segundos.</small>
+  </main>
+  <script>
+    async function copiar() {
+      const link = "https://jfbj54-arch.github.io/grupors-prestadora-de-servico/";
+      try { await navigator.clipboard.writeText(link); alert("Link copiado!"); }
+      catch(e) {
+        const t=document.createElement("textarea"); t.value=link; document.body.appendChild(t);
+        t.select(); document.execCommand("copy"); t.remove(); alert("Link copiado!");
+      }
+    }
+  </script>
+</body>
+</html>
