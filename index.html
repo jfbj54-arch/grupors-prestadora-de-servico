@@ -49,7 +49,70 @@
       "url": "https://jfbj54-arch.github.io/grupors-prestadora-de-servico/",
       "description": "Empresa especializada em mão de obra terceirizada, logística, carga e descarga, limpeza e apoio operacional."
     }
-    </script>
+    
+function selecionarServico(nome) {
+    const select = document.getElementById("servico");
+    if (select) {
+        select.value = nome;
+        setTimeout(() => document.getElementById("orcamento")?.scrollIntoView({behavior:"smooth"}), 50);
+    }
+}
+
+function abrirPrivacidade() {
+    document.getElementById("privacyModal")?.classList.add("show");
+}
+
+function fecharPrivacidade() {
+    document.getElementById("privacyModal")?.classList.remove("show");
+}
+
+function aceitarPrivacidade() {
+    try { localStorage.setItem("grupoRS_privacidade", "aceito"); } catch(e) {}
+    document.getElementById("privacyBanner")?.classList.remove("show");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const topoBtn = document.getElementById("topoBtn");
+
+    window.addEventListener("scroll", () => {
+        if (topoBtn) topoBtn.classList.toggle("show", window.scrollY > 500);
+    });
+
+    // Animações discretas na rolagem
+    const alvos = document.querySelectorAll(
+        ".card, .servico-box, .feature-item, .atuacao-item, .faq-item, .processo-card, .urgencia-box, .depoimento-prep-card"
+    );
+    alvos.forEach(el => el.classList.add("fade-up"));
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        alvos.forEach(el => observer.observe(el));
+    } else {
+        alvos.forEach(el => el.classList.add("visible"));
+    }
+
+    // Exibir aviso de privacidade somente uma vez
+    let aceito = false;
+    try { aceito = localStorage.getItem("grupoRS_privacidade") === "aceito"; } catch(e) {}
+    if (!aceito) {
+        setTimeout(() => document.getElementById("privacyBanner")?.classList.add("show"), 900);
+    }
+
+    // Fecha menu mobile ao escolher uma seção
+    document.querySelectorAll("#menu a").forEach(link => {
+        link.addEventListener("click", () => document.getElementById("menu")?.classList.remove("active"));
+    });
+});
+
+</script>
 
     <!-- Performance / Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -832,6 +895,346 @@
             .assistente-menu { right: 16px; bottom: 104px; }
         }
 
+    
+        /* ===== ATUALIZAÇÃO PROFISSIONAL V3 ===== */
+        html { scroll-padding-top: 85px; }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .trust-strip {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+        }
+
+        .trust-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .trust-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #EFF6FF;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .servico-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 190px;
+        }
+
+        .servico-content p {
+            flex: 1;
+        }
+
+        .servico-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: #EFF6FF;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            border: 1px solid #DBEAFE;
+            transition: all .25s ease;
+        }
+
+        .servico-cta:hover {
+            background: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+            transform: translateY(-1px);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .topo-btn {
+            position: fixed;
+            right: 24px;
+            bottom: 220px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--primary);
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(15,23,42,.20);
+            z-index: 9997;
+            font-size: 18px;
+        }
+
+        .topo-btn.show {
+            display: flex;
+        }
+
+        .mobile-cta-bar {
+            display: none;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto 28px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #CBD5E1;
+            font-size: 13px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.10);
+            padding-top: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .privacy-banner {
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            max-width: 920px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(15,23,42,.25);
+            padding: 18px;
+            display: none;
+            align-items: center;
+            gap: 18px;
+            z-index: 10050;
+        }
+
+        .privacy-banner.show {
+            display: flex;
+        }
+
+        .privacy-banner p {
+            color: var(--gray);
+            font-size: 13px;
+            flex: 1;
+        }
+
+        .privacy-banner strong {
+            color: var(--primary);
+        }
+
+        .privacy-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .privacy-btn {
+            border: 0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .privacy-btn.primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .privacy-btn.secondary {
+            background: #F1F5F9;
+            color: var(--primary);
+        }
+
+        .privacy-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 10060;
+        }
+
+        .privacy-modal.show {
+            display: flex;
+        }
+
+        .privacy-card {
+            width: min(700px, 100%);
+            max-height: 85vh;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 25px 60px rgba(0,0,0,.28);
+        }
+
+        .privacy-card h2 {
+            text-align: left;
+            margin-bottom: 14px;
+        }
+
+        .privacy-card h2::after {
+            margin-left: 0;
+        }
+
+        .privacy-card p {
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .privacy-close {
+            margin-top: 12px;
+            background: var(--primary);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 16px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .trust-strip-inner { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-bottom: 72px; }
+
+            .mobile-cta-bar {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10020;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: #fff;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 -8px 22px rgba(15,23,42,.10);
+            }
+
+            .mobile-cta-bar a {
+                text-decoration: none;
+                text-align: center;
+                padding: 14px 8px;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .mobile-cta-orcamento {
+                color: var(--primary);
+            }
+
+            .mobile-cta-whatsapp {
+                background: var(--whatsapp);
+                color: #fff;
+            }
+
+            .whatsapp-flutuante {
+                bottom: 82px;
+            }
+
+            .mascote-flutuante {
+                bottom: 82px;
+            }
+
+            .assistente-menu {
+                bottom: 170px;
+            }
+
+            .topo-btn {
+                bottom: 175px;
+                right: 18px;
+            }
+
+            .privacy-banner {
+                bottom: 82px;
+                left: 12px;
+                right: 12px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .privacy-actions {
+                width: 100%;
+            }
+
+            .privacy-btn {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .trust-strip-inner { grid-template-columns: 1fr; }
+        }
+
     </style>
 </head>
 
@@ -877,6 +1280,17 @@
         </div>
     </div>
 </section>
+
+
+<!-- FAIXA DE CONFIANÇA -->
+<div class="trust-strip">
+    <div class="trust-strip-inner">
+        <div class="trust-item"><span class="trust-icon">⚡</span><span>Atendimento ágil</span></div>
+        <div class="trust-item"><span class="trust-icon">👷</span><span>Profissionais treinados</span></div>
+        <div class="trust-item"><span class="trust-icon">📍</span><span>Atuação regional e nacional</span></div>
+        <div class="trust-item"><span class="trust-icon">🤝</span><span>Atendimento humanizado</span></div>
+    </div>
+</div>
 
 <!-- NÚMEROS DE IMPACTO -->
 <div class="stats-bar">
@@ -997,34 +1411,38 @@
 
     <div class="servicos-grid">
         <div class="servico-box">
-            <img src="foto_site_logo_1.jpg" alt="Serviço de carga e descarga" loading="lazy">
+            <img loading="lazy" src="foto_site_logo_1.jpg" alt="Serviço de carga e descarga" loading="lazy">
             <div class="servico-content">
                 <h3>Carga e Descarga</h3>
                 <p>Equipe ágil para movimentação e manuseio de mercadorias com total segurança.</p>
+                <a class="servico-cta" href="#orcamento" onclick="selecionarServico('Carga e Descarga')">Solicitar este serviço</a>
             </div>
         </div>
 
         <div class="servico-box">
-            <img src="foto_site_logo_3.jpg" alt="Serviço de conferente" loading="lazy">
+            <img loading="lazy" src="foto_site_logo_3.jpg" alt="Serviço de conferente" loading="lazy">
             <div class="servico-content">
                 <h3>Conferente</h3>
                 <p>Rigor e exatidão no controle de estoque, entradas e saídas de cargas.</p>
+                <a class="servico-cta" href="#orcamento" onclick="selecionarServico('Conferente')">Solicitar este serviço</a>
             </div>
         </div>
 
         <div class="servico-box">
-            <img src="foto_site_logo_3 (1).jpg" alt="Operador logístico" loading="lazy">
+            <img loading="lazy" src="foto_site_logo_3 (1).jpg" alt="Operador logístico" loading="lazy">
             <div class="servico-content">
                 <h3>Operador Logístico</h3>
                 <p>Gestão completa de processos de separação, etiquetagem e distribuição.</p>
+                <a class="servico-cta" href="#orcamento" onclick="selecionarServico('Operador Logístico')">Solicitar este serviço</a>
             </div>
         </div>
 
         <div class="servico-box">
-            <img src="foto_site_logo_4.jpg" alt="Limpeza e conservação" loading="lazy">
+            <img loading="lazy" src="foto_site_logo_4.jpg" alt="Limpeza e conservação" loading="lazy">
             <div class="servico-content">
                 <h3>Limpeza e Conservação</h3>
                 <p>Serviços gerais de limpeza industrial, comercial e apoio operacional.</p>
+                <a class="servico-cta" href="#orcamento" onclick="selecionarServico('Limpeza e Conservação')">Solicitar este serviço</a>
             </div>
         </div>
     </div>
@@ -1214,10 +1632,39 @@
 </div>
 
 <!-- FOOTER -->
+
 <footer>
-    <p><strong>Obrigado pela preferência. Jesus te ama.</strong></p>
-    <p>© 2026 Grupo RS Prestadora de Serviços – CNPJ: 59.779.697/0001-93. Todos os direitos reservados.</p>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>Grupo RS Prestadora de Serviços</h3>
+            <p>Soluções em mão de obra operacional e logística para empresas que buscam agilidade, produtividade e atendimento próximo.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Navegação</h3>
+            <div class="footer-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#orcamento">Solicitar orçamento</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Informações</h3>
+            <p>CNPJ: 59.779.697/0001-93</p>
+            <p>Navegantes / SC</p>
+            <a href="javascript:void(0)" onclick="abrirPrivacidade()">Política de Privacidade</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p><strong>Obrigado pela preferência. Jesus te ama.</strong></p>
+        <p>© 2026 Grupo RS Prestadora de Serviços – Todos os direitos reservados.</p>
+    </div>
 </footer>
+
 
 <!-- BOTÃO WHATSAPP FLUTUANTE DIRETO -->
 <a href="https://wa.me/5547991866101?text=Olá! Vim pelo site e gostaria de mais informações sobre os serviços do Grupo RS." class="whatsapp-flutuante" target="_blank" rel="noopener noreferrer" aria-label="Fale com o Grupo RS pelo WhatsApp" title="Fale pelo WhatsApp">
@@ -1238,6 +1685,37 @@
         <a href="https://wa.me/5533988332748?text=Olá Jefferson! Vim pelo site do Grupo RS e preciso de suporte técnico / TI." target="_blank" rel="noopener noreferrer">💻 Suporte / TI</a>
     </div>
 </div>
+
+
+<!-- BOTÃO VOLTAR AO TOPO -->
+<button class="topo-btn" id="topoBtn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+<!-- BARRA FIXA NO CELULAR -->
+<div class="mobile-cta-bar" aria-label="Atalhos rápidos">
+    <a class="mobile-cta-orcamento" href="#orcamento">📋 Orçamento</a>
+    <a class="mobile-cta-whatsapp" href="https://wa.me/5547991866101?text=Olá! Vim pelo site e gostaria de falar com o Grupo RS." target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+</div>
+
+<!-- AVISO DE PRIVACIDADE -->
+<div class="privacy-banner" id="privacyBanner">
+    <p><strong>Privacidade:</strong> este site utiliza armazenamento local apenas para lembrar sua preferência sobre este aviso. Os dados preenchidos no formulário são encaminhados ao WhatsApp somente quando você solicita o atendimento.</p>
+    <div class="privacy-actions">
+        <button class="privacy-btn secondary" type="button" onclick="abrirPrivacidade()">Saiba mais</button>
+        <button class="privacy-btn primary" type="button" onclick="aceitarPrivacidade()">Entendi</button>
+    </div>
+</div>
+
+<div class="privacy-modal" id="privacyModal" onclick="if(event.target===this) fecharPrivacidade()">
+    <div class="privacy-card">
+        <h2>Política de Privacidade</h2>
+        <p>O Grupo RS utiliza este site para apresentar seus serviços e facilitar o contato com interessados.</p>
+        <p>As informações preenchidas no formulário de orçamento não são armazenadas pelo próprio site. Ao clicar em enviar, os dados são preparados e abertos no WhatsApp para que o usuário possa revisar e enviar a mensagem.</p>
+        <p>Este site pode utilizar armazenamento local do navegador exclusivamente para registrar que o visitante já visualizou o aviso de privacidade.</p>
+        <p>Para assuntos relacionados a dados pessoais ou atendimento, utilize os canais de contato informados neste site.</p>
+        <button class="privacy-close" type="button" onclick="fecharPrivacidade()">Fechar</button>
+    </div>
+</div>
+
 
 <script>
 function toggleMenu() {
