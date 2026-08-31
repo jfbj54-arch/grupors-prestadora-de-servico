@@ -175,6 +175,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector("header");
+
+    const atualizarHeader = () => {
+        if (!header) return;
+        header.classList.toggle("scrolled", window.scrollY > 80);
+    };
+
+    atualizarHeader();
+    window.addEventListener("scroll", atualizarHeader, { passive: true });
+});
+
 </script>
 
     <!-- Performance / Google Fonts -->
@@ -1834,6 +1847,407 @@ document.addEventListener("DOMContentLoaded", () => {
             .premium-floating-card strong { font-size:15px; }
         }
 
+
+        /* ===== V6 - REFINO PREMIUM ===== */
+
+        :root {
+            --rs-navy: #0F2747;
+            --rs-blue: #2563EB;
+            --rs-light: #F7FAFC;
+            --rs-soft: #EEF5FF;
+            --rs-text: #334155;
+            --rs-muted: #64748B;
+        }
+
+        /* Cabeçalho mais elegante */
+        header {
+            transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+
+        header.scrolled {
+            position: fixed !important;
+            background: rgba(255,255,255,.98) !important;
+            box-shadow: 0 10px 28px rgba(15,39,71,.08) !important;
+        }
+
+        .logo,
+        .brand {
+            letter-spacing: -.02em;
+        }
+
+        /* Hero com mais respiro */
+        .hero {
+            min-height: 760px !important;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+        }
+
+        .hero-copy > p {
+            max-width: 580px !important;
+        }
+
+        .hero-actions {
+            gap: 12px !important;
+        }
+
+        /* Tarja de confiança mais discreta */
+        .trust-strip {
+            border-top: 1px solid #EEF2F7;
+            border-bottom: 1px solid #EEF2F7;
+        }
+
+        .trust-strip-inner {
+            max-width: 1080px !important;
+            padding: 18px 22px !important;
+        }
+
+        .trust-item {
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            letter-spacing: .01em;
+        }
+
+        /* Stats com visual executivo */
+        .stats,
+        .stats-section,
+        #numeros {
+            background: linear-gradient(135deg, #0F2747, #173B66) !important;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(30px, 4vw, 46px) !important;
+            font-weight: 800 !important;
+            color: #60A5FA !important;
+            letter-spacing: -.03em;
+        }
+
+        .stat-item p {
+            color: #E2E8F0 !important;
+            font-size: 13px !important;
+        }
+
+        /* Seções mais leves */
+        section,
+        .section-alt {
+            padding-top: 88px !important;
+            padding-bottom: 88px !important;
+        }
+
+        section h2,
+        .section-alt h2 {
+            font-size: clamp(30px, 4vw, 44px) !important;
+            letter-spacing: -.025em;
+            color: var(--rs-navy) !important;
+        }
+
+        .section-subtitle {
+            max-width: 700px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            font-size: 15px !important;
+            line-height: 1.7;
+        }
+
+        /* Serviços mais editoriais */
+        .servicos-grid,
+        .services-grid {
+            gap: 26px !important;
+        }
+
+        .servico-box,
+        .service-card {
+            border-radius: 18px !important;
+            overflow: hidden;
+            border: 1px solid #E8EEF5 !important;
+            box-shadow: 0 12px 28px rgba(15,39,71,.06) !important;
+            transition: transform .3s ease, box-shadow .3s ease !important;
+        }
+
+        .servico-box:hover,
+        .service-card:hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 20px 42px rgba(15,39,71,.11) !important;
+        }
+
+        .servico-box img,
+        .service-card img {
+            height: 210px !important;
+            object-fit: cover !important;
+        }
+
+        .servico-content {
+            padding: 24px !important;
+        }
+
+        .servico-content h3 {
+            font-size: 20px !important;
+            letter-spacing: -.01em;
+        }
+
+        .servico-content p {
+            line-height: 1.65 !important;
+        }
+
+        .servico-cta {
+            align-self: flex-start;
+            border-radius: 999px !important;
+            padding: 10px 15px !important;
+        }
+
+        /* Como funciona mais leve */
+        .processo-grid {
+            position: relative;
+        }
+
+        .processo-card {
+            border: 1px solid #E8EEF5 !important;
+            box-shadow: none !important;
+            transition: .25s ease;
+        }
+
+        .processo-card:hover {
+            border-color: #BFDBFE !important;
+            box-shadow: 0 12px 30px rgba(37,99,235,.08) !important;
+        }
+
+        .processo-numero {
+            background: #EFF6FF !important;
+            color: #2563EB !important;
+            border: 1px solid #DBEAFE;
+        }
+
+        /* Formulário com aparência de proposta comercial */
+        .form-container {
+            max-width: 880px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 34px !important;
+            border-radius: 20px !important;
+            background: #FFFFFF !important;
+            border: 1px solid #E8EEF5 !important;
+            box-shadow: 0 22px 48px rgba(15,39,71,.08) !important;
+        }
+
+        .form-group label {
+            font-weight: 700 !important;
+            color: #334155 !important;
+            font-size: 13px !important;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border-radius: 10px !important;
+            border: 1px solid #DCE5EF !important;
+            background: #FBFDFF !important;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #60A5FA !important;
+            box-shadow: 0 0 0 4px rgba(96,165,250,.12) !important;
+            outline: none !important;
+        }
+
+        .btn-enviar {
+            border-radius: 10px !important;
+            padding: 14px 22px !important;
+            font-size: 15px !important;
+        }
+
+        /* Urgência mais sofisticada */
+        .urgencia-box {
+            max-width: 1040px !important;
+            border-radius: 22px !important;
+            background:
+                radial-gradient(circle at 88% 12%, rgba(96,165,250,.35), transparent 26%),
+                linear-gradient(135deg, #0F2747, #1E40AF) !important;
+        }
+
+        /* Mascote menos invasivo */
+        .mascote-flutuante {
+            width: 74px !important;
+            opacity: .92;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        .mascote-flutuante:hover {
+            transform: translateY(-4px) scale(1.02);
+            opacity: 1;
+        }
+
+        /* WhatsApp mais minimalista */
+        .whatsapp-flutuante {
+            width: 54px !important;
+            height: 54px !important;
+            box-shadow: 0 10px 24px rgba(22,163,74,.25) !important;
+        }
+
+        /* Footer mais premium */
+        footer {
+            background: #0B1F35 !important;
+            padding-top: 56px !important;
+        }
+
+        .footer-grid {
+            gap: 44px !important;
+        }
+
+        .footer-col h3 {
+            font-size: 15px !important;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #B8C5D6 !important;
+        }
+
+        /* Cartão institucional entre hero e conteúdo */
+        .premium-intro {
+            max-width: 1120px;
+            margin: 64px auto 0;
+            padding: 0 24px;
+        }
+
+        .premium-intro-card {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 28px;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid #E8EEF5;
+            border-radius: 22px;
+            padding: 34px;
+            box-shadow: 0 18px 40px rgba(15,39,71,.06);
+        }
+
+        .premium-intro-card h3 {
+            color: #0F2747;
+            font-size: clamp(25px, 3vw, 34px);
+            line-height: 1.15;
+            letter-spacing: -.025em;
+            margin-bottom: 12px;
+        }
+
+        .premium-intro-card p {
+            color: #64748B;
+            line-height: 1.7;
+        }
+
+        .premium-intro-points {
+            display: grid;
+            gap: 12px;
+        }
+
+        .premium-intro-point {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: #334155;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .premium-intro-point span:first-child {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #EFF6FF;
+            color: #2563EB;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 900px) {
+            .premium-intro-card {
+                grid-template-columns: 1fr;
+            }
+
+            section,
+            .section-alt {
+                padding-top: 68px !important;
+                padding-bottom: 68px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 40px !important;
+            }
+
+            .hero-eyebrow {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 38px !important;
+                line-height: 1.08 !important;
+            }
+
+            .premium-visual {
+                min-height: 350px !important;
+            }
+
+            .premium-floating-card {
+                width: 190px !important;
+                bottom: 2% !important;
+            }
+
+            .trust-strip-inner {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .trust-item {
+                justify-content: flex-start !important;
+            }
+
+            .form-container {
+                padding: 22px !important;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .trust-strip-inner {
+                grid-template-columns: 1fr !important;
+            }
+
+            .premium-intro {
+                margin-top: 38px;
+                padding: 0 14px;
+            }
+
+            .premium-intro-card {
+                padding: 24px 20px;
+            }
+
+            .premium-visual {
+                min-height: 315px !important;
+            }
+
+            .diamond.one {
+                top: 0 !important;
+                right: 7% !important;
+            }
+
+            .diamond.two {
+                top: 31% !important;
+                right: -2% !important;
+            }
+
+            .diamond.three {
+                bottom: 0 !important;
+                right: 16% !important;
+            }
+        }
+
 </style>
 </head>
 
@@ -1922,6 +2336,23 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="trust-item"><span class="trust-icon">👷</span><span>Profissionais treinados</span></div>
         <div class="trust-item"><span class="trust-icon">📍</span><span>Atuação regional e nacional</span></div>
         <div class="trust-item"><span class="trust-icon">🤝</span><span>Atendimento humanizado</span></div>
+    </div>
+</div>
+
+
+<!-- INTRODUÇÃO PREMIUM -->
+<div class="premium-intro">
+    <div class="premium-intro-card">
+        <div>
+            <h3>Mais organização para sua operação. Mais agilidade para sua empresa.</h3>
+            <p>O Grupo RS atua com soluções operacionais e apoio em mão de obra para empresas que precisam reforçar equipes, atender picos de demanda e manter a produtividade.</p>
+        </div>
+
+        <div class="premium-intro-points">
+            <div class="premium-intro-point"><span>✓</span><span>Atendimento direto e objetivo</span></div>
+            <div class="premium-intro-point"><span>✓</span><span>Equipe organizada conforme a demanda</span></div>
+            <div class="premium-intro-point"><span>✓</span><span>Comunicação próxima durante a operação</span></div>
+        </div>
     </div>
 </div>
 
