@@ -161,12 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
     detectarNavegadorInterno();
 
     const stat = [...document.querySelectorAll(".stat-item h3")]
-        .find(el => el.textContent.trim().startsWith("+35"));
+        .find(el => el.textContent.trim().startsWith("+100"));
     if (stat) {
         const obs = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animarNumero(stat, 35, "+");
+                    animarNumero(stat, 100, "+");
                     observer.disconnect();
                 }
             });
@@ -3451,6 +3451,123 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+
+        /* ===== V10 - NOSSA HISTÓRIA ===== */
+        .nossa-historia-section {
+            background: #FFFFFF !important;
+            padding: 90px 24px !important;
+        }
+
+        .nossa-historia-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .nossa-historia-titulo {
+            position: sticky;
+            top: 120px;
+        }
+
+        .historia-eyebrow {
+            display: inline-block;
+            color: #D69A2D;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            margin-bottom: 12px;
+        }
+
+        .nossa-historia-titulo h2 {
+            text-align: left !important;
+            font-size: clamp(38px, 5vw, 58px) !important;
+            line-height: 1.06 !important;
+            color: #17324D !important;
+            margin-bottom: 18px !important;
+        }
+
+        .nossa-historia-titulo h2::after {
+            margin: 14px 0 0 !important;
+            background: #D69A2D !important;
+        }
+
+        .historia-chamada {
+            color: #64748B;
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 360px;
+            margin-top: 24px;
+        }
+
+        .nossa-historia-texto {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #E2E8F0;
+        }
+
+        .nossa-historia-texto p {
+            color: #4B5C6B;
+            font-size: 16px;
+            line-height: 1.85;
+            margin-bottom: 22px;
+        }
+
+        .nossa-historia-texto p:first-child {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #17324D;
+            font-weight: 600;
+        }
+
+        .historia-assinatura {
+            color: #D69A2D !important;
+            font-weight: 800 !important;
+            font-size: 18px !important;
+            margin-top: 30px !important;
+        }
+
+        @media (max-width: 900px) {
+            .nossa-historia-wrap {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+
+            .nossa-historia-titulo {
+                position: static;
+            }
+
+            .historia-chamada {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nossa-historia-section {
+                padding: 58px 16px !important;
+            }
+
+            .nossa-historia-titulo h2 {
+                font-size: 34px !important;
+            }
+
+            .nossa-historia-texto {
+                padding-left: 18px;
+            }
+
+            .nossa-historia-texto p {
+                font-size: 15px;
+                line-height: 1.75;
+            }
+
+            .nossa-historia-texto p:first-child {
+                font-size: 18px;
+            }
+        }
+
 </style>
 </head>
 
@@ -3482,6 +3599,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <nav>
             <ul id="menu">
                 <li><a href="#inicio">Início</a></li>
+                <li><a href="#nossa-historia">Nossa História</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#mvv">Missão</a></li>
                 <li><a href="#servicos">Serviços</a></li>
@@ -3563,7 +3681,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="stats-bar">
     <div class="stats-container">
         <div class="stat-item">
-            <h3>+35</h3>
+            <h3>+100</h3>
             <p>Colaboradores Ativos e Treinados</p>
         </div>
         <div class="stat-item">
@@ -3576,6 +3694,32 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </div>
 </div>
+
+
+<!-- NOSSA HISTÓRIA -->
+<section id="nossa-historia" class="nossa-historia-section">
+    <div class="nossa-historia-wrap">
+        <div class="nossa-historia-titulo">
+            <span class="historia-eyebrow">Grupo RS</span>
+            <h2>Nossa História</h2>
+            <p class="historia-chamada">Conectando pessoas, empresas e soluções para operações mais eficientes.</p>
+        </div>
+
+        <div class="nossa-historia-texto">
+            <p>O Grupo RS nasceu com um propósito claro: conectar pessoas, empresas e soluções para tornar as operações mais eficientes.</p>
+
+            <p>Iniciamos nossa trajetória com foco em serviços operacionais, logística e fornecimento de mão de obra, identificando uma necessidade cada vez maior das empresas por equipes preparadas, ágeis e comprometidas com resultados.</p>
+
+            <p>Com o crescimento da operação, ampliamos nossa estrutura e passamos a atuar em diferentes regiões, oferecendo soluções para carga e descarga, separação, conferência, etiquetagem, paletização, limpeza, apoio operacional e demais atividades logísticas e industriais.</p>
+
+            <p>Hoje, o Grupo RS trabalha para ser mais do que uma prestadora de serviços: somos um parceiro operacional de nossos clientes, buscando compreender cada necessidade e entregar profissionais preparados, agilidade na contratação e acompanhamento da operação.</p>
+
+            <p>Nossa evolução é construída diariamente através de pessoas, tecnologia, organização e compromisso com resultados.</p>
+
+            <p class="historia-assinatura">Grupo RS — conectando pessoas e soluções.</p>
+        </div>
+    </div>
+</section>
 
 <!-- SOBRE & HISTÓRIA (Fundo Branco) -->
 <section id="sobre">
