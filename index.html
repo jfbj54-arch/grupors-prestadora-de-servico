@@ -620,6 +620,218 @@
             .whatsapp-flutuante { width: 54px; height: 54px; font-size: 28px; left: 14px; bottom: 14px; }
             .mascote-flutuante { width: 72px; right: 14px; bottom: 14px; }
         }
+    
+        /* ===== ATUALIZAÇÃO PROFISSIONAL V2 ===== */
+        .processo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin-top: 34px;
+        }
+
+        .processo-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+            position: relative;
+        }
+
+        .processo-numero {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary);
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .processo-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .processo-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .urgencia-box {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 42px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1.5fr .7fr;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, .18);
+        }
+
+        .urgencia-box h2 {
+            color: #fff;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .urgencia-box h2::after {
+            margin: 10px 0 0;
+            background: #60A5FA;
+        }
+
+        .urgencia-box p {
+            color: #E2E8F0;
+            margin-top: 18px;
+        }
+
+        .btn-urgencia {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--whatsapp);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 16px 22px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.15);
+            transition: transform .25s ease, filter .25s ease;
+        }
+
+        .btn-urgencia:hover {
+            transform: translateY(-2px);
+            filter: brightness(.96);
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-note {
+            margin-top: 12px;
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .depoimentos-prep {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .depoimento-prep-card {
+            background: #fff;
+            border: 1px dashed #CBD5E1;
+            border-radius: 14px;
+            padding: 28px;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .depoimento-prep-card strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .assistente-menu {
+            position: fixed;
+            right: 24px;
+            bottom: 122px;
+            width: min(320px, calc(100vw - 32px));
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, .22);
+            z-index: 9999;
+            display: none;
+        }
+
+        .assistente-menu.active {
+            display: block;
+            animation: assistenteEntrada .2s ease-out;
+        }
+
+        @keyframes assistenteEntrada {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .assistente-menu h3 {
+            color: var(--primary);
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .assistente-menu > p {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        .assistente-acoes {
+            display: grid;
+            gap: 9px;
+        }
+
+        .assistente-acoes a {
+            display: block;
+            text-decoration: none;
+            padding: 11px 12px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            background: #F8FAFC;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .assistente-acoes a:hover {
+            background: #EFF6FF;
+            border-color: #BFDBFE;
+        }
+
+        .assistente-fechar {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            color: var(--gray);
+            font-size: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .processo-grid { grid-template-columns: 1fr 1fr; }
+            .urgencia-box { grid-template-columns: 1fr; padding: 30px 24px; }
+            .urgencia-box h2 { text-align: center; }
+            .urgencia-box h2::after { margin: 10px auto 0; }
+            .urgencia-box p { text-align: center; }
+            .urgencia-box .btn-urgencia { width: 100%; }
+            .depoimentos-prep { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .processo-grid, .form-grid-2 { grid-template-columns: 1fr; }
+            .processo-card { text-align: left; }
+            .assistente-menu { right: 16px; bottom: 104px; }
+        }
+
     </style>
 </head>
 
@@ -640,6 +852,7 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#mvv">Missão</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#como-funciona">Como funciona</a></li>
                 <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#orcamento">Orçamento</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -817,6 +1030,36 @@
     </div>
 </section>
 
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+    <h2>Como Funciona</h2>
+    <p class="section-subtitle">Da solicitação ao início da operação, um processo simples, rápido e organizado</p>
+
+    <div class="processo-grid">
+        <div class="processo-card">
+            <div class="processo-numero">1</div>
+            <h3>Você solicita</h3>
+            <p>Informe a cidade, o serviço, o período e a quantidade aproximada de profissionais necessários.</p>
+        </div>
+        <div class="processo-card">
+            <div class="processo-numero">2</div>
+            <h3>Analisamos a demanda</h3>
+            <p>Nossa equipe avalia a necessidade da operação e organiza o atendimento mais adequado.</p>
+        </div>
+        <div class="processo-card">
+            <div class="processo-numero">3</div>
+            <h3>Montamos a equipe</h3>
+            <p>Selecionamos profissionais de acordo com o perfil, local e tipo de serviço solicitado.</p>
+        </div>
+        <div class="processo-card">
+            <div class="processo-numero">4</div>
+            <h3>Iniciamos a operação</h3>
+            <p>Com o alinhamento concluído, a equipe segue para o atendimento com acompanhamento operacional.</p>
+        </div>
+    </div>
+</section>
+
 <!-- FAQ / DÚVIDAS FREQUENTES (Fundo Alternado) -->
 <div class="section-alt" id="faq">
     <div class="container-inner">
@@ -840,44 +1083,118 @@
     </div>
 </div>
 
+
+<!-- ATENDIMENTO URGENTE -->
+<div class="section-alt" id="urgencia">
+    <div class="container-inner">
+        <div class="urgencia-box">
+            <div>
+                <h2>Precisa de equipe com urgência?</h2>
+                <p>Sua operação não pode parar. Entre em contato com o comercial para consultar a possibilidade de atendimento para reforço operacional, picos de demanda ou necessidades emergenciais.</p>
+            </div>
+            <div>
+                <a class="btn-urgencia" href="https://wa.me/5547991866101?text=Olá! Vim pelo site do Grupo RS e preciso consultar disponibilidade de equipe para uma demanda urgente." target="_blank" rel="noopener noreferrer">
+                    💬 Preciso de equipe agora
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ORÇAMENTO INTELIGENTE (Fundo Branco) -->
 <section id="orcamento">
     <h2>Solicite seu Orçamento / Contato</h2>
     <p class="section-subtitle">Preencha os dados abaixo e o sistema direciona automaticamente para o responsável</p>
 
     <div class="form-container">
-        <div class="form-group">
-            <label>Telefone / WhatsApp</label>
-            <input type="tel" id="tel" inputmode="tel" autocomplete="tel" placeholder="(DDD) 9 0000-0000" required>
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" placeholder="Nome da empresa">
+            </div>
+            <div class="form-group">
+                <label for="responsavel">Responsável pelo contato</label>
+                <input type="text" id="responsavel" placeholder="Seu nome">
+            </div>
+        </div>
+
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="tel">Telefone / WhatsApp</label>
+                <input type="tel" id="tel" placeholder="(DDD) 9 0000-0000">
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade e Estado</label>
+                <input type="text" id="cidade" placeholder="Ex: Joinville - SC">
+            </div>
+        </div>
+
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="servico">Assunto / Tipo de Serviço</label>
+                <select id="servico">
+                    <option value="">Selecione...</option>
+                    <option value="Limpeza e Conservação">Limpeza e Conservação</option>
+                    <option value="Carga e Descarga">Carga e Descarga</option>
+                    <option value="Conferente">Conferente</option>
+                    <option value="Operador Logístico">Operador Logístico</option>
+                    <option value="Etiquetagem e Separação">Etiquetagem e Separação</option>
+                    <option value="Suporte Técnico / TI">Suporte Técnico / TI (Jefferson)</option>
+                    <option value="Outro Assunto">Outro Assunto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade estimada de profissionais</label>
+                <input type="number" id="quantidade" min="1" placeholder="Ex: 10">
+            </div>
+        </div>
+
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="dataDesejada">Data desejada</label>
+                <input type="date" id="dataDesejada">
+            </div>
+            <div class="form-group">
+                <label for="urgenciaSelect">Prioridade</label>
+                <select id="urgenciaSelect">
+                    <option value="Planejada">Planejada</option>
+                    <option value="Urgente">Urgente</option>
+                    <option value="Emergencial">Emergencial</option>
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
-            <label>Cidade e Estado</label>
-            <input type="text" id="cidade" autocomplete="address-level2" placeholder="Ex: Joinville - SC" required>
-        </div>
-
-        <div class="form-group">
-            <label>Assunto / Tipo de Serviço</label>
-            <select id="servico" required>
-                <option value="">Selecione...</option>
-                <option value="Limpeza e Conservação">Limpeza e Conservação</option>
-                <option value="Carga e Descarga">Carga e Descarga</option>
-                <option value="Conferente">Conferente</option>
-                <option value="Operador Logístico">Operador Logístico</option>
-                <option value="Etiquetagem e Separação">Etiquetagem e Separação</option>
-                <option value="Suporte Técnico / TI">Suporte Técnico / TI (Jefferson)</option>
-                <option value="Outro Assunto">Outro Assunto</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Descreva sua necessidade</label>
-            <textarea id="descricao" rows="4" placeholder="Detalhe o volume, quantidade de profissionais ou período..." required></textarea>
+            <label for="descricao">Descreva sua necessidade</label>
+            <textarea id="descricao" rows="4" placeholder="Informe volume, turno, duração, local da operação e outras informações importantes..."></textarea>
         </div>
 
         <div class="btn-area">
-            <button class="btn-enviar" type="button" onclick="enviarMensagemInteligente()">Enviar via WhatsApp</button>
-            <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            <button class="btn-enviar" type="button" onclick="enviarMensagemInteligente()">Solicitar atendimento pelo WhatsApp</button>
+        </div>
+
+        <p class="form-note">Ao enviar, as informações serão abertas no WhatsApp para você revisar antes do envio. Nenhuma mensagem é enviada automaticamente.</p>
+    </div>
+</section>
+
+
+<!-- DEPOIMENTOS - ESTRUTURA PREPARADA PARA AVALIAÇÕES REAIS -->
+<section id="depoimentos">
+    <h2>Experiência de Clientes</h2>
+    <p class="section-subtitle">Espaço preparado para publicar avaliações reais mediante autorização dos clientes</p>
+    <div class="depoimentos-prep">
+        <div class="depoimento-prep-card">
+            <strong>Depoimento de cliente</strong>
+            Em breve, após autorização para publicação.
+        </div>
+        <div class="depoimento-prep-card">
+            <strong>Depoimento de cliente</strong>
+            Em breve, após autorização para publicação.
+        </div>
+        <div class="depoimento-prep-card">
+            <strong>Depoimento de cliente</strong>
+            Em breve, após autorização para publicação.
         </div>
     </div>
 </section>
@@ -908,10 +1225,18 @@
 </a>
 
 <!-- MASCOTE -->
-<img src="mascote3D.png" class="mascote-flutuante" onclick="mostrarBalao()" onkeydown="if(event.key==='Enter' || event.key===' ') mostrarBalao()" tabindex="0" role="button" aria-label="Abrir ajuda do Grupo RS" alt="Mascote Grupo RS">
+<img src="mascote3D.png" class="mascote-flutuante" onclick="toggleAssistente()" onkeydown="if(event.key==='Enter' || event.key===' ') toggleAssistente()" tabindex="0" role="button" aria-label="Abrir assistente do Grupo RS" alt="Mascote Grupo RS">
 
-<div id="balaoMascote" class="balao-mascote">
-    Precisa de ajuda? Clique aqui para falar com nossa equipe comercial!
+<div id="assistenteMenu" class="assistente-menu" aria-live="polite">
+    <button class="assistente-fechar" type="button" onclick="toggleAssistente(false)" aria-label="Fechar assistente">×</button>
+    <h3>Olá! Como podemos ajudar?</h3>
+    <p>Escolha uma opção para ir direto ao atendimento que você precisa.</p>
+    <div class="assistente-acoes">
+        <a href="#orcamento" onclick="toggleAssistente(false)">📋 Solicitar orçamento</a>
+        <a href="https://wa.me/5547991866101?text=Olá! Vim pelo site e gostaria de falar com o comercial do Grupo RS." target="_blank" rel="noopener noreferrer">💬 Falar com o comercial</a>
+        <a href="#servicos" onclick="toggleAssistente(false)">🛠 Ver nossos serviços</a>
+        <a href="https://wa.me/5533988332748?text=Olá Jefferson! Vim pelo site do Grupo RS e preciso de suporte técnico / TI." target="_blank" rel="noopener noreferrer">💻 Suporte / TI</a>
+    </div>
 </div>
 
 <script>
@@ -931,46 +1256,51 @@ document.querySelectorAll('#menu a').forEach(link => {
     });
 });
 
-function mostrarBalao() {
-    const balao = document.getElementById("balaoMascote");
-    balao.style.display = balao.style.display === "block" ? "none" : "block";
+function toggleAssistente(forcar) {
+    const menu = document.getElementById("assistenteMenu");
+    const abrir = typeof forcar === "boolean" ? forcar : !menu.classList.contains("active");
+    menu.classList.toggle("active", abrir);
 }
 
 function enviarMensagemInteligente() {
+    const empresa = document.getElementById("empresa").value.trim();
+    const responsavel = document.getElementById("responsavel").value.trim();
     const tel = document.getElementById("tel").value.trim();
     const cidade = document.getElementById("cidade").value.trim();
     const servico = document.getElementById("servico").value;
+    const quantidade = document.getElementById("quantidade").value.trim();
+    const dataDesejada = document.getElementById("dataDesejada").value;
+    const prioridade = document.getElementById("urgenciaSelect").value;
     const desc = document.getElementById("descricao").value.trim();
-    const status = document.getElementById("formStatus");
 
-    if (!tel || !cidade || !servico || !desc) {
-        status.textContent = "Preencha telefone, cidade, serviço e descrição antes de enviar.";
-        status.style.color = "#B91C1C";
+    if (!responsavel || !tel || !cidade || !servico || !desc) {
+        alert("Preencha, por favor: responsável, telefone/WhatsApp, cidade, tipo de serviço e descrição.");
         return;
     }
 
-    status.textContent = "Abrindo o WhatsApp com sua solicitação...";
-    status.style.color = "#166534";
+    const dados = [
+        `🏢 Empresa: ${empresa || "Não informada"}`,
+        `👤 Responsável: ${responsavel}`,
+        `📞 Telefone: ${tel}`,
+        `📍 Cidade: ${cidade}`,
+        `🛠 Serviço: ${servico}`,
+        `👥 Quantidade estimada: ${quantidade || "A definir"}`,
+        `📅 Data desejada: ${dataDesejada || "A combinar"}`,
+        `⚡ Prioridade: ${prioridade}`,
+        `📝 Descrição: ${desc}`
+    ].join("
+");
 
-    // Redirecionamento Dinâmico: Se for TI ou Outro Assunto, vai para o Jefferson (33 9 8833-2748), senão para o Rodrigo (47 9 9186-6101)
-    if (servico === "Suporte Técnico / TI" || servico === "Outro Assunto") {
-        const msg = encodeURIComponent(
-            `Olá Jefferson! Preciso de atendimento sobre: ${servico}.\n\n` +
-            `📞 Telefone: ${tel}\n` +
-            `📍 Cidade: ${cidade}\n` +
-            `📝 Descrição: ${desc}`
-        );
-        window.open(`https://wa.me/5533988332748?text=${msg}`, "_blank", "noopener,noreferrer");
-    } else {
-        const msg = encodeURIComponent(
-            `Olá Rodrigo! Tenho interesse em orçamento.\n\n` +
-            `📞 Telefone: ${tel}\n` +
-            `📍 Cidade: ${cidade}\n` +
-            `🛠 Serviço: ${servico}\n` +
-            `📝 Descrição: ${desc}`
-        );
-        window.open(`https://wa.me/5547991866101?text=${msg}`, "_blank", "noopener,noreferrer");
-    }
+    const ehTI = servico === "Suporte Técnico / TI" || servico === "Outro Assunto";
+    const numero = ehTI ? "5533988332748" : "5547991866101";
+    const saudacao = ehTI
+        ? "Olá Jefferson! Vim pelo site do Grupo RS e preciso de atendimento."
+        : "Olá Rodrigo! Vim pelo site do Grupo RS e gostaria de solicitar atendimento/orçamento.";
+
+    const msg = encodeURIComponent(`${saudacao}
+
+${dados}`);
+    window.open(`https://wa.me/${numero}?text=${msg}`, "_blank", "noopener,noreferrer");
 }
 </script>
 
