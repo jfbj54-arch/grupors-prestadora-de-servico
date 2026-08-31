@@ -1559,7 +1559,282 @@ document.addEventListener("DOMContentLoaded", () => {
             .solucoes-grid { grid-template-columns: 1fr; }
         }
 
-    </style>
+    
+        /* ===== CORREÇÃO DE CONTRASTE DA FAIXA NO HERO ===== */
+        .hero-trust,
+        .hero-trust-bar,
+        .hero-badges,
+        .trust-badges {
+            background: rgba(10, 25, 47, 0.78) !important;
+            border: 1px solid rgba(255,255,255,.20) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 10px 28px rgba(0,0,0,.16);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-trust *,
+        .hero-trust-bar *,
+        .hero-badges *,
+        .trust-badges * {
+            color: #FFFFFF !important;
+            opacity: 1 !important;
+        }
+
+        /* Captura também o bloco de confiança antigo caso use outra classe */
+        .hero .trust-strip,
+        .hero .trust-strip-inner {
+            background: rgba(10, 25, 47, 0.78) !important;
+            color: #FFFFFF !important;
+        }
+
+        /* O bloco específico encontrado no HTML atual */
+        .hero-trust-line {
+            max-width: 800px;
+            margin: 28px auto 0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 28px;
+            background: rgba(10,25,47,.82) !important;
+            border: 1px solid rgba(255,255,255,.20);
+            box-shadow: 0 10px 28px rgba(0,0,0,.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-trust-line span {
+            color: #FFFFFF !important;
+            font-weight: 700;
+            opacity: 1 !important;
+        }
+
+
+        /* ===== V5 - ABERTURA PREMIUM INSPIRADA NA REFERÊNCIA ===== */
+        header {
+            position: absolute !important;
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,.93) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: none !important;
+            border-bottom: 1px solid rgba(15,23,42,.06);
+            z-index: 1000;
+        }
+
+        header .container, header .header-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            min-height: 84px;
+            padding: 0 24px;
+        }
+
+        header nav a {
+            color: #334155 !important;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        header nav a:hover { color: #2563EB !important; }
+
+        .header-cta {
+            background: transparent !important;
+            color: #2563EB !important;
+            border: 1px solid #2563EB;
+            box-shadow: none !important;
+        }
+
+        .hero {
+            min-height: 780px !important;
+            padding: 150px 24px 70px !important;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 82% 22%, rgba(59,130,246,.16), transparent 32%),
+                radial-gradient(circle at 18% 76%, rgba(37,99,235,.10), transparent 30%),
+                linear-gradient(135deg, #F8FBFF 0%, #EDF5FF 46%, #FFFFFF 100%) !important;
+        }
+
+        .hero::before {
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(115deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.86) 44%,rgba(255,255,255,.18) 74%);
+            pointer-events:none;
+        }
+
+        .hero-content {
+            width:min(1180px,100%) !important;
+            max-width:1180px !important;
+            margin:0 auto !important;
+            display:grid !important;
+            grid-template-columns:1.05fr .95fr;
+            gap:56px;
+            align-items:center;
+            position:relative;
+            z-index:2;
+            text-align:left !important;
+        }
+
+        .hero-copy { position:relative; z-index:3; }
+
+        .hero-eyebrow {
+            display:inline-flex;
+            align-items:center;
+            background:#EFF6FF;
+            color:#1D4ED8;
+            border:1px solid #DBEAFE;
+            border-radius:999px;
+            padding:8px 13px;
+            font-size:12px;
+            font-weight:800;
+            letter-spacing:.08em;
+            text-transform:uppercase;
+            margin-bottom:20px;
+        }
+
+        .hero h1 {
+            color:#0F2747 !important;
+            font-size:clamp(42px,5.2vw,72px) !important;
+            line-height:1.03 !important;
+            max-width:650px;
+            margin:0 0 20px !important;
+            letter-spacing:-.03em;
+            text-shadow:none !important;
+        }
+
+        .hero h1 .destaque { color:#2563EB; }
+
+        .hero-copy > p {
+            color:#64748B !important;
+            font-size:18px !important;
+            line-height:1.7 !important;
+            max-width:610px;
+            margin:0 0 28px !important;
+        }
+
+        .hero-actions {
+            justify-content:flex-start !important;
+            margin-top:0 !important;
+        }
+
+        .hero .btn-primary {
+            background:#2563EB !important;
+            color:#fff !important;
+            border:none !important;
+            padding:14px 22px !important;
+            border-radius:9px !important;
+            box-shadow:0 12px 26px rgba(37,99,235,.24);
+        }
+
+        .hero .btn-secondary-hero {
+            color:#0F2747 !important;
+            border:1px solid #CBD5E1 !important;
+            background:rgba(255,255,255,.80) !important;
+            padding:14px 22px !important;
+            border-radius:9px !important;
+        }
+
+        .premium-visual {
+            min-height:560px;
+            position:relative;
+        }
+
+        .premium-main-image {
+            position:absolute;
+            width:78%;
+            height:74%;
+            right:2%;
+            top:12%;
+            border-radius:34px 6px 34px 6px;
+            object-fit:cover;
+            box-shadow:0 30px 60px rgba(15,39,71,.18);
+            border:8px solid rgba(255,255,255,.88);
+        }
+
+        .diamond {
+            position:absolute;
+            width:150px;
+            height:150px;
+            transform:rotate(45deg);
+            overflow:hidden;
+            border-radius:22px;
+            border:7px solid rgba(255,255,255,.94);
+            box-shadow:0 20px 40px rgba(15,39,71,.16);
+            background:#fff;
+        }
+
+        .diamond img {
+            width:145%;
+            height:145%;
+            object-fit:cover;
+            transform:rotate(-45deg) scale(1.02);
+            position:absolute;
+            inset:-22%;
+        }
+
+        .diamond.one { top:3%; right:13%; width:128px; height:128px; }
+        .diamond.two { top:27%; right:-2%; width:156px; height:156px; }
+        .diamond.three { bottom:4%; right:18%; width:138px; height:138px; }
+
+        .premium-floating-card {
+            position:absolute;
+            left:0;
+            bottom:8%;
+            width:245px;
+            background:rgba(255,255,255,.97);
+            border:1px solid rgba(148,163,184,.20);
+            border-radius:16px;
+            padding:18px;
+            box-shadow:0 18px 40px rgba(15,39,71,.13);
+            backdrop-filter:blur(12px);
+        }
+
+        .premium-floating-card strong {
+            display:block;
+            color:#0F2747;
+            font-size:18px;
+            margin-bottom:5px;
+        }
+
+        .premium-floating-card span {
+            color:#64748B;
+            font-size:13px;
+            line-height:1.45;
+        }
+
+        .hero-trust-line { display:none !important; }
+
+        .trust-strip { margin-top:-1px; background:#fff !important; }
+
+        @media (max-width:980px) {
+            header { position:sticky !important; background:rgba(255,255,255,.98) !important; }
+            .hero { min-height:auto !important; padding-top:70px !important; }
+            .hero-content { grid-template-columns:1fr; gap:34px; text-align:center !important; }
+            .hero-copy { text-align:center; }
+            .hero h1, .hero-copy > p { margin-left:auto !important; margin-right:auto !important; }
+            .hero-actions { justify-content:center !important; }
+            .premium-visual { min-height:470px; width:min(620px,100%); margin:0 auto; }
+            .premium-main-image { width:72%; right:9%; }
+            .premium-floating-card { left:4%; }
+        }
+
+        @media (max-width:640px) {
+            .hero { padding:54px 18px 34px !important; }
+            .hero h1 { font-size:42px !important; }
+            .hero-copy > p { font-size:16px !important; }
+            .premium-visual { min-height:390px; }
+            .premium-main-image { width:82%; height:70%; right:3%; top:12%; border-width:5px; }
+            .diamond { width:100px !important; height:100px !important; border-width:5px; }
+            .diamond.one { right:8%; }
+            .diamond.two { right:-2%; }
+            .diamond.three { right:15%; }
+            .premium-floating-card { width:205px; left:0; bottom:1%; padding:14px; }
+            .premium-floating-card strong { font-size:15px; }
+        }
+
+</style>
 </head>
 
 <body>
@@ -1603,23 +1878,38 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
 
 <!-- HERO -->
-<section id="inicio" class="hero" style="max-width: 100%;">
+<section id="inicio" class="hero">
     <div class="hero-content">
-        <h1>Eficiência, Produtividade e Equipes Enxutas</h1>
-        <p>Especialistas em mão de obra terceirizada para operações logísticas e industriais em todo o Brasil.</p>
-        <div class="hero-actions">
-            
-        <div class="hero-actions">
-            <a href="#orcamento" class="btn-primary">Solicitar Orçamento Agora</a>
-            <a href="https://wa.me/5547991866101?text=Olá! Vim pelo site do Grupo RS e gostaria de falar com o comercial." class="btn-secondary-hero" target="_blank" rel="noopener noreferrer">Falar com o Comercial</a>
+        <div class="hero-copy">
+            <div class="hero-eyebrow">Grupo RS • Soluções Operacionais</div>
+            <h1>Equipe certa para sua <span class="destaque">operação avançar.</span></h1>
+            <p>Profissionais para logística, carga e descarga, conferência, limpeza e apoio operacional, com atendimento ágil e próximo da sua empresa.</p>
+
+            <div class="hero-actions">
+                <a href="#orcamento" class="btn-primary">Solicitar Orçamento</a>
+                <a href="https://wa.me/5547991866101?text=Olá! Vim pelo site do Grupo RS e gostaria de falar com o comercial." class="btn-secondary-hero" target="_blank" rel="noopener noreferrer">Falar com o Comercial</a>
+            </div>
         </div>
 
-            <a href="https://wa.me/5547991866101?text=Olá! Vim pelo site do Grupo RS e gostaria de falar com a equipe comercial." class="btn-secondary" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
-        </div>
-        <div class="trust-strip" aria-label="Diferenciais principais">
-            <span>✓ Atendimento ágil</span>
-            <span>✓ Equipe treinada</span>
-            <span>✓ Atuação nacional</span>
+        <div class="premium-visual" aria-label="Apresentação visual dos serviços do Grupo RS">
+            <img class="premium-main-image" src="fundo_rs.png.jpeg" alt="Grupo RS Prestadora de Serviços">
+
+            <div class="diamond one">
+                <img src="foto_site_logo_1.jpg" alt="Operação Grupo RS">
+            </div>
+
+            <div class="diamond two">
+                <img src="foto_site_logo_3.jpg" alt="Equipe em operação">
+            </div>
+
+            <div class="diamond three">
+                <img src="foto_site_logo_4.jpg" alt="Prestação de serviços">
+            </div>
+
+            <div class="premium-floating-card">
+                <strong>Atendimento empresarial</strong>
+                <span>Solicite uma análise da sua demanda e fale diretamente com o comercial.</span>
+            </div>
         </div>
     </div>
 </section>
